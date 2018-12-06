@@ -1,0 +1,499 @@
+@bg-black: #000;
+@mapswp: 380px;
+@cr-white: #fff;
+@bg-gray: #b4b4b4;
+@bg-bg: deepskyblue;
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+    &:after,
+    &:before {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+.cobtainer {
+    width: 100%;
+    .nenu {
+        position: relative;
+        display: block;
+        height: 60px;
+        background: @bg-black;
+        #checkbox {
+            display: none;
+
+            &:checked ~ nav {
+                display: block;
+              animation: burger 1s;
+            }
+        }
+        label {
+            cursor: pointer;
+            z-index: 2;
+            position: absolute;
+            display: block;
+        }
+        .burger {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            &_open {
+                position: relative;
+                background: @cr-white;
+                width: 50px;
+                height: 5px;
+                &:after,
+                &:before {
+                    position: absolute;
+                    left: 0;
+                    top: 15px;
+                    background: @cr-white;
+                    width: 50px;
+                    height: 5px;
+                }
+                &:before {
+                    top: 30px;
+                }
+            }
+        }
+        nav {
+            display: none;
+          width: 100%;
+          background: @bg-black;
+          position: absolute;
+          top: 100%;
+            ul {
+
+                li {
+                    display: block;
+                    text-align: left;
+                    font-size: 16px;
+                    padding-left: 10px;
+                    &:hover {
+                        background: @bg-gray;
+                    }
+                    a {
+                        color: @cr-white;
+                        display: block;
+                        text-decoration: none;
+                        padding: 12px 0;
+                    }
+                }
+            }
+        }
+        .logo {
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            right: 30px;
+            top: 10px;
+        }
+    }
+    .contain {
+        background: @bg-gray;
+        padding: 15px 15px;
+        h1,
+        h2 {
+            text-align: center;
+        }
+        .abot {
+            margin: 20px auto;
+            display: table;
+            &_block {
+                display: table;
+                max-width: 380px;
+            }
+            &_img {
+                border-radius: 10%;
+                display: block;
+                width: 100%;
+                border: 5px solid @bg-bg;
+            }
+            &_container {
+                max-width: 380px;
+                margin: 10px auto;
+                &_text {
+                    padding: 10px 0;
+                }
+            }
+        }
+        .form {
+            @width: 100%;
+            @br: 10px;
+            @mp: 5px;
+            background: @bg-bg;
+            max-width: 380px;
+            margin: 20px auto;
+            padding: 20px;
+            h2 {
+                padding-bottom: 20px;
+            }
+            &_grog {
+                width: @width;
+                padding: @mp 0;
+                p {
+                    font-size: 15px;
+                }
+                .go,
+                .errors {
+                    background: #4cae4c;
+                    color: @cr-white;
+                    font-size: 15px;
+                    padding: 5px 10px;
+                }
+                .errors {
+                    background: red;
+                }
+                input {
+                    width: @width;
+                    padding-left: 10px;
+                    font-size: 13px;
+                    height: 27px;
+                    border-radius: @br;
+                    margin: @mp 0;
+                }
+                textarea {
+                    width: @width;
+                    margin: @mp 0;
+                    border-radius: @br;
+                    padding-left: 10px;
+                    font-size: 13px;
+                }
+                button {
+                    width: @width;
+                    border-radius: @br;
+                    background: @bg-black;
+                    color: @cr-white;
+                    padding: @mp + 5px 0;
+                    font-size: 16px;
+                }
+            }
+        }
+        .project {
+            display: table;
+            margin: 20px auto;
+            .maps {
+                margin: 20px 0;
+                min-width: 300px;
+                border-radius: 5px;
+                border: 3px solid @bg-black;
+                max-width: @mapswp;
+                background: @cr-white;
+                padding: 10px 20px;
+                &_container {
+                    width: 100%;
+                }
+                &_head {
+                    width: 100%;
+                    img {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+                &_title {
+                    margin: 10px 0;
+                    a {
+                        display: block;
+                        font-weight: 900;
+                        color: @bg-bg;
+                        text-align: center;
+                        font-size: 15px;
+                    }
+                }
+                &_data {
+                    float: right;
+                    margin: 20px 0;
+                    p {
+                        font-weight: bold;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        .blog{
+            display: table;
+            margin: 20px auto;
+            .maps {
+                margin: 20px 0;
+                min-width: 300px;
+                border-radius: 5px;
+                border: 3px solid @bg-black;
+                max-width: @mapswp;
+                background: @cr-white;
+                padding: 10px 20px;
+                &_container {
+                    width: 100%;
+
+                }
+                &_head {
+                    position: relative;
+                    width: 100%;
+                    img {
+                        display: block;
+                        width: 100%;
+                    }
+                    &_title {
+                        background: @bg-gray;
+                        padding: 15px 0;
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        a {
+                            display: block;
+                            font-weight: 900;
+                            color: @cr-white;
+                            text-align: center;
+                            font-size: 15px;
+                        }
+                    }
+                }
+                &_title{
+                    display: table;
+                    margin: auto;
+                    padding: 10px;
+                    background: @bg-gray;
+                    color: @bg-black;
+                    font-weight: 900;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                }
+                .author{
+                    display: block;
+                    &_img{
+                        display: table;
+                        margin: auto;
+                        img{
+                            width: 70px;
+                            border: 5px solid @bg-bg;
+                        }
+                    }
+                    &_fio{
+                        width: 100%;
+                        text-align: center;
+                        font-size: 17px;
+                        padding: 10px 0;
+                    }
+                }
+                &_data {
+                    float: right;
+                    margin: 20px 0;
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .skills {
+            max-width: 720px;
+            @br: 5px 20px 20px 5px;
+            @he: 50px;
+            &_grog {
+                margin: 20px 0;
+                p {
+                    padding: 10px 0;
+                    font-weight: bold;
+                }
+                &_line {
+                    overflow: hidden;
+                    background: @cr-white;
+                    width: 100%;
+                    height: @he;
+                    border-radius: @br;
+                    position: relative;
+                    &_filling {
+                        background: @bg-bg;
+                        height: @he;
+                        border-radius: @br;
+
+                        &_1 {
+                            width: 80%;
+                            animation-name: driving;
+                            animation-duration: 5s;
+                            animation-delay: 1s;
+                        }
+                        &_2 {
+                            width: 100%; animation-name: driving2;
+                            animation-duration: 5s;
+                            animation-delay: 2s;
+                        }
+                        &_3 {
+                            width: 95%; animation-name: driving3;
+                            animation-duration: 5s;
+                            animation-delay: 3s;
+                        }
+                        &_4 {
+                            width: 50%; animation-name: driving4;
+                            animation-duration: 5s;
+                            animation-delay: 4s;
+                        }
+                        &_5 {
+                            width: 25%; animation-name: driving5;
+                            animation-duration: 5s;
+                            animation-delay: 5s;
+                        }
+                        @keyframes driving {
+                            0%{
+                                width: 0;
+                            }
+
+                            80%{
+                                width: 80%;
+                            }
+                        }
+                        @keyframes driving2 {
+                            0%{
+                                width: 0;
+                            }
+
+                            100%{
+                                width: 100%;
+                            }
+                        }
+                        @keyframes driving3 {
+                            0%{
+                                width: 0;
+                            }
+
+                            95%{
+                                width: 95%;
+                            }
+                        }
+                        @keyframes driving4 {
+                            0%{
+                                width: 0;
+                            }
+
+                            50%{
+                                width: 50%;
+                            }
+                        }
+                        @keyframes driving5 {
+                            0%{
+                                width: 0;
+                            }
+
+                            25%{
+                                width: 25%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .cellar {
+        padding: 5px 10px;
+        background: @bg-black;
+        p {
+            color: @cr-white;
+        }
+        .block {
+            &_icon {
+                float: right;
+                @wh: 48px;
+                .img_icon {
+                    float: left;
+                    display: table;
+                    .img_icons {
+                        background: url(../img/icons.png) 0 0 no-repeat;
+                        width: 48px;
+                        height: 48px;
+                        display: block;
+                        float: left;
+                    }
+                    .icon1 {
+                        width: @wh;
+                        height: @wh;
+                        background-position: 0 0;
+                    }
+                    .icon2 {
+                        width: @wh;
+                        height: @wh;
+                        background-position: -48px 0;
+                    }
+                    .icon3 {
+                        width: @wh;
+                        height: @wh;
+                        background-position: -96px 0;
+                    }
+                    .icon4 {
+                        width: @wh;
+                        height: @wh;
+                        background-position: -144px 0;
+                    }
+                    .icon5 {
+                        width: @wh;
+                        height: @wh;
+                        background-position: -192px 0;
+                    }
+                    .icon6 {
+                        width: @wh;
+                        height: @wh;
+                        background-position: -240px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes burger {
+  from{
+    width: 0;
+  }
+
+  to{
+    width: 100%;
+  }
+}
+@media (min-width: 960px) {
+    .cobtainer {
+        .nenu {
+            label,
+            .burger,
+            .burger_open {
+                display: none;
+            }
+            nav {
+                display: block;  top: 0;
+                ul {
+                    display: block;
+
+                    float: left;
+                    li {
+                        float: left;
+                        line-height: 1;
+                        display: block;
+                        padding: 10px 20px;
+                    }
+                }
+            }
+        }
+        .contain {
+            .projects {
+                min-width: 1200px;
+                .maps {
+                    float: left;
+                    margin: 0 20px;
+                    height: @mapswp;
+                }
+            }
+        }
+    }
+}

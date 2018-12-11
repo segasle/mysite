@@ -15,7 +15,7 @@ $file = '';
     }
     include 'tempate/header.php';
     $wer = 'inip/' . $file . '.php';
-  if (!isset($wer)){
+  if (!file_exists($wer)){
       include 'blog/'. $file . '.php';
   }else{
       include 'inip/' . $file . '.php';

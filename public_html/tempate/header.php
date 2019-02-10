@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="yandex-verification" content="1828ff9bd0a32839" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="yandex-verification" content="8c72ad7d8c12c6d1" />
+
     <meta property="og:locale" content="ru_RU">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Сергей Слепенков - front-end разработчик">
@@ -16,23 +16,37 @@
     <meta name="description" content="">
     <?php include 'functions/head.php';?>
     <title><?php echo $title;?></title>
-    <link rel="icon" href="img/logo.png" type="image/png"> <link rel="stylesheet" href="css/style.css?t=<?php echo(microtime(true).rand()); ?>" media="screen">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css?t=<?php echo(microtime(true).rand()); ?>" media="screen">
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        ym(51832964, "init", {
-            id:51832964,
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-        });
+    <script type="text/javascript" >
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter51325486 = new Ya.Metrika2({
+                        id:51325486,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks2");
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/51832964" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/51325486" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 </head>
 <body>

@@ -72,24 +72,16 @@ div:before {
   position: absolute;
   top: 100%;
 }
-.cobtainer .nenu nav ul,
-.cobtainer .nenu nav .ul_users {
-  float: left;
-  margin-bottom: 0;
-}
-.cobtainer .nenu nav ul li,
-.cobtainer .nenu nav .ul_users li {
+.cobtainer .nenu nav ul li {
   display: block;
   text-align: left;
   font-size: 16px;
   padding-left: 10px;
 }
-.cobtainer .nenu nav ul li:hover,
-.cobtainer .nenu nav .ul_users li:hover {
+.cobtainer .nenu nav ul li:hover {
   background: #b4b4b4;
 }
-.cobtainer .nenu nav ul li a,
-.cobtainer .nenu nav .ul_users li a {
+.cobtainer .nenu nav ul li a {
   color: #fff;
   display: block;
   text-decoration: none;
@@ -180,11 +172,11 @@ div:before {
   padding: 10px 0;
   font-size: 16px;
 }
-.cobtainer .contain .block-auto {
+.cobtainer .contain .projects {
   display: table;
   margin: 20px auto;
 }
-.cobtainer .contain .block-auto .maps {
+.cobtainer .contain .projects .maps {
   margin: 20px 0;
   min-width: 300px;
   border-radius: 5px;
@@ -193,68 +185,33 @@ div:before {
   background: #fff;
   padding: 10px 20px;
 }
-.cobtainer .contain .block-auto .maps_container {
+.cobtainer .contain .projects .maps_container {
   width: 100%;
 }
-.cobtainer .contain .block-auto .maps_head {
+.cobtainer .contain .projects .maps_head {
   width: 100%;
 }
-.cobtainer .contain .block-auto .maps_head img {
+.cobtainer .contain .projects .maps_head img {
   display: block;
   width: 100%;
 }
-.cobtainer .contain .block-auto .maps_title {
+.cobtainer .contain .projects .maps_title {
   margin: 10px 0;
 }
-.cobtainer .contain .block-auto .maps_title a {
+.cobtainer .contain .projects .maps_title a {
   display: block;
   font-weight: 900;
   color: deepskyblue;
   text-align: center;
   font-size: 15px;
 }
-.cobtainer .contain .block-auto .maps_data {
+.cobtainer .contain .projects .maps_data {
   float: right;
   margin: 20px 0;
 }
-.cobtainer .contain .block-auto .maps_data p {
+.cobtainer .contain .projects .maps_data p {
   font-weight: bold;
   font-size: 17px;
-}
-.cobtainer .contain .block-auto .atbum_photo {
-  margin: 20px 0;
-  max-width: 380px;
-}
-.cobtainer .contain .block-auto .atbum_photo img {
-  width: 100%;
-}
-.cobtainer .contain .block-auto .atbum_photo p {
-  margin-bottom: 0;
-  background: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 5px;
-}
-.cobtainer .contain .block-auto .info {
-  background: #fff;
-  margin: 10px 0;
-  border-color: #000;
-  border-width: 2px;
-  border-style: double;
-  padding: 10px;
-  width: 100%;
-}
-.cobtainer .contain .block-auto .info_fio,
-.cobtainer .contain .block-auto .info_birthday,
-.cobtainer .contain .block-auto .info_email {
-  border-bottom: 2px solid #000;
-  padding: 6px 0;
-}
-.cobtainer .contain .block-auto .info_fio p span,
-.cobtainer .contain .block-auto .info_birthday p span,
-.cobtainer .contain .block-auto .info_email p span {
-  font-weight: bold;
-  text-transform: uppercase;
 }
 .cobtainer .contain .skills {
   max-width: 720px;
@@ -418,20 +375,15 @@ div:before {
     display: block;
     top: 0;
   }
-  .cobtainer .nenu nav ul,
-  .cobtainer .nenu nav .ul_users {
+  .cobtainer .nenu nav ul {
     display: block;
     float: left;
   }
-  .cobtainer .nenu nav ul li,
-  .cobtainer .nenu nav .ul_users li {
+  .cobtainer .nenu nav ul li {
     float: left;
     line-height: 1;
     display: block;
     padding: 10px 20px;
-  }
-  .cobtainer .nenu nav .ul_users {
-    float: right;
   }
   .cobtainer .contain .projects {
     min-width: 1200px;

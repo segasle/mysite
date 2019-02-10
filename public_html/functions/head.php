@@ -15,6 +15,4 @@ if (basename($_SERVER['REQUEST_URI']) == '?page=experience') {
     $title = 'Проекты';
 }if (basename($_SERVER['REQUEST_URI']) == '?page=contacts') {
     $title = 'Контакты';
-}if (basename($_SERVER['REQUEST_URI']) == '?page=design') {
-    $title = 'Работы по графическому дизайну';
 }

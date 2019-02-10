@@ -1,9 +1,4 @@
 <h1>Контакты</h1>
-<div class="block-auto">
-    <?php
-    echo get_contact();
-    ?>
-</div>
 
 <div class="form">
     <h2>Хотите сотрудничать?</h2>

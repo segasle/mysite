@@ -1,5 +1,5 @@
 <h1>Проекты</h1>
-<div class="block-auto">
+<div class="projects">
 <?php
 echo post_project();
 ?>

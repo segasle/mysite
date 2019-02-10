@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="skills_grog">
-        <p>LESS/SASS/SCSS</p>
+        <p>LESS</p>
         <div class="skills_grog_line">
             <div class="skills_grog_line_filling skills_grog_line_filling_2"></div>
         </div>

@@ -1,7 +1,7 @@
 <h1>Сергей Слепенков</h1>
 <div class="abot">
     <div class="abot_block">
-        <img src="img/author.jpg" class="abot_img">
+        <img src="img/IMG_2887.jpg" class="abot_img">
     </div>
     <div class="abot_container">
         <h2>Коротко обо мне</h2>

@@ -54,11 +54,15 @@ function feedback(){
         $result = do_query("SELECT COUNT(*) as count FROM feedback WHERE `email` = '{$data['email']}'");
         $result = $result->fetch_object();
         $errors = array();
+        $email = $data['email'];
         if (empty($data['name'])){
             $errors = 'Вы не ввели имя';
         }
         if (empty($data['email'])){
             $errors = 'Вы не ввели почту';
+        }
+        if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
+            $errors[] = 'Вы неправильно ввели электронную почту';
         }
         if (empty($data['topic'])){
             $errors = 'Вы не ввели тему';
@@ -68,7 +72,7 @@ function feedback(){
         }
         if (empty($errors)){
             if (!empty($result)){
-                $wer =  do_query("INSERT INTO feedback (`name`, `email`, `topic`, `text`) VALUES ('{$data['name']}', '{$data['email']}', '{$data['topic']}', '{$data['text']}')");
+                $wer =  do_query("INSERT INTO feedback (`name`, `email`, `topic`, `text`) VALUES ('{$data['name']}', '{$email}', '{$data['topic']}', '{$data['text']}')");
                 if (!empty($wer)){
                     echo '<div style="
                                     background: green; 

@@ -8,7 +8,7 @@
 <div class="form">
     <h2>Хотите сотрудничать?</h2>
     <div class="form_grog">
-        <?php echo feedback();
+        <?php feedback();
         event_mail();
         ?>
     </div>
@@ -16,7 +16,7 @@
 
         <div class="form_grog">
             <p>Ваше имя</p>
-            <input type="text" name="name" placeholder="Имя"></div>
+            <input type="text" name="name" placeholder="Имя" value="<?php echo @$_POST['name']; ?>"></div>
         <div class="form_grog">
             <p>Ваша почта</p>
             <input type="email" name="email" placeholder="Почта"></div>

@@ -77,19 +77,12 @@ function feedback(){
             if (!empty($result)){
                 $wer =  do_query("INSERT INTO feedback (`name`, `email`, `topic`, `text`) VALUES ('.$name.', '.$email.', '.$topic.', '.$text.')");
                 if (!empty($wer)){
-                    echo '<div style="
-                                    background: green; 
-                                    color: white;
-                                    font-size: 15px;
-                                    padding: 5px 10px;">Успешно отправлено!</div>';
+                    echo '<div class="go">Успешно отправлено!</div>';
                 }
             }
         }
         else{
-            echo '<div style="background: red; 
-                                color: white;
-                                font-size: 15px;
-                                padding: 5px 10px;">'.array_shift($errors).'</div>';
+            echo '<div class="errors">'.array_shift($errors).'</div>';
         }
     }
     return;

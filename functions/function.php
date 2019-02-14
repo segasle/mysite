@@ -75,7 +75,7 @@ function feedback(){
         }
         if (empty($errors)){
             if (!empty($result)){
-                $wer =  do_query("INSERT INTO feedback (`name`, `email`, `topic`, `text`) VALUES ('{$data['name']}', '{$email}', '{$data['topic']}', '{$data['text']}')");
+                $wer =  do_query("INSERT INTO feedback (`name`, `email`, `topic`, `text`) VALUES ('.$name.', '.$email.', '.$topic.', '.$text.')");
                 if (!empty($wer)){
                     echo '<div style="
                                     background: green; 

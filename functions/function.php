@@ -56,19 +56,19 @@ function feedback(){
         $errors = array();
         $email = $data['email'];
         if (empty($data['name'])){
-            $errors = 'Вы не ввели имя';
+            $errors[] = 'Вы не ввели имя';
         }
         if (empty($data['email'])){
-            $errors = 'Вы не ввели почту';
+            $errors[] = 'Вы не ввели почту';
         }
         if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
             $errors[] = 'Вы неправильно ввели электронную почту';
         }
         if (empty($data['topic'])){
-            $errors = 'Вы не ввели тему';
+            $errors[] = 'Вы не ввели тему';
         }
         if (empty($data['text'])){
-            $errors = 'Вы не ввели текст';
+            $errors[] = 'Вы не ввели текст';
         }
         if (empty($errors)){
             if (!empty($result)){
@@ -86,7 +86,7 @@ function feedback(){
             echo '<div style="background: red; 
                                 color: white;
                                 font-size: 15px;
-                                padding: 5px 10px;">'.$errors.'</div cl>';
+                                padding: 5px 10px;">'.array_shift($errors).'</div>';
         }
     }
     return;

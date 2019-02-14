@@ -19,13 +19,13 @@
             <input type="text" name="name" placeholder="Имя" value="<?php echo @$_POST['name']; ?>"></div>
         <div class="form_grog">
             <p>Ваша почта</p>
-            <input type="email" name="email" placeholder="Почта"></div>
+            <input type="email" name="email" placeholder="Почта" value="<?php echo @$_POST['email']; ?>"></div>
         <div class="form_grog">
             <p>Какая тема</p>
-            <input type="text" name="topic" placeholder="Тема"></div>
+            <input type="text" name="topic" placeholder="Тема" value="<?php echo @$_POST['topic']; ?>"></div>
         <div class="form_grog">
             <p>Текст</p>
-            <textarea cols="30" rows="10" name="text" placeholder="Сообщение"></textarea></div>
+            <textarea cols="30" rows="10" name="text" placeholder="Сообщение"><?php echo @$_POST['text']; ?></textarea></div>
         <div class="form_grog">
             <button type="submit" name="submit">Отправить</button>
         </div>

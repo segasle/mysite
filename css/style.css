@@ -18,6 +18,16 @@ div:before {
   clear: both;
   display: block;
 }
+.go,
+.errors {
+  background: #4cae4c;
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 10px;
+}
+.errors {
+  background: red;
+}
 .cobtainer {
   width: 100%;
 }
@@ -146,16 +156,6 @@ div:before {
 }
 .cobtainer .contain .form_grog p {
   font-size: 15px;
-}
-.cobtainer .contain .form_grog .go,
-.cobtainer .contain .form_grog .errors {
-  background: #4cae4c;
-  color: #fff;
-  font-size: 15px;
-  padding: 5px 10px;
-}
-.cobtainer .contain .form_grog .errors {
-  background: red;
 }
 .cobtainer .contain .form_grog input {
   width: 100%;

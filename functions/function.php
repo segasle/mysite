@@ -51,6 +51,9 @@ function get_menu(){
 function feedback(){
     if (isset($_POST['submit'])){
         $data = $_POST;
+        $name = htmlspecialchars($data['name']);
+        $topic = htmlspecialchars($data['topic']);
+        $text = htmlspecialchars($data['text']);
         $result = do_query("SELECT COUNT(*) as count FROM feedback WHERE `email` = '{$data['email']}'");
         $result = $result->fetch_object();
         $errors = array();

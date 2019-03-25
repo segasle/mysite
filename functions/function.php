@@ -24,29 +24,14 @@ function do_query($query)
 
     $result = mysqli_query($mysqli, $query);
     return $result;
-}/*
-function do_array($array){
-    if (!empty(do_query())){
-        $rs = mysqli_fetch_array($array);
-    }
-
-}*/
+}
 function get_menu(){
-    $sql = do_query('SELECT * FROM `menu` WHERE `patent` = "0" ORDER BY menu.id');
-    $sqli = do_query('SELECT * FROM `menu_users` WHERE `parent` = "0" ORDER BY menu_users.id');
+    $sql = do_query('SELECT * FROM `menu`');
     $output = "<ul>";
      foreach ($sql as $r){
         $output .= "<li><a href='".$r['url']."'>".$r['title']."</a></li>";
     }
-    $out = "<ul class='ul_users'>";
-     foreach ($sqli as $sq){
-         $out .= "<li><a href='".$sq['url']."'>".$sq['title']."</a></li>";
-     }
-    $output .= "</ul>";
-     $out .= "</ul>";
-     echo $output;
-     echo $out;
-    return;
+    return $output;
 }
 function feedback(){
     if (isset($_POST['submit'])){

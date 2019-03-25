@@ -33,45 +33,6 @@ function get_menu(){
     }
     return $output;
 }
-function feedback(){
-    if (isset($_POST['submit'])){
-        $data = $_POST;
-        $name = htmlentities($data['name'], ENT_QUOTES);
-        $topic = htmlentities($data['topic'], ENT_QUOTES);
-        $text = htmlentities($data['text'], ENT_QUOTES);
-        $result = do_query("SELECT COUNT(*) as count FROM feedback WHERE `email` = '{$data['email']}'");
-        $result = $result->fetch_object();
-        $errors = array();
-        $email = $data['email'];
-        if (empty($data['name'])){
-            $errors[] = 'Вы не ввели имя';
-        }
-        if (empty($data['email'])){
-            $errors[] = 'Вы не ввели почту';
-        }
-        if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
-            $errors[] = 'Вы неправильно ввели электронную почту';
-        }
-        if (empty($data['topic'])){
-            $errors[] = 'Вы не ввели тему';
-        }
-        if (empty($data['text'])){
-            $errors[] = 'Вы не ввели текст';
-        }
-        if (empty($errors)){
-            if (!empty($result)){
-                $wer =  do_query("INSERT INTO feedback (`name`, `email`, `topic`, `text`) VALUES ('.$name.', '.$email.', '.$topic.', '.$text.')");
-                if (!empty($wer)){
-                    echo '<div class="go">Успешно отправлено!</div>';
-                }
-            }
-        }
-        else{
-            echo '<div class="errors">'.array_shift($errors).'</div>';
-        }
-    }
-    return;
-}
 function event_mail(){
     if (isset($_POST)){
         $data = $_POST;

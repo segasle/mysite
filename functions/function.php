@@ -33,34 +33,6 @@ function get_menu(){
     }
     return $output;
 }
-function event_mail(){
-    if (isset($_POST)){
-        $data = $_POST;
-        if (!empty($data)){
-            $messi = array(
-                'Имя' => "{$data['name']}",
-                'Почта' => "{$data['email']}",
-                'Тема' => "{$data['topic']}",
-                'Сообщение' => "{$data['text']}",
-            );
-            foreach ($messi as $key => $value){
-                $asd = $messi;
-            }
-            $mess = implode("", $asd);
-            $to      = 'segasle@yandex.ru';
-            $subject = 'Обратная связь';
-            $message = "$mess";
-            $headers = 'From: segasle@kafe-lyi.ru' . "\r\n" .
-                'Reply-To: segasle@kafe-lyi.ru' . "\r\n" .
-                "Content-Type: text/plain; charset=\"UTF-8\"\r\n"
-                .'X-Mailer: PHP/' . phpversion();
-
-            mail("$to", "$subject", "$message", "$headers");
-
-        }
-    }
-    return;
-}
 function post_project(){
     $sql = do_query('SELECT * FROM `projects` WHERE 1');
     $out = '';

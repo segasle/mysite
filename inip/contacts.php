@@ -8,8 +8,7 @@
 <div class="form">
     <h2>Хотите сотрудничать?</h2>
     <div class="form_grog">
-        <?php event_mail();
-        ?>
+
     </div>
     <form action="" method="post">
 
@@ -37,13 +36,7 @@
         </div>
     </form>
     <?php
-
-    //echo $_SESSION['randomnr2'];
     if (isset($_POST['submit'])) {
-
-      //  require 'functions/jcaptcha/jcaptcha.php';
-        //define('CAPTCHA_COOKIE', 'imgcaptcha_');
-        // заметим: поле `captcha` обязательно для заполнения
         if (empty($_POST['captcha']) || md5($_POST['captcha']) != $_SESSION['randomnr2']) {
             echo 'Неверный код с картинки. Вернитесь и повторите попытку.';
         }else{
@@ -51,8 +44,6 @@
             $name = htmlentities($data['name'], ENT_QUOTES);
             $topic = htmlentities($data['topic'], ENT_QUOTES);
             $text = htmlentities($data['text'], ENT_QUOTES);
-            $result = do_query("SELECT COUNT(*) as count FROM feedback WHERE `email` = '{$data['email']}'");
-            $result = $result->fetch_object();
             $errors = array();
             $email = $data['email'];
             if (empty($data['name'])) {
@@ -70,11 +61,23 @@
             if (empty($data['text'])) {
                 $errors[] = 'Вы не ввели текст';
             } if (empty($errors)) {
-                if (!empty($result)) {
                     $wer = do_query("INSERT INTO feedback (`name`, `email`, `topic`, `text`) VALUES ('.$name.', '.$email.', '.$topic.', '.$text.')");
                     if (!empty($wer)) {
+                        $name1 = 'Имя: ' .$data['name'];
+                        $email = 'Почта: ' .$data['email'];
+                        $topic = 'Тема: ' .$data['topic'];
+                        $sms = 'Сообщение: ' .$data['text'];
+                        $mess = $name . '<br>'.$email.'<br>'.$topic.'<br>'.$sms.'<br>';
+                        $to      = 'segasle@yandex.ru';
+                        $subject = 'Обратная связь';
+                        $message = "$mess";
+                        $headers = 'From: segasle@kafe-lyi.ru' . "\r\n" .
+                            'Reply-To: segasle@kafe-lyi.ru' . "\r\n" .
+                            "Content-Type: text/html; charset=\"UTF-8\"\r\n"
+                            .'X-Mailer: PHP/' . phpversion();
+
+                        mail("$to", "$subject", "$message", "$headers");
                         echo '<div class="go">Успешно отправлено!</div>';
-                    }
                 }
             } else {
                 echo '<div class="errors">' . array_shift($errors) . '</div>';

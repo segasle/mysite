@@ -77,6 +77,5 @@ function get_atbum(){
        }}
     }
     $out .= '</div>';
-    echo $out;
-    return;
+    return $out;
 }

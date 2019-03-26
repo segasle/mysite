@@ -79,3 +79,7 @@ function get_atbum(){
     $out .= '</div>';
     return $out;
 }
+function user_page(){
+    global $token;
+    $content = file_get_contents("https://api.vk.com/method/users.get?user_ids=serg_slepenkov&fields=bdate,about,photo_400_orig&$token&v=5.92");
+}

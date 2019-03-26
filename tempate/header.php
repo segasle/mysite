@@ -34,7 +34,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/51832964" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>
 <div class="cobtainer">

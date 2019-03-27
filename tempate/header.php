@@ -64,7 +64,7 @@
 
                 <?php echo get_menu(); ?>
             </nav>
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Авторизоваться</button>
+            <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">Авторизоваться</button>
 
             <!-- Модальное окно -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

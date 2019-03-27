@@ -2,8 +2,9 @@
 $token = 'access_token=62d6822d330cf42f423a0dbb89ba2e16482d5b21f5fbbd42677b15f11e6b77abc0c96da00e3eaa6b2b7d2';
 $id = '6783539';
 $scope = 'friends,photos,audio,video,offline,email,wall';
-$redirect_uri = 'http://localhost:8888/mysite/';
-$appkey = 'TWJi9JgMTCqzPHlB6hQn';
+$users = 'photo_max,first_name,last_name,city';
+$redirect_uri = 'https://ssd18.ru';
+$appkey = '4wvqw8Rei8P9z8nQ5GhR';
 $v = '5.52';
 $link = '<a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=&scope=' . $scope . '&response_type=token&v=' . $v . '">ссылка</a>';
 //echo $link;
@@ -66,21 +67,12 @@ function vk_authorization()
     if (!empty($_GET['code'])) {
         $code = $_GET['code'];
         $content = file_get_contents("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code");
-        $token2 = json_decode($content, true);
-        print_r($token2);
-//        $_SESSION['token'] = $token2['access_token'];
-//        $_SESSION['email'] = $token2['email'];
-//        $_SESSION['user_id'] = $token2['user_id'];
-        setcookie('user', $token2);
+        setcookie('user', json_encode($content));
         if (isset($_COOKIE['user'])){
-            $user = json_encode($_COOKIE['user']);
-
-//            $vkid = $_SESSION['user_id'];
-//            $token = $_SESSION['token'];
-//
-//            if (isset($_SESSION['token'])) {
-//                $use = file_get_contents("https://api.vk.com/method/users.get?user_ids=$vkid&fields=$users&access_token=$user->id&v=5.92");
-//                $user = json_decode($use, true);
+            $user = json_decode($_COOKIE['user']);
+                $use = file_get_contents("https://api.vk.com/method/users.get?user_ids=$user->user_id&fields=$users&access_token=$user->access_token&v=5.92");
+                $data = json_decode($use, true);
+            print_r($data);
 //                foreach ($user['response'] as $item) {
 //                    $_SESSION['name'] = $item['first_name'];
 //                    $_SESSION['surname'] = $item['last_name'];

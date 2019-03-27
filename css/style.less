@@ -38,6 +38,10 @@ div {
 p{
     margin-bottom: 0;
 }
+button{
+    background: @bg-black;
+    color: @cr-white;
+}
 .cobtainer {
     width: 100%;
     .nenu {
@@ -45,6 +49,12 @@ p{
         display: block;
         height: 60px;
         background: @bg-black;
+        button.btn-author{
+            position: absolute;
+            right: 70px;
+            top: 13px;
+            z-index: 2;
+        }
         #checkbox {
             display: none;
 
@@ -111,6 +121,7 @@ p{
             }
         }
         .logo {
+            z-index: 3;
             position: absolute;
             height: 40px;
             width: 40px;
@@ -182,8 +193,7 @@ p{
                 button {
                     width: @width;
                     border-radius: @br;
-                    background: @bg-black;
-                    color: @cr-white;
+
                     padding: @mp + 5px 0;
                     font-size: 16px;
                 }

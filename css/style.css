@@ -31,6 +31,10 @@ div:before {
 p {
   margin-bottom: 0;
 }
+button {
+  background: #000;
+  color: #fff;
+}
 .cobtainer {
   width: 100%;
 }
@@ -39,6 +43,12 @@ p {
   display: block;
   height: 60px;
   background: #000;
+}
+.cobtainer .nenu button.btn-author {
+  position: absolute;
+  right: 70px;
+  top: 13px;
+  z-index: 2;
 }
 .cobtainer .nenu #checkbox {
   display: none;
@@ -109,6 +119,7 @@ p {
   padding: 12px 0;
 }
 .cobtainer .nenu .logo {
+  z-index: 3;
   position: absolute;
   height: 40px;
   width: 40px;
@@ -178,8 +189,6 @@ p {
 .cobtainer .contain .form_grog button {
   width: 100%;
   border-radius: 10px;
-  background: #000;
-  color: #fff;
   padding: 10px 0;
   font-size: 16px;
 }

@@ -31,9 +31,18 @@ div:before {
 p {
   margin-bottom: 0;
 }
+.fa-vk {
+  color: #2c54ff;
+}
 button {
   background: #000;
   color: #fff;
+}
+button:hover {
+  background: #b4b4b4;
+}
+button:active {
+  background: rgba(155, 55, 77, 0.6);
 }
 .cobtainer {
   width: 100%;

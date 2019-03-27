@@ -17,6 +17,7 @@
     <meta name="description" content="">
     <?php include 'functions/head.php'; ?>
     <title><?php echo $title; ?></title>
+    <link rel="stylesheet" href="icons/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="icon" href="img/logo.png" type="image/png">
@@ -64,24 +65,25 @@
 
                 <?php echo get_menu(); ?>
             </nav>
-            <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">Авторизоваться</button>
-
-            <!-- Модальное окно -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">Авторизоваться
+            </button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
+                            <h4 class="text-center" id="myModalLabel">Авторизоваться</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <?php
+                            echo link_authorization();
+                            ?>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,11 @@
+<?php
+if (isset($_SESSION['data'])) {
+    if (isset($_POST['esc'])) {
+        unset($_SESSION['data']);
+        header("location: ?page=main");
+    }
+}
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -21,7 +29,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css?t=<?php echo(microtime(true) . rand()); ?>" media="screen">
+    <link rel="stylesheet" href="css/style.css?t=<?php echo(microtime(true) . rand()); ?>">
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -62,36 +70,35 @@
                 <div class="burger_open"></div>
             </label>
             <nav>
-
                 <?php echo get_menu(); ?>
             </nav>
-            <?php if (!isset($_SESSION['data'])){
-           echo '<button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">Авторизоваться
-            </button>
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="text-center" id="myModalLabel">Авторизоваться</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">'.
-                            link_authorization() .'
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <?php if (!isset($_SESSION['data'])) { ?>
+                <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">Авторизоваться
+                </button>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="text-center" id="myModalLabel">Авторизоваться</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <?php echo link_authorization(); ?>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>';
-            }else{
-                echo '<form  action="" method="post">
-                      <button type="submit" class="btn-author btn">Выход</button>
-                </form>';
-             } ?>
+            <?php } else { ?>
+                <form action="" method="post">
+                    <button type="submit" name="esc" class="btn-author btn">Выход</button>
+                </form>
+            <?php } ?>
         </div>
     </description>
     <description>

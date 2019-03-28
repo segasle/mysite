@@ -67,33 +67,30 @@ function vk_authorization()
     if (!empty($_GET['code'])) {
         $code = $_GET['code'];
         $content = json_decode(file_get_contents("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code"), true);
-
         $_SESSION['user'] = $content;
         if (isset($_SESSION['user'])) {
-            $user = $_SESSION['user'];
-            echo '<pre>';
-            print_r($user);
-            echo '</pre>';
-            var_dump($user);
-            //     $use = file_get_contents("https://api.vk.com/method/users.get?user_ids=$user->user_id&fields=$users&access_token=$user->access_token&v=5.92");
-            //  $data = json_decode($use, true);
-            //   print_r($data);
-//                foreach ($user['response'] as $item) {
-//                    $_SESSION['name'] = $item['first_name'];
-//                    $_SESSION['surname'] = $item['last_name'];
-//                    $_SESSION['photo'] = $item['photo_max'];
-//                }
-//                $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$_SESSION['email']}'");
-//                $result = $result->fetch_object();
-//                if (empty($result->count)) {
-//                    $wer = do_query("INSERT INTO `users` (`email`,`name`, `surname`,  `photo`, `users-id`, `token`) VALUES ('{$_SESSION['email']}','{$_SESSION['name']}','{$_SESSION['surname']}', '{$_SESSION['photo']}', '{$_SESSION['user_id']}', '{$_SESSION['token']}')");
-//                } else {
-//                    $users = do_query("UPDATE `users` SET `token` = '" . $_SESSION['token'] . "' WHERE `email` = '" . $_SESSION['email'] . "'");
-//                }
+            $user_id = $_SESSION['user']['user_id'];
+            $access_token = $_SESSION['user']['access_token'];
+            $use = json_decode(file_get_contents("https://api.vk.com/method/users.get?user_ids=$user_id&fields=$users&access_token=$access_token&v=5.92"), true);
+            $_SESSION['data'] = $use['response'];
+
+            $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$_SESSION['user']['email']}'");
+            $result = $result->fetch_object();
+            if (empty($result->count)) {
+                $wer = do_query("INSERT INTO `users` (`email`,`name`, `surname`, `id_users`, `token`) VALUES ('{$_SESSION['user']['email']}','{$_SESSION['data'][0]['first_name']}','{$_SESSION['data'][0]['last_name']}', '{$_SESSION['data'][0]['id']}', '{$access_token}')");
+                if ($wer) {
+                    header("location: ?page=main");
+                }
+            } else {
+                $wer = do_query("UPDATE `users` SET `token` = '" . $access_token . "' WHERE `email` = '" . $access_token . "'");
+                if ($wer) {
+                    header("location: ?page=main");
+                }
 //                //         print_r($token2);
-//            }
+            }
         }
 
     }
+
     return;
 }

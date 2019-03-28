@@ -89,7 +89,7 @@ if (isset($_SESSION['data'])) {
                                 <?php echo link_authorization(); ?>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                             </div>
                         </div>
                     </div>
@@ -103,4 +103,3 @@ if (isset($_SESSION['data'])) {
     </description>
     <description>
         <div class="contain">
-

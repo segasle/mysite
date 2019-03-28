@@ -37,5 +37,10 @@ if (isset($_SESSION['data'])) {?>
     <p class="h3">Авторизовуйтесь, чтобы написать отзыв</p>
 <?php
 }
+$resist = do_query("SELECT * FROM `comments`");
+if (mysqli_num_rows($resist) > 0){
 
+}else{
+    echo "<p class='h3'>Нет отзывов</p>";
+}
 ?>

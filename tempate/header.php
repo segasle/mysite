@@ -65,7 +65,8 @@
 
                 <?php echo get_menu(); ?>
             </nav>
-            <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">Авторизоваться
+            <?php if (!isset($_SESSION['data'])){
+           echo '<button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">Авторизоваться
             </button>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
@@ -77,17 +78,20 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <?php
-                            echo link_authorization();
-                            ?>
+                        <div class="modal-body">'.
+                            link_authorization() .'
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>';
+            }else{
+                echo '<form  action="" method="post">
+                      <button type="submit" class="btn-author btn">Выход</button>
+                </form>';
+             } ?>
         </div>
     </description>
     <description>

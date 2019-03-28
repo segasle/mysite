@@ -79,12 +79,26 @@ function vk_authorization()
             if (empty($result->count)) {
                 $wer = do_query("INSERT INTO `users` (`email`,`name`, `surname`, `id_users`, `token`) VALUES ('{$_SESSION['user']['email']}','{$_SESSION['data'][0]['first_name']}','{$_SESSION['data'][0]['last_name']}', '{$_SESSION['data'][0]['id']}', '{$access_token}')");
                 if ($wer) {
-                    header("location: ?page=main");
+                    //header("location: ?page=main");
+                    //print_r($_SESSION['data']);
+                    $data = mysqli_fetch_array(do_query("SELECT * FROM `users` WHERE `email` = '{$_SESSION['user']['email']}'"));
+                    setcookie('user', $data);
                 }
             } else {
-                $wer = do_query("UPDATE `users` SET `token` = '" . $access_token . "' WHERE `email` = '" . $access_token . "'");
+                $wer = do_query("UPDATE `users` SET `token` = '" . $access_token . "' WHERE `email` = '" . $_SESSION['user']['email'] . "'");
                 if ($wer) {
-                    header("location: ?page=main");
+                    $data = mysqli_fetch_array(do_query("SELECT * FROM `users` WHERE `email` = '{$_SESSION['user']['email']}'"));
+                    echo '<pre>';
+                    print_r($data);
+                    echo '</pre>';
+
+                    $_SESSION['data'] = $data;
+                    //setcookie('user', json_encode($data));
+                   if (isset($_SESSION['data'])){
+
+                        header("location: ?page=main");
+                    }
+
                 }
 //                //         print_r($token2);
             }

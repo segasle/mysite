@@ -52,7 +52,7 @@ function link_authorization()
     global $scope;
     global $redirect_uri;
     global $id;
-    if (empty($_COOKIE['token'])) {
+    if (empty($_SESSION['token'])) {
         $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a>';
     }
     return $out;
@@ -66,14 +66,15 @@ function vk_authorization()
     global $appkey;
     if (!empty($_GET['code'])) {
         $code = $_GET['code'];
-        $content = json_encode(file_get_contents("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code"));
-        setcookie('user', $content);
-        if (isset($_COOKIE['user'])) {
-            $user = json_decode($_COOKIE['user'], true);
-            //$data = json_encode($user, false);
+        $content = json_decode(file_get_contents("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code"), true);
+
+        $_SESSION['user'] = $content;
+        if (isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
             echo '<pre>';
             print_r($user);
             echo '</pre>';
+            var_dump($user);
             //     $use = file_get_contents("https://api.vk.com/method/users.get?user_ids=$user->user_id&fields=$users&access_token=$user->access_token&v=5.92");
             //  $data = json_decode($use, true);
             //   print_r($data);

@@ -60,6 +60,7 @@ function link_authorization()
 
 function vk_authorization()
 {
+    session_start();
     global $users;
     global $redirect_uri;
     global $id;
@@ -82,22 +83,24 @@ function vk_authorization()
                     //header("location: ?page=main");
                     //print_r($_SESSION['data']);
                     $data = mysqli_fetch_array(do_query("SELECT * FROM `users` WHERE `email` = '{$_SESSION['user']['email']}'"));
-                    setcookie('user', $data);
+                    //setcookie('user', $data);
+                    $_SESSION['data'] = $data;
+
                 }
             } else {
                 $wer = do_query("UPDATE `users` SET `token` = '" . $access_token . "' WHERE `email` = '" . $_SESSION['user']['email'] . "'");
                 if ($wer) {
                     $data = mysqli_fetch_array(do_query("SELECT * FROM `users` WHERE `email` = '{$_SESSION['user']['email']}'"));
-                    echo '<pre>';
-                    print_r($data);
-                    echo '</pre>';
+//                    echo '<pre>';
+//                    print_r($data);
+//                    echo '</pre>';
 
                     $_SESSION['data'] = $data;
-                    //setcookie('user', json_encode($data));
-                   if (isset($_SESSION['data'])){
-
-                        header("location: ?page=main");
-                    }
+//                    //setcookie('user', json_encode($data));
+//                   if (isset($_SESSION['data'])){
+//
+//                        header("location: ?page=main");
+//                    }
 
                 }
 //                //         print_r($token2);

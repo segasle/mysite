@@ -18,6 +18,16 @@ if (isset($_SESSION['data'])) {?>
             $errors[] = 'Сообщение пустое';
         }
         if (empty($errors)){
+        $sf = do_query("SELECT COUNT(*) as count FROM `comments` WHERE `email` ='{$_SESSION['data']['email']}'");
+        $sf = $sf->fetch_object();
+        if (empty($sf->count)){
+            $res =  do_query("INSERT INTO `comments` (`text`, `name`, `email`) VALUES ('{$data['text']}','{$_SESSION['data']['name']}','{$_SESSION['data']['email']}')");
+            if ($res){
+                echo '<div class="go">Успешно отправлено</div>';
+            }
+        }else{
+            echo '<div class="errors">Вы уже отправили отзыв!!!</div>';
+        }
 
         }else{
             echo '<div class="errors">'.array_shift($errors).'</div>';

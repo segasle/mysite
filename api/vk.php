@@ -66,13 +66,17 @@ function vk_authorization()
     global $appkey;
     if (!empty($_GET['code'])) {
         $code = $_GET['code'];
-        $content = file_get_contents("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code");
-        setcookie('user', json_encode($content));
-        if (isset($_COOKIE['user'])){
-            $user = json_decode($_COOKIE['user']);
-                $use = file_get_contents("https://api.vk.com/method/users.get?user_ids=$user->user_id&fields=$users&access_token=$user->access_token&v=5.92");
-                $data = json_decode($use, true);
-            print_r($data);
+        $content = json_encode(file_get_contents("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code"));
+        setcookie('user', $content);
+        if (isset($_COOKIE['user'])) {
+            $user = json_decode($_COOKIE['user'], true);
+            //$data = json_encode($user, false);
+            echo '<pre>';
+            print_r($user);
+            echo '</pre>';
+            //     $use = file_get_contents("https://api.vk.com/method/users.get?user_ids=$user->user_id&fields=$users&access_token=$user->access_token&v=5.92");
+            //  $data = json_decode($use, true);
+            //   print_r($data);
 //                foreach ($user['response'] as $item) {
 //                    $_SESSION['name'] = $item['first_name'];
 //                    $_SESSION['surname'] = $item['last_name'];

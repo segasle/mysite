@@ -39,7 +39,30 @@ if (isset($_SESSION['data'])) {?>
 }
 $resist = do_query("SELECT * FROM `comments`");
 if (mysqli_num_rows($resist) > 0){
-
+    $out = '<div class="container">';
+     foreach ($resist as $item){
+         $out .= '<div class="container_block">
+                     <div class="container_block-head">
+                        <div class="head_block">
+                            <div class="block_cell">
+                               <p><i class="fa fa-user-secret fa-2x" aria-hidden="true"></i>'.$item['name'].'</p>
+                            </div>
+                            <div class="block_cell">
+                                <p><i class="fa fa-calendar fa-2x" aria-hidden="true"></i>'.$item['data'].'</p>
+                            </div>            
+                        </div>       
+                    </div>
+                    <div class="container_block-content">
+                        <div class="content_title">
+                            <div class="content_title-text">
+                                <p>'.$item['text'].'</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+     }
+     $out .= '</div>';
+     echo $out;
 }else{
     echo "<p class='h3'>Нет отзывов</p>";
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Мар 29 2019 г., 11:55
+-- Время создания: Мар 29 2019 г., 16:22
 -- Версия сервера: 5.6.39-83.1
 -- Версия PHP: 5.6.37
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `topic` varchar(255) NOT NULL,
   `text` text NOT NULL,
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `feedback`
@@ -60,7 +60,8 @@ INSERT INTO `feedback` (`id`, `name`, `email`, `topic`, `text`) VALUES
 (3, '.DavidHoick.', '.kyiv.name@bigmir.net.', '.kyiv.name - сайт об экологии.', '.Интересные новости на тему экологии -&lt;a href=https://kyiv.name/uk&gt;kyiv.name/ru/news&lt;/a&gt;.'),
 (4, '.Jerrellamilm.', '.agbzjbat@spacecas.ru.', '.play for real money slots machine.', '.no download casino mac &lt;a href=http://wowcasinoonline.ooo/&gt;virtual console games from sd card&lt;/a&gt; &lt;a href=&quot;http://onlinecasinoside.ooo/&quot;&gt;malaysia best online casino&lt;/a&gt; play online casino games for real cash.'),
 (5, '.Victrookykifeo.', '.viktorvareg2003@gmail.com.', '.Реклама в Яндексе.', '.Я рад вас вех видеть форумчане!Реклама в интернете, любой сложности:сайт-визитка, корпоративный, интернет-магазин, лендинг, а также предлагаю сделать рекламные рассылки. &lt;a href=http://lion-reclama.tk/index.php/products-list-view.html&gt;Ссылка...&lt;/a&gt;.'),
-(6, '.Belly Dancer sah63.', '.ab.d.a.sh.a.vgr.eg.@gmail.com.', '.[url=http://www.youtube.com/user/YuliannaVoronina/]1 piece belly dance costume[/url].', '.belly dancer, belly dance songs, belly dance tutorial, belly dance kids, belly dance india, belly dance shakira, belly dance tik tok, belly dance drum solo, belly dance on, belly dance anime, belly dance at home, belly dance akon, belly dance arabic music, belly dance abs, belly dance agt, belly dance audition, belly dance asia, belly dance arms, belly dance at wedding, a belly dance song, a belly dancer,selina b belly dance, maya b belly dance reaction, kaur b belly dance, belly dance r&amp;b, belly dance choreography, belly dance cardio, belly dance cringe, belly dance cover, belly dance close up, belly dance cartoon, belly dance costumes, belly dance china \r\n&lt;a href=http://www.youtube.com/watch?v=JdbheaybTIU&gt;how to become a belly dancer&lt;/a&gt; \r\n&lt;a href=http://www.youtube.com/watch?v=JdbheaybTIU&gt;mp3 belly dance drum solo&lt;/a&gt; \r\n&lt;a href=http://www.youtube.com/user/YuliannaVoronina/&gt;3/4 shimmy belly dance&lt;/a&gt; \r\n&lt;a href=http://www.youtube.com/watch?v=JdbheaybTIU&gt;lati k belly dance&lt;/a&gt; \r\nhttp://www.youtube.com/watch?v=-GirH7y0klU - zin 75 belly dance \r\n&lt;a href=http://www.youtube.com/watch?v=Nnfi3NTxWnw&gt;belly dance drum solo choreography&lt;/a&gt; \r\n&lt;a href=http://www.youtube.com/watch?v=Nnfi3NTxWnw&gt;belly dance drum solo darbuka&lt;/a&gt; \r\nhttp://www.youtube.com/watch?v=JdbheaybTIU \r\nhttp://www.youtube.com/watch?v=U_xCzTq2ppI&amp;t=25s \r\nhttp://www.youtube.com/watch?v=-GirH7y0klU \r\nhttp://www.youtube.com/watch?v=PzcCOHwnPpY \r\nhttp://www.youtube.com/user/YuliannaVoronina/ \r\nhttp://www.youtube.com/watch?v=KxhSW7Q1xeM \r\nhttp://www.youtube.com/watch?v=Nnfi3NTxWnw \r\nhttp://www.youtube.com/watch?v=9U6-snryMf4 \r\nhttp://www.youtube.com/watch?v=kpSuGyBIOIE \r\nhttp://www.youtube.com/watch?v=BODdPUsCuZ4 \r\nhttp://www.youtube.com/watch?v=sNxdCUVOtVM \r\nhttp://www.youtube.com/watch?v=JdbheaybTIU&amp;list=PLqqerD_YYsIr4-6DZyUv6gQCAofEQcBpw \r\nbelly dance.');
+(6, '.Belly Dancer sah63.', '.ab.d.a.sh.a.vgr.eg.@gmail.com.', '.[url=http://www.youtube.com/user/YuliannaVoronina/]1 piece belly dance costume[/url].', '.belly dancer, belly dance songs, belly dance tutorial, belly dance kids, belly dance india, belly dance shakira, belly dance tik tok, belly dance drum solo, belly dance on, belly dance anime, belly dance at home, belly dance akon, belly dance arabic music, belly dance abs, belly dance agt, belly dance audition, belly dance asia, belly dance arms, belly dance at wedding, a belly dance song, a belly dancer,selina b belly dance, maya b belly dance reaction, kaur b belly dance, belly dance r&amp;b, belly dance choreography, belly dance cardio, belly dance cringe, belly dance cover, belly dance close up, belly dance cartoon, belly dance costumes, belly dance china \r\n&lt;a href=http://www.youtube.com/watch?v=JdbheaybTIU&gt;how to become a belly dancer&lt;/a&gt; \r\n&lt;a href=http://www.youtube.com/watch?v=JdbheaybTIU&gt;mp3 belly dance drum solo&lt;/a&gt; \r\n&lt;a href=http://www.youtube.com/user/YuliannaVoronina/&gt;3/4 shimmy belly dance&lt;/a&gt; \r\n&lt;a href=http://www.youtube.com/watch?v=JdbheaybTIU&gt;lati k belly dance&lt;/a&gt; \r\nhttp://www.youtube.com/watch?v=-GirH7y0klU - zin 75 belly dance \r\n&lt;a href=http://www.youtube.com/watch?v=Nnfi3NTxWnw&gt;belly dance drum solo choreography&lt;/a&gt; \r\n&lt;a href=http://www.youtube.com/watch?v=Nnfi3NTxWnw&gt;belly dance drum solo darbuka&lt;/a&gt; \r\nhttp://www.youtube.com/watch?v=JdbheaybTIU \r\nhttp://www.youtube.com/watch?v=U_xCzTq2ppI&amp;t=25s \r\nhttp://www.youtube.com/watch?v=-GirH7y0klU \r\nhttp://www.youtube.com/watch?v=PzcCOHwnPpY \r\nhttp://www.youtube.com/user/YuliannaVoronina/ \r\nhttp://www.youtube.com/watch?v=KxhSW7Q1xeM \r\nhttp://www.youtube.com/watch?v=Nnfi3NTxWnw \r\nhttp://www.youtube.com/watch?v=9U6-snryMf4 \r\nhttp://www.youtube.com/watch?v=kpSuGyBIOIE \r\nhttp://www.youtube.com/watch?v=BODdPUsCuZ4 \r\nhttp://www.youtube.com/watch?v=sNxdCUVOtVM \r\nhttp://www.youtube.com/watch?v=JdbheaybTIU&amp;list=PLqqerD_YYsIr4-6DZyUv6gQCAofEQcBpw \r\nbelly dance.'),
+(7, '.suera.', '.frederic.mouronval@orange.fr.', '.Отзыв Мосстеклосталь.', '.В июне 2018 года ООО &laquo;МОССТЕКЛОСТАЛЬ&raquo; выполнило строительно-монтажные работы по устройству дверей, окон  и противопожарных перегородок на объекте апарт-отель &laquo;Де Люкс&raquo;  Работы, выполняемые компанией ООО &laquo;МОССТЕКЛОСТАЛЬ&raquo;велись в строгом   соответствии с проектно-технологической документацией и требованиями нормативных документов. Хочется отметить технически грамотную организацию проводимых работ, высокий уровень квалификации специалистов и большое внимание, уделяемое качеству \r\nООО &laquo;Спецработы&raquo; \r\n.');
 
 -- --------------------------------------------------------
 
@@ -116,10 +117,23 @@ INSERT INTO `meta_contact` (`id`, `birthday`, `fio`, `email`) VALUES
 
 CREATE TABLE IF NOT EXISTS `meta_title` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(90) NOT NULL,
-  `url` varchar(50) NOT NULL,
+  `title_meta` varchar(90) NOT NULL,
+  `url_meta` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `meta_title`
+--
+
+INSERT INTO `meta_title` (`id`, `title_meta`, `url_meta`) VALUES
+(1, 'Главная страница о Сергее Слепенкова', '?page=main'),
+(2, 'Навыки', '?page=experience'),
+(3, 'Проекты', '?page=project'),
+(4, 'Контакты', '?page=contacts'),
+(5, 'Работы по графическому дизайну', '?page=design'),
+(6, 'Отзывы', '?page=comments'),
+(7, 'Главная страница о Сергее Слепенкова', NULL);
 
 -- --------------------------------------------------------
 

@@ -34,6 +34,10 @@ p {
 .fa-vk {
   color: #2c54ff;
 }
+.fa-user-secret,
+.fa-calendar {
+  margin-right: 5px;
+}
 button {
   background: #000;
   color: #fff;
@@ -51,6 +55,61 @@ button:active {
   margin: 10px;
   padding: 15px;
   border-radius: 15px;
+}
+.container_block-head {
+  margin-bottom: 15px;
+}
+.head_block {
+  width: 100%;
+  display: table;
+}
+.block_cell {
+  display: table-cell;
+  width: 50%;
+}
+.block_icon {
+  float: right;
+}
+.block_icon .img_icon {
+  float: left;
+  display: table;
+}
+.block_icon .img_icon .img_icons {
+  background: url(../img/icons.png) 0 0 no-repeat;
+  width: 48px;
+  height: 48px;
+  display: block;
+  float: left;
+}
+.block_icon .img_icon .icon1 {
+  width: 48px;
+  height: 48px;
+  background-position: 0 0;
+}
+.block_icon .img_icon .icon2 {
+  width: 48px;
+  height: 48px;
+  background-position: -48px 0;
+}
+.block_icon .img_icon .icon3 {
+  width: 48px;
+  height: 48px;
+  background-position: -96px 0;
+}
+.block_icon .img_icon .icon4 {
+  width: 48px;
+  height: 48px;
+  background-position: -144px 0;
+}
+.block_icon .img_icon .icon5 {
+  width: 48px;
+  height: 48px;
+  background-position: -192px 0;
+}
+.block_icon .img_icon .icon6 {
+  width: 48px;
+  height: 48px;
+  background-position: -240px 0;
 }
 .cobtainer {
   width: 100%;
@@ -384,50 +443,6 @@ button:active {
 }
 .cobtainer .cellar p {
   color: #fff;
-}
-.cobtainer .cellar .block_icon {
-  float: right;
-}
-.cobtainer .cellar .block_icon .img_icon {
-  float: left;
-  display: table;
-}
-.cobtainer .cellar .block_icon .img_icon .img_icons {
-  background: url(../img/icons.png) 0 0 no-repeat;
-  width: 48px;
-  height: 48px;
-  display: block;
-  float: left;
-}
-.cobtainer .cellar .block_icon .img_icon .icon1 {
-  width: 48px;
-  height: 48px;
-  background-position: 0 0;
-}
-.cobtainer .cellar .block_icon .img_icon .icon2 {
-  width: 48px;
-  height: 48px;
-  background-position: -48px 0;
-}
-.cobtainer .cellar .block_icon .img_icon .icon3 {
-  width: 48px;
-  height: 48px;
-  background-position: -96px 0;
-}
-.cobtainer .cellar .block_icon .img_icon .icon4 {
-  width: 48px;
-  height: 48px;
-  background-position: -144px 0;
-}
-.cobtainer .cellar .block_icon .img_icon .icon5 {
-  width: 48px;
-  height: 48px;
-  background-position: -192px 0;
-}
-.cobtainer .cellar .block_icon .img_icon .icon6 {
-  width: 48px;
-  height: 48px;
-  background-position: -240px 0;
 }
 @keyframes burger {
   from {

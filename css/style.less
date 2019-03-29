@@ -42,6 +42,9 @@ p{
     &-vk{
         color: #2c54ff;
     }
+    &-user-secret, &-calendar{
+        margin-right: 5px;
+    }
 }
 button{
     background: @bg-black;
@@ -62,9 +65,67 @@ button{
         padding: 15px;
         border-radius: 15px;
         &-head{
-
+            margin-bottom: 15px;
         }
 
+    }
+}
+.head{
+    &_block{
+        width: 100%;
+        display: table;
+
+    }
+}
+.block {
+    &_cell{
+        display: table-cell;
+        width: 50%;
+    }
+    &_icon {
+        float: right;
+        @wh: 48px;
+        .img_icon {
+            float: left;
+            display: table;
+            .img_icons {
+                background: url(../img/icons.png) 0 0 no-repeat;
+                width: 48px;
+                height: 48px;
+                display: block;
+                float: left;
+            }
+            .icon1 {
+                width: @wh;
+                height: @wh;
+                background-position: 0 0;
+            }
+            .icon2 {
+                width: @wh;
+                height: @wh;
+                background-position: -48px 0;
+            }
+            .icon3 {
+                width: @wh;
+                height: @wh;
+                background-position: -96px 0;
+            }
+            .icon4 {
+                width: @wh;
+                height: @wh;
+                background-position: -144px 0;
+            }
+            .icon5 {
+                width: @wh;
+                height: @wh;
+                background-position: -192px 0;
+            }
+            .icon6 {
+                width: @wh;
+                height: @wh;
+                background-position: -240px 0;
+            }
+        }
     }
 }
 .cobtainer {
@@ -406,53 +467,7 @@ button{
         p {
             color: @cr-white;
         }
-        .block {
-            &_icon {
-                float: right;
-                @wh: 48px;
-                .img_icon {
-                    float: left;
-                    display: table;
-                    .img_icons {
-                        background: url(../img/icons.png) 0 0 no-repeat;
-                        width: 48px;
-                        height: 48px;
-                        display: block;
-                        float: left;
-                    }
-                    .icon1 {
-                        width: @wh;
-                        height: @wh;
-                        background-position: 0 0;
-                    }
-                    .icon2 {
-                        width: @wh;
-                        height: @wh;
-                        background-position: -48px 0;
-                    }
-                    .icon3 {
-                        width: @wh;
-                        height: @wh;
-                        background-position: -96px 0;
-                    }
-                    .icon4 {
-                        width: @wh;
-                        height: @wh;
-                        background-position: -144px 0;
-                    }
-                    .icon5 {
-                        width: @wh;
-                        height: @wh;
-                        background-position: -192px 0;
-                    }
-                    .icon6 {
-                        width: @wh;
-                        height: @wh;
-                        background-position: -240px 0;
-                    }
-                }
-            }
-        }
+
     }
 }
 

@@ -17,6 +17,7 @@ if (isset($_SESSION['data'])) {?>
         if (empty($data['text'])){
             $errors[] = 'Сообщение пустое';
         }
+
         if (empty($errors)){
         $sf = do_query("SELECT COUNT(*) as count FROM `comments` WHERE `email` ='{$_SESSION['data']['email']}'");
         $sf = $sf->fetch_object();
@@ -41,6 +42,7 @@ $resist = do_query("SELECT * FROM `comments`");
 if (mysqli_num_rows($resist) > 0){
     $out = '<div class="container">';
      foreach ($resist as $item){
+         $date = new DateTime($item['data']);
          $out .= '<div class="container_block">
                      <div class="container_block-head">
                         <div class="head_block">
@@ -48,7 +50,7 @@ if (mysqli_num_rows($resist) > 0){
                                <p><i class="fa fa-user-secret fa-2x" aria-hidden="true"></i>'.$item['name'].'</p>
                             </div>
                             <div class="block_cell">
-                                <p><i class="fa fa-calendar fa-2x" aria-hidden="true"></i>'.$item['data'].'</p>
+                                <p class="text-right"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i>'. $date->format('d.m.Y H:i:s').'</p>
                             </div>            
                         </div>       
                     </div>

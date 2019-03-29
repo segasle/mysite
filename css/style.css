@@ -44,6 +44,14 @@ button:hover {
 button:active {
   background: rgba(155, 55, 77, 0.6);
 }
+.container_block {
+  background: #fff;
+  border: 2px solid #000;
+  width: 100%;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 15px;
+}
 .cobtainer {
   width: 100%;
 }

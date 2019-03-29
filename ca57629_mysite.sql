@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Мар 29 2019 г., 16:22
+-- Время создания: Мар 29 2019 г., 16:39
 -- Версия сервера: 5.6.39-83.1
 -- Версия PHP: 5.6.37
 
@@ -134,6 +134,28 @@ INSERT INTO `meta_title` (`id`, `title_meta`, `url_meta`) VALUES
 (5, 'Работы по графическому дизайну', '?page=design'),
 (6, 'Отзывы', '?page=comments'),
 (7, 'Главная страница о Сергее Слепенкова', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `products`
+--
+
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `price`) VALUES
+(1, 'Сайт визитка', 1500),
+(2, 'Интернет кафе', 7000),
+(3, 'Интернет магазин', 10000);
 
 -- --------------------------------------------------------
 

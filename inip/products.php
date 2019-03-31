@@ -2,12 +2,12 @@
 <?php
 $res = do_query("SELECT * FROM `products`");
 $out = "<div class='container'><div class='row'>";
-foreach ($res as $item){
+foreach ($res as $item) {
     $id = $item['id'];
     $out .= "<div class='col-lg-4 col-xs-12'>
                 <div class='container_block'>
                     <div class='container_block-head'>
-                        <p class='h3 text-center'>".$item['name']."</p>
+                        <p class='h3 text-center'>" . $item['name'] . "</p>
                     </div>
                     <div class='container_block-content'>
                     
@@ -15,12 +15,12 @@ foreach ($res as $item){
                     <div class='container_block-footer'>
                         <div class='footer_content'>
                             <div class='footer_content-text'>
-                                <p class='h4 text-center'>От ".$item['price']."руб</p>
+                                <p class='h4 text-center'>От " . $item['price'] . "руб</p>
                             </div> 
                             <div class='footer_content-form'>
                                 <form action='' method='post'>
                                     <div class='form-group'>
-                                        <button type='submit' class='btn w-100' name='".$id."'>Заказать</button>
+                                        <button type='submit' class='btn w-100' name='" . $id . "'>Заказать</button>
                                     </div>
                                 </form>
                             </div>
@@ -28,10 +28,10 @@ foreach ($res as $item){
                     </div>
                 </div>
             </div>";
-    if (isset($_POST[$id])){
-        if (!isset($_SESSION['data'])){
+    if (isset($_POST[$id])) {
+        if (!isset($_SESSION['data'])) {
             echo '<div class="container">
-                    <form action="">
+                    <form action="" method="post">
                         <div class="form-group">
                            <label for=""><p>Имя</p></label> 
                             <input type="email" class="form-control" placeholder="Имя" name="name">
@@ -47,10 +47,13 @@ foreach ($res as $item){
                         <button type="submit" class="btn" name="order">Отправить</button>
                     </form>
             </div>';
-        }else{
-            $data = do_query("SELECT * FROM `users` WHERE email = '{$_SESSION['email']}'");
+        } else {
+            $data = do_query("SELECT * FROM `users` WHERE email = '{$_SESSION['data']['email']}'");
+
+            //print_r($_SESSION['data']['email']);
+
         }
-           }
+    }
 }
 $out .= '</div></div>';
 echo $out;

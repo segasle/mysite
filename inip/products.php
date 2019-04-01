@@ -34,7 +34,7 @@ foreach ($res as $item) {
                     <form action="" method="post">
                         <div class="form-group">
                            <label for=""><p>Имя</p></label> 
-                            <input type="email" class="form-control" placeholder="Имя" name="name">
+                            <input type="text" class="form-control" placeholder="Имя" name="name">
                         </div>
                         <div class="form-group">
                            <label for=""><p>Email</p></label>
@@ -81,6 +81,13 @@ foreach ($res as $item) {
                 }
             }
             //$data = do_query("SELECT * FROM `users` WHERE email = '{$_SESSION['data']['email']}'");
+            if (isset($_POST['order'])){
+                $dats = $_POST;
+                $errors = array();
+                if (empty($dats['name'])){
+
+                }
+            }
 
         }
     }

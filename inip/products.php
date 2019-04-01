@@ -3,11 +3,11 @@
 $res = do_query("SELECT * FROM `products`");
 $out = "<div class='container'><div class='row'>";
 foreach ($res as $item) {
-    $id = $item['id'];
+    $id = $item['id_products'];
     $out .= "<div class='col-lg-4 col-xs-12'>
                 <div class='container_block'>
                     <div class='container_block-head'>
-                        <p class='h3 text-center'>" . $item['name'] . "</p>
+                        <p class='h3 text-center'>" . $item['name_products'] . "</p>
                     </div>
                     <div class='container_block-content'>
                     
@@ -48,9 +48,34 @@ foreach ($res as $item) {
                     </form>
             </div>';
         } else {
-            $data = do_query("SELECT * FROM `users` WHERE email = '{$_SESSION['data']['email']}'");
+            $data = mysqli_fetch_array(do_query("SELECT * FROM `users` JOIN `products` WHERE users.email = '{$_SESSION['data']['email']}' AND products.id_products = $id "));
+            if ($data){
+                $_SESSION['prod'] = $data;
 
-            //print_r($_SESSION['data']['email']);
+                if (isset($_SESSION['prod'])){
+                    print_r($_SESSION['prod']);
+                    $fio ='';
+                    foreach ($_SESSION['prod'] as $item){
+                        $fio = 'Имя и фамилия: ' .$item['name'] .' '.$item['surname'];
+                        $email = 'Почта: ' .$item['email'];
+                        $price = 'Заказ: '.$item['name_products'];
+                        //$sms = 'Сообщение: ' .$data['text'];
+                    }
+
+                    $mess = $fio . '<br>'.$email.'<br>'.$price.'<br>';
+                    $to      = 'segasle@yandex.ru';
+                    $subject = 'Обратная связь';
+                    $message = "$mess";
+                    $headers = 'From: segasle@kafe-lyi.ru' . "\r\n" .
+                        'Reply-To: segasle@kafe-lyi.ru' . "\r\n" .
+                        "Content-Type: text/html; charset=\"UTF-8\"\r\n"
+                        .'X-Mailer: PHP/' . phpversion();
+
+                    mail("$to", "$subject", "$message", "$headers");
+                    echo '<div class="go">Успешно отправлено!</div>';
+                }
+            }
+            //$data = do_query("SELECT * FROM `users` WHERE email = '{$_SESSION['data']['email']}'");
 
         }
     }

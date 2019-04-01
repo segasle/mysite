@@ -48,23 +48,28 @@ foreach ($res as $item) {
                     </form>
             </div>';
         } else {
-            $data = mysqli_fetch_array(do_query("SELECT * FROM `users` JOIN `products` WHERE users.email = '{$_SESSION['data']['email']}' AND products.id_products = $id "));
+            $data = do_query("SELECT * FROM `users` JOIN `products` WHERE users.email = '{$_SESSION['data']['email']}' AND products.id_products = $id ");
             if ($data){
                 $_SESSION['prod'] = $data;
 
                 if (isset($_SESSION['prod'])){
+
+                    echo '<pre>';
                     print_r($_SESSION['prod']);
+                    echo '</pre>';
                     $fio ='';
-                    foreach ($_SESSION['prod'] as $item){
-                        $fio = 'Имя и фамилия: ' .$item['name'] .' '.$item['surname'];
-                        $email = 'Почта: ' .$item['email'];
-                        $price = 'Заказ: '.$item['name_products'];
+                    $email ='';
+                    $order ='';
+                    foreach ($_SESSION['prod'] as $value){
+                        $fio = 'Имя и фамилия: ' .$value['name'] .' '.$value['surname'];
+                        $email = 'Почта: ' .$value['email'];
+                        $order = 'Заказ: '.$value['name_products'];
                         //$sms = 'Сообщение: ' .$data['text'];
                     }
 
-                    $mess = $fio . '<br>'.$email.'<br>'.$price.'<br>';
+                    $mess = $fio . '<br>'.$email.'<br>'.$order.'<br>';
                     $to      = 'segasle@yandex.ru';
-                    $subject = 'Обратная связь';
+                    $subject = 'Заказ';
                     $message = "$mess";
                     $headers = 'From: segasle@kafe-lyi.ru' . "\r\n" .
                         'Reply-To: segasle@kafe-lyi.ru' . "\r\n" .

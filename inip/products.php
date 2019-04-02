@@ -30,23 +30,7 @@ foreach ($res as $item) {
             </div>";
     if (isset($_POST[$id])) {
         if (!isset($_SESSION['data'])) {
-            echo '<div class="container">
-                    <form action="" method="post">
-                        <div class="form-group">
-                           <label for=""><p>Имя</p></label> 
-                            <input type="text" class="form-control" placeholder="Имя" name="name">
-                        </div>
-                        <div class="form-group">
-                           <label for=""><p>Email</p></label>
-                            <input type="email" class="form-control" placeholder="Почта" name="email"> 
-                        </div>
-                        <div class="form-group">
-                           <label for=""><p>Сообщение</p></label>
-                            <textarea class="form-control" name="message"></textarea> 
-                        </div>
-                        <button type="submit" class="btn" name="order">Отправить</button>
-                    </form>
-            </div>';
+            echo '<p class="h3 text-center">Авторизовуйтесь пожалуйста, чтобы заказать сайт</p>';
         } else {
             $data = do_query("SELECT * FROM `users` JOIN `products` WHERE users.email = '{$_SESSION['data']['email']}' AND products.id_products = $id ");
             if ($data){
@@ -77,55 +61,12 @@ foreach ($res as $item) {
                         .'X-Mailer: PHP/' . phpversion();
 
                     mail("$to", "$subject", "$message", "$headers");
+                    unset($_SESSION['prod']);
                     echo '<div class="go">Успешно отправлено!</div>';
                 }
             }
             //$data = do_query("SELECT * FROM `users` WHERE email = '{$_SESSION['data']['email']}'");
-            if (isset($_POST['order'])){
-                $dats = $_POST;
-                $errors = array();
-                $email = $dats['email'];
-                if (empty($dats['name'])){
-                    $errors[] = 'Не ввели имя';
-                }
-                if (empty($dats['email'])) {
-                    $errors[] = 'Вы не ввели почту';
-                }
-                if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
-                    $errors[] = 'Вы неправильно ввели электронную почту';
-                }
-                if (empty($errors)){
-                    if (empty($dats['message'])){
-                        $sms = null;
-                    }else{
-                        $sms = $dats['message'];
-                    }
-                    $resy = do_query("INSERT INTO `order` (`name`, `email`, `sms`) VALUES ('{$dats['name']}','{$email}','{$sms}')");
-                    if ($resy){
-                        $fio ='';
-                        $email ='';
-                        $order ='';
-                        foreach ($_SESSION['prod'] as $value){
-                            $fio = 'Имя и фамилия: ' .$value['name'] .' '.$value['surname'];
-                            $email = 'Почта: ' .$value['email'];
-                            $order = 'Заказ: '.$value['name_products'];
-                            //$sms = 'Сообщение: ' .$data['text'];
-                        }
 
-                        $mess = $fio . '<br>'.$email.'<br>'.$order.'<br>';
-                        $to      = 'segasle@yandex.ru';
-                        $subject = 'Заказ';
-                        $message = "$mess";
-                        $headers = 'From: segasle@kafe-lyi.ru' . "\r\n" .
-                            'Reply-To: segasle@kafe-lyi.ru' . "\r\n" .
-                            "Content-Type: text/html; charset=\"UTF-8\"\r\n"
-                            .'X-Mailer: PHP/' . phpversion();
-
-                        mail("$to", "$subject", "$message", "$headers");
-                        echo '<div class="go">Успешно отправлено!</div>';
-                    }
-                }
-            }
 
         }
     }

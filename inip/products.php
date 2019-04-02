@@ -53,10 +53,10 @@ foreach ($res as $item) {
                 $_SESSION['prod'] = $data;
 
                 if (isset($_SESSION['prod'])){
-
-                    echo '<pre>';
-                    print_r($_SESSION['prod']);
-                    echo '</pre>';
+//
+//                    echo '<pre>';
+//                    print_r($_SESSION['prod']);
+//                    echo '</pre>';
                     $fio ='';
                     $email ='';
                     $order ='';
@@ -84,8 +84,46 @@ foreach ($res as $item) {
             if (isset($_POST['order'])){
                 $dats = $_POST;
                 $errors = array();
+                $email = $dats['email'];
                 if (empty($dats['name'])){
+                    $errors[] = 'Не ввели имя';
+                }
+                if (empty($dats['email'])) {
+                    $errors[] = 'Вы не ввели почту';
+                }
+                if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
+                    $errors[] = 'Вы неправильно ввели электронную почту';
+                }
+                if (empty($errors)){
+                    if (empty($dats['message'])){
+                        $sms = null;
+                    }else{
+                        $sms = $dats['message'];
+                    }
+                    $resy = do_query("INSERT INTO `order` (`name`, `email`, `sms`) VALUES ('{$dats['name']}','{$email}','{$sms}')");
+                    if ($resy){
+                        $fio ='';
+                        $email ='';
+                        $order ='';
+                        foreach ($_SESSION['prod'] as $value){
+                            $fio = 'Имя и фамилия: ' .$value['name'] .' '.$value['surname'];
+                            $email = 'Почта: ' .$value['email'];
+                            $order = 'Заказ: '.$value['name_products'];
+                            //$sms = 'Сообщение: ' .$data['text'];
+                        }
 
+                        $mess = $fio . '<br>'.$email.'<br>'.$order.'<br>';
+                        $to      = 'segasle@yandex.ru';
+                        $subject = 'Заказ';
+                        $message = "$mess";
+                        $headers = 'From: segasle@kafe-lyi.ru' . "\r\n" .
+                            'Reply-To: segasle@kafe-lyi.ru' . "\r\n" .
+                            "Content-Type: text/html; charset=\"UTF-8\"\r\n"
+                            .'X-Mailer: PHP/' . phpversion();
+
+                        mail("$to", "$subject", "$message", "$headers");
+                        echo '<div class="go">Успешно отправлено!</div>';
+                    }
                 }
             }
 

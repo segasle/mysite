@@ -13,7 +13,7 @@ if (isset($_SESSION['data'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="yandex-verification" content="1828ff9bd0a32839" />
+    <meta name="yandex-verification" content="1828ff9bd0a32839"/>
     <meta property="og:locale" content="ru_RU">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Сергей Слепенков - front-end разработчик">
@@ -31,25 +31,32 @@ if (isset($_SESSION['data'])) {
     <link rel="icon" href="img/logo.png" type="image/png">
     <link rel="stylesheet" href="css/style.css?t=<?php echo(microtime(true) . rand()); ?>">
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(51832964, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/51832964" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/51832964" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
 </head>
 <body>
 <div class="cobtainer">
-    <description>
+    <header>
         <div class="nenu">
             <div class="logo">
                 <a href="?page=main">
@@ -64,7 +71,8 @@ if (isset($_SESSION['data'])) {
                 <?php echo get_menu(); ?>
             </nav>
             <?php if (!isset($_SESSION['data'])) { ?>
-                <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">Авторизоваться
+                <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">
+                    Авторизоваться
                 </button>
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
@@ -91,6 +99,6 @@ if (isset($_SESSION['data'])) {
                 </form>
             <?php } ?>
         </div>
-    </description>
+    </header>
     <description>
         <div class="contain">

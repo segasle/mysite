@@ -244,24 +244,19 @@ button:active {
   z-index: 2;
   top: 100%;
 }
-.cobtainer .nenu nav ul,
-.cobtainer .nenu nav .ul_users {
-  float: left;
+.cobtainer .nenu nav ul {
   margin-bottom: 0;
 }
-.cobtainer .nenu nav ul li,
-.cobtainer .nenu nav .ul_users li {
+.cobtainer .nenu nav ul li {
   display: block;
   text-align: left;
   font-size: 16px;
   padding-left: 10px;
 }
-.cobtainer .nenu nav ul li:hover,
-.cobtainer .nenu nav .ul_users li:hover {
+.cobtainer .nenu nav ul li:hover {
   background: #b4b4b4;
 }
-.cobtainer .nenu nav ul li a,
-.cobtainer .nenu nav .ul_users li a {
+.cobtainer .nenu nav ul li a {
   color: #fff;
   display: block;
   text-decoration: none;
@@ -539,6 +534,7 @@ button:active {
   .cobtainer .nenu nav .ul_users {
     display: block;
     float: left;
+    width: 80%;
   }
   .cobtainer .nenu nav ul li,
   .cobtainer .nenu nav .ul_users li {

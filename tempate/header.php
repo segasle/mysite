@@ -55,6 +55,7 @@ if (isset($_SESSION['data'])) {
 
 </head>
 <body>
+<div class="container-fluid">
 <div class="cobtainer">
     <header>
         <div class="nenu">
@@ -100,5 +101,5 @@ if (isset($_SESSION['data'])) {
             <?php } ?>
         </div>
     </header>
-    <description>
+
         <div class="contain">

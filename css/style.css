@@ -110,6 +110,9 @@ p {
 .fa-calendar {
   margin-right: 5px;
 }
+.fa-check-square-o {
+  padding-right: 10px;
+}
 .float-left {
   float: left;
 }
@@ -136,6 +139,22 @@ button:active {
 }
 .container_block-head {
   margin-bottom: 15px;
+}
+.container_block-content {
+  border-top: 2px solid;
+  padding: 16px 0;
+  border-bottom: 2px solid;
+  margin-bottom: 23px;
+}
+.container_block-content ul {
+  list-style: none;
+  padding-left: 10px;
+}
+.container_block-content ul li {
+  line-height: 40px;
+}
+.container_block-content ul li p {
+  font-size: 15px;
 }
 .head_block {
   width: 100%;

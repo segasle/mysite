@@ -9,7 +9,7 @@ foreach ($res as $item) {
     $des = '';
     foreach ($query as $items) {
         if ($id == $items['id_id_products']) {
-            $des .= "<li class='float-left fa fa-check-square-o fa-2x'><div class='float-right'><p>" . $items['description'] . "</p></div></li>";
+            $des .= "<li><p><i class='fa fa-check-square-o fa-2x'></i>" . $items['description'] . "</p></li>";
 
         }
     }
@@ -19,6 +19,9 @@ foreach ($res as $item) {
                         <p class='h3 text-center'>" . $item['name_products'] . "</p>
                     </div>
                     <div class='container_block-content'>
+                    <div class='content_head'>
+                    <p class='h5'>В стоимость входит</p>
+</div>
                     <ul>
                   " . $des . "
 </ul>

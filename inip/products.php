@@ -1,9 +1,18 @@
 <h1>Заказ проектов</h1>
 <?php
-$res = do_query("SELECT * FROM `products` JOIN `descriptions_products` WHERE descriptions_products.id_id_products = products.id_products");
+$res = do_query("SELECT * FROM `products`");
+$query = do_query("SELECT * FROM `descriptions_products` JOIN `products` WHERE products.id_products = descriptions_products.	id_id_products");
+
 $out = "<div class='container'><div class='row'>";
 foreach ($res as $item) {
     $id = $item['id_products'];
+    $des = '';
+    foreach ($query as $items){
+        if ($id == $items['id_id_products']){
+            $des .=  "<li class='fa fa-check-square-o fa-2x'><p>".$items['description']."</p></li>";
+
+        }
+    }
     $out .= "<div class='col-lg-4 col-xs-12'>
                 <div class='container_block'>
                     <div class='container_block-head'>
@@ -11,7 +20,7 @@ foreach ($res as $item) {
                     </div>
                     <div class='container_block-content'>
                     <ul>
-                   <li class='fa fa-check-square-o fa-2x'><p>".$item['description']."</p></li>
+                  ".$des."
 </ul>
                     </div>
                     <div class='container_block-footer'>

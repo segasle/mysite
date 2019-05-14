@@ -2,22 +2,16 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost
--- Время создания: Май 14 2019 г., 19:24
--- Версия сервера: 5.6.39-83.1
--- Версия PHP: 5.6.40
+-- Хост: localhost:8889
+-- Время создания: Май 14 2019 г., 17:33
+-- Версия сервера: 5.7.23
+-- Версия PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- База данных: `ca57629_mysite`
+-- База данных: `MySitr`
 --
 
 -- --------------------------------------------------------
@@ -26,13 +20,12 @@ SET time_zone = "+00:00";
 -- Структура таблицы `comments`
 --
 
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
   `text` text NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(20) NOT NULL,
-  `email` varchar(80) NOT NULL,
-  PRIMARY KEY (`id`)
+  `email` varchar(80) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -41,12 +34,11 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- Структура таблицы `descriptions_products`
 --
 
-CREATE TABLE IF NOT EXISTS `descriptions_products` (
-  `id_descriptions` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `descriptions_products` (
+  `id_descriptions` int(11) NOT NULL,
   `id_id_products` int(11) NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id_descriptions`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `descriptions_products`
@@ -69,14 +61,13 @@ INSERT INTO `descriptions_products` (`id_descriptions`, `id_id_products`, `descr
 -- Структура таблицы `feedback`
 --
 
-CREATE TABLE IF NOT EXISTS `feedback` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `topic` varchar(255) NOT NULL,
-  `text` text NOT NULL,
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8;
+  `text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -84,12 +75,11 @@ CREATE TABLE IF NOT EXISTS `feedback` (
 -- Структура таблицы `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `menu`
@@ -111,13 +101,12 @@ INSERT INTO `menu` (`id`, `title`, `url`) VALUES
 -- Структура таблицы `meta_contact`
 --
 
-CREATE TABLE IF NOT EXISTS `meta_contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `meta_contact` (
+  `id` int(11) NOT NULL,
   `birthday` date NOT NULL,
   `fio` varchar(255) NOT NULL,
-  `email` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `email` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `meta_contact`
@@ -132,26 +121,27 @@ INSERT INTO `meta_contact` (`id`, `birthday`, `fio`, `email`) VALUES
 -- Структура таблицы `meta_title`
 --
 
-CREATE TABLE IF NOT EXISTS `meta_title` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `meta_title` (
+  `id` int(11) NOT NULL,
   `title_meta` varchar(90) NOT NULL,
   `url_meta` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `keywords_meta` varchar(100) NOT NULL,
+  `description_meta` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `meta_title`
 --
 
-INSERT INTO `meta_title` (`id`, `title_meta`, `url_meta`) VALUES
-(1, 'Главная страница о Сергее Слепенкова', '?page=main'),
-(2, 'Навыки', '?page=experience'),
-(3, 'Проекты', '?page=project'),
-(4, 'Контакты', '?page=contacts'),
-(5, 'Работы по графическому дизайну', '?page=design'),
-(6, 'Отзывы', '?page=comments'),
-(7, 'Главная страница о Сергее Слепенкова', NULL),
-(8, 'Заказ сайтов', '?page=products');
+INSERT INTO `meta_title` (`id`, `title_meta`, `url_meta`, `keywords_meta`, `description_meta`) VALUES
+(1, 'Главная страница о Сергее Слепенкова', '?page=main', 'Сергей Слепенков, back-end разработчик, верстальщик, web-программист, web-дизайнер, программист', ''),
+(2, 'Навыки', '?page=experience', 'Навыки, умение', ''),
+(3, 'Проекты', '?page=project', 'Стаж, опыт, Проекты', ''),
+(4, 'Контакты', '?page=contacts', 'Контакты Сергея Слепенкова, Контакты верстальщика, Контакты программиста , контакты разработчика', ''),
+(5, 'Работы по графическому дизайну', '?page=design', 'Графический дизайн', ''),
+(6, 'Отзывы', '?page=comments', 'Отзывы Сергея Слепенкова', ''),
+(7, 'Главная страница о Сергее Слепенкова', NULL, '', ''),
+(8, 'Заказ сайтов', '?page=products', 'Закать сайт, доработать сайт', '');
 
 -- --------------------------------------------------------
 
@@ -159,12 +149,11 @@ INSERT INTO `meta_title` (`id`, `title_meta`, `url_meta`) VALUES
 -- Структура таблицы `order`
 --
 
-CREATE TABLE IF NOT EXISTS `order` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `email` varchar(80) NOT NULL,
-  `sms` text NOT NULL,
-  PRIMARY KEY (`id`)
+  `sms` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -173,12 +162,11 @@ CREATE TABLE IF NOT EXISTS `order` (
 -- Структура таблицы `products`
 --
 
-CREATE TABLE IF NOT EXISTS `products` (
-  `id_products` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `products` (
+  `id_products` int(11) NOT NULL,
   `name_products` varchar(50) NOT NULL,
-  `price` float NOT NULL,
-  PRIMARY KEY (`id_products`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `price` float NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `products`
@@ -195,14 +183,13 @@ INSERT INTO `products` (`id_products`, `name_products`, `price`) VALUES
 -- Структура таблицы `projects`
 --
 
-CREATE TABLE IF NOT EXISTS `projects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `projects` (
+  `id` int(11) NOT NULL,
   `link` text NOT NULL,
   `title` varchar(255) NOT NULL,
   `img` text NOT NULL,
-  `data` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `data` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `projects`
@@ -220,15 +207,14 @@ INSERT INTO `projects` (`id`, `link`, `title`, `img`, `data`) VALUES
 -- Структура таблицы `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `email` varchar(80) NOT NULL,
   `name` varchar(20) NOT NULL,
   `surname` varchar(50) NOT NULL,
   `token` varchar(255) NOT NULL,
-  `id_users` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `id_users` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
@@ -238,6 +224,130 @@ INSERT INTO `users` (`id`, `email`, `name`, `surname`, `token`, `id_users`) VALU
 (1, 'segasle@gmail.com', 'Сергей', 'Слепенков', 'e4401f122e6c0e10d72f40bf6a6215b532d63f6fd14295f4bd2ec163514efb5815b5ccf2f2d3c1155fe9b', 176938709),
 (2, 'Dendmisle@gmail.com', 'Даниил', 'Слепенков', '45c27e39664494cdbdc3adaa29d77ab17ac8ed0f5527cf234a23724102c150df8fb931d2701abffcefc5b', 514298316);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `descriptions_products`
+--
+ALTER TABLE `descriptions_products`
+  ADD PRIMARY KEY (`id_descriptions`);
+
+--
+-- Индексы таблицы `feedback`
+--
+ALTER TABLE `feedback`
+  ADD KEY `id` (`id`);
+
+--
+-- Индексы таблицы `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `meta_contact`
+--
+ALTER TABLE `meta_contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `meta_title`
+--
+ALTER TABLE `meta_title`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id_products`);
+
+--
+-- Индексы таблицы `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `descriptions_products`
+--
+ALTER TABLE `descriptions_products`
+  MODIFY `id_descriptions` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT для таблицы `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+
+--
+-- AUTO_INCREMENT для таблицы `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT для таблицы `meta_contact`
+--
+ALTER TABLE `meta_contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `meta_title`
+--
+ALTER TABLE `meta_title`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT для таблицы `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `products`
+--
+ALTER TABLE `products`
+  MODIFY `id_products` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

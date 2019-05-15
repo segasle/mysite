@@ -44,7 +44,27 @@ foreach ($res as $item) {
             </div>";
     if (isset($_POST[$id])) {
         if (!isset($_SESSION['data'])) {
-            echo '<p class="h3 text-center">Авторизовуйтесь пожалуйста, чтобы заказать сайт</p>';
+           // echo '<p class="h3 text-center">Авторизовуйтесь пожалуйста, чтобы заказать сайт</p>';
+            echo '<p class="h3 text-center">Заполните анкету</p>';
+            echo ' <form action=\'\' method=\'post\'>
+                                  <div class="input-group input-group-lg">
+  <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle fa-3x" aria-hidden="true"></i></span>
+  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
+</div>
+
+<div class="input-group">
+  <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></span>
+  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+</div>
+
+<div class="input-group input-group-sm">
+  <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-commenting fa-3x" aria-hidden="true"></i></span>
+  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+</div>
+ <div class=\'form-group\'>
+                                        <button type=\'submit\' class=\'btn w-100\' name=\'" . $id . "\'>Отправить</button>
+                                    </div>
+                                </form>';
         } else {
             $data = do_query("SELECT * FROM `users` JOIN `products` WHERE users.email = '{$_SESSION['data']['email']}' AND products.id_products = $id ");
             if ($data) {

@@ -79,7 +79,12 @@ foreach ($res as $item) {
                     $errors[] = 'Вы неправильно ввели электронную почту';
                 }
                 if (empty($errors)){
-
+                    if (empty($data['sms'])){
+                        $sms = null;
+                    }else{
+                        $sms = $data['sms'];
+                    }
+                    $gas = do_query("INSERT INTO `order`(`id`, `name`, `email`, `sms`) VALUES ([value-1],[value-2],[value-3],[value-4])");
                 }else{
                     echo '<div class="errors">'.array_shift($errors).'</div>>';
                 }

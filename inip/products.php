@@ -44,27 +44,46 @@ foreach ($res as $item) {
             </div>";
     if (isset($_POST[$id])) {
         if (!isset($_SESSION['data'])) {
-           // echo '<p class="h3 text-center">Авторизовуйтесь пожалуйста, чтобы заказать сайт</p>';
+            // echo '<p class="h3 text-center">Авторизовуйтесь пожалуйста, чтобы заказать сайт</p>';
             echo '<p class="h3 text-center">Заполните анкету</p>';
             echo ' <form action=\'\' method=\'post\'>
                                   <div class="input-group input-group-lg">
   <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle fa-3x" aria-hidden="true"></i></span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
+  <input type="text" class="form-control" name="name" placeholder="Имя" aria-describedby="sizing-addon1">
 </div>
 
 <div class="input-group">
   <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+  <input type="text" class="form-control" name="email" placeholder="Email" aria-describedby="sizing-addon2">
 </div>
 
 <div class="input-group input-group-sm">
   <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-commenting fa-3x" aria-hidden="true"></i></span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+  <textarea cols="10" rows="10" class="form-control" name="sms" placeholder="Cообщения" aria-describedby="sizing-addon3"></textarea>
 </div>
  <div class=\'form-group\'>
-                                        <button type=\'submit\' class=\'btn w-100\' name=\'" . $id . "\'>Отправить</button>
+                                        <button type=\'submit\' class=\'btn w-100\' name="submit">Отправить</button>
                                     </div>
                                 </form>';
+            if (isset($_POST['submit'])){
+                $data = $_POST;
+                $errors = array();
+                $email = $data['email'];
+                if (empty($data['name'])){
+                   $errors[] = 'Не ввели имя';
+                }
+                if (empty($data['email'])) {
+                    $errors[] = 'Вы не ввели почту';
+                }
+                if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
+                    $errors[] = 'Вы неправильно ввели электронную почту';
+                }
+                if (empty($errors)){
+
+                }else{
+                    echo '<div class="errors">'.array_shift($errors).'</div>>';
+                }
+            }
         } else {
             $data = do_query("SELECT * FROM `users` JOIN `products` WHERE users.email = '{$_SESSION['data']['email']}' AND products.id_products = $id ");
             if ($data) {

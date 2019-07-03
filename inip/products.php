@@ -60,7 +60,7 @@ foreach ($res as $item) {
 <div class="input-group input-group-sm">
   <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-commenting fa-3x" aria-hidden="true"></i></span>
   <textarea cols="10" rows="10" class="form-control" name="sms" placeholder="Cообщения" aria-describedby="sizing-addon3"></textarea>
-</div>
+</div>=
  <div class=\'form-group\'>
                                         <button type=\'submit\' class=\'btn w-100\' name="submit">Отправить</button>
                                     </div>

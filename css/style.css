@@ -90,6 +90,13 @@ div:before {
 .col-xl-auto {
   z-index: 1;
 }
+form {
+  padding-bottom: 20px;
+}
+.form_grog-text {
+  font-size: 17px;
+  padding-bottom: 15px;
+}
 .go,
 .errors {
   background: #4cae4c;
@@ -128,6 +135,13 @@ button:hover {
 }
 button:active {
   background: rgba(155, 55, 77, 0.6);
+}
+h1,
+h2 {
+  text-align: center;
+}
+.w100 {
+  width: 100%;
 }
 .container_block {
   background: #fff;
@@ -298,10 +312,6 @@ button:active {
 .cobtainer .contain {
   background: #b4b4b4;
   padding: 15px 15px;
-}
-.cobtainer .contain h1,
-.cobtainer .contain h2 {
-  text-align: center;
 }
 .cobtainer .contain .abot {
   margin: 20px auto;

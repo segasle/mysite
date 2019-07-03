@@ -96,13 +96,25 @@ h2 {
 .w100 {
   width: 100%;
 }
-.nav{
-    &-tabs{
-        width: 100%;
-        display: table;
-        
+
+.nav {
+  &-tabs {
+    width: 50%;
+    display: table;
+
+    li {
+      display: table-cell;
+      text-align: center;
+      padding: 20px 0;
+      background: @bg-gray;
+      a{
+        color: @bg-black;
+      }
+
     }
+  }
 }
+
 .container {
   &_block {
     background: @cr-white;

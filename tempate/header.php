@@ -81,12 +81,16 @@ if (isset($_SESSION['data'])) {
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="text-center" id="myModalLabel">Вход</h4>
+                                    <ul class="nav-tabs">
+                                        <li><a href="">Вход</a></li>
+                                        <li><a href="">Регистрация</a></li>
+                                    </ul>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
+
                                     <form action="" method="post">
                                         <div class="form_grog">
                                             <div class="form_grog-text">

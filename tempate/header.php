@@ -57,50 +57,69 @@ if (isset($_SESSION['data'])) {
 </head>
 <body>
 <div class="container-fluid">
-<div class="cobtainer">
-    <header>
-        <div class="nenu">
-            <div class="logo">
-                <a href="?page=main">
-                    <img src="img/logo.png" alt="">
-                </a>
-            </div>
-            <input type="checkbox" id="checkbox">
-            <label class="burger" for="checkbox">
-                <div class="burger_open"></div>
-            </label>
-            <nav>
-                <?php echo get_menu(); ?>
-            </nav>
-            <?php if (!isset($_SESSION['data'])) { ?>
-                <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">
-                    Авторизоваться
-                </button>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="text-center" id="myModalLabel">Авторизоваться</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <?php echo link_authorization(); ?>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+    <div class="cobtainer">
+        <header>
+            <div class="nenu">
+                <div class="logo">
+                    <a href="?page=main">
+                        <img src="img/logo.png" alt="">
+                    </a>
+                </div>
+                <input type="checkbox" id="checkbox">
+                <label class="burger" for="checkbox">
+                    <div class="burger_open"></div>
+                </label>
+                <nav>
+                    <?php echo get_menu(); ?>
+                </nav>
+                <?php if (!isset($_SESSION['data'])) { ?>
+                    <button type="button" class="btn btn-author" data-toggle="modal" data-target="#myModal">
+                        Авторизоваться
+                    </button>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="text-center" id="myModalLabel">Вход</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="post">
+                                        <div class="form_grog">
+                                            <div class="form_grog-text">
+                                                <p>Email</p>
+                                            </div>
+                                            <input type="email" class="form-control" name="email"
+                                                   placeholder="Введите Email">
+                                        </div>
+                                        <div class="form_grog">
+                                            <div class="form_grog-text">
+                                                <p>Пароль</p>
+                                            </div>
+                                            <input type="password" class="form-control" name="password"
+                                                   placeholder="Введите пароль">
+                                        </div>
+                                        <div class="form_grog">
+                                            <button type="submit" class="btn w100" name="submit">Отправить</button>
+                                        </div>
+                                    </form>
+                                    <?php echo link_authorization(); ?>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php } else { ?>
-                <form action="" method="post">
-                    <button type="submit" name="esc" class="btn-author btn">Выход</button>
-                </form>
-            <?php } ?>
-        </div>
-    </header>
+                <?php } else { ?>
+                    <form action="" method="post">
+                        <button type="submit" name="esc" class="btn-author btn">Выход</button>
+                    </form>
+                <?php } ?>
+            </div>
+        </header>
 
         <div class="contain">

@@ -4,7 +4,7 @@
 }
 body {
   font-family: sans-serif;
-  font-size: 13px;
+  font-size: 17px;
   color: black;
   font-weight: normal;
   text-decoration: none;
@@ -92,10 +92,6 @@ div:before {
 }
 form {
   padding-bottom: 20px;
-}
-.form_grog-text {
-  font-size: 17px;
-  padding-bottom: 15px;
 }
 .go,
 .errors {
@@ -313,69 +309,77 @@ h2 {
   background: #b4b4b4;
   padding: 15px 15px;
 }
-.cobtainer .contain .abot {
+.cobtainer .abot {
   margin: 20px auto;
   display: table;
 }
-.cobtainer .contain .abot_block {
+.cobtainer .abot_block {
   display: table;
   max-width: 380px;
 }
-.cobtainer .contain .abot_img {
+.cobtainer .abot_img {
   border-radius: 10%;
   display: block;
   width: 100%;
   border: 5px solid deepskyblue;
 }
-.cobtainer .contain .abot_container {
+.cobtainer .abot_container {
   max-width: 380px;
   margin: 10px auto;
 }
-.cobtainer .contain .abot_container_text {
+.cobtainer .abot_container_text {
   padding: 10px 0;
 }
-.cobtainer .contain .form {
+.cobtainer .form {
   background: deepskyblue;
   max-width: 380px;
   margin: 20px auto;
   padding: 20px;
 }
-.cobtainer .contain .form h2 {
+.cobtainer .form-space {
+  padding-bottom: 15px;
+}
+.cobtainer .form h2 {
   padding-bottom: 20px;
 }
-.cobtainer .contain .form_grog {
+.cobtainer .form_grog {
   width: 100%;
-  padding: 5px 0;
+  padding: 10px 0;
 }
-.cobtainer .contain .form_grog p {
+.cobtainer .form_grog-text {
+  font-size: 17px;
+  padding-bottom: 4px;
+  font-weight: 500;
+}
+.cobtainer .form_grog p {
   font-size: 15px;
 }
-.cobtainer .contain .form_grog input {
+.cobtainer .form_grog input {
   width: 100%;
   padding-left: 10px;
   font-size: 13px;
   height: 27px;
   border-radius: 10px;
-  margin: 5px 0;
+  margin: 10px 0;
 }
-.cobtainer .contain .form_grog textarea {
+.cobtainer .form_grog textarea {
   width: 100%;
-  margin: 5px 0;
+  margin: 10px 0;
   border-radius: 10px;
   padding-left: 10px;
   font-size: 13px;
 }
-.cobtainer .contain .form_grog button {
+.cobtainer .form_grog button {
   width: 100%;
   border-radius: 10px;
-  padding: 10px 0;
+  padding: 15px 0;
   font-size: 16px;
 }
-.cobtainer .contain .block-auto {
+.cobtainer .block-auto {
   display: table;
   margin: 20px auto;
 }
-.cobtainer .contain .block-auto .maps {
+.cobtainer .block-auto .maps {
   margin: 20px 0;
   min-width: 300px;
   border-radius: 5px;
@@ -384,49 +388,49 @@ h2 {
   background: #fff;
   padding: 10px 20px;
 }
-.cobtainer .contain .block-auto .maps_container {
+.cobtainer .block-auto .maps_container {
   width: 100%;
 }
-.cobtainer .contain .block-auto .maps_head {
+.cobtainer .block-auto .maps_head {
   width: 100%;
 }
-.cobtainer .contain .block-auto .maps_head img {
+.cobtainer .block-auto .maps_head img {
   display: block;
   width: 100%;
 }
-.cobtainer .contain .block-auto .maps_title {
+.cobtainer .block-auto .maps_title {
   margin: 10px 0;
 }
-.cobtainer .contain .block-auto .maps_title a {
+.cobtainer .block-auto .maps_title a {
   display: block;
   font-weight: 900;
   color: deepskyblue;
   text-align: center;
   font-size: 15px;
 }
-.cobtainer .contain .block-auto .maps_data {
+.cobtainer .block-auto .maps_data {
   float: right;
   margin: 20px 0;
 }
-.cobtainer .contain .block-auto .maps_data p {
+.cobtainer .block-auto .maps_data p {
   font-weight: bold;
   font-size: 17px;
 }
-.cobtainer .contain .block-auto .atbum_photo {
+.cobtainer .block-auto .atbum_photo {
   margin: 20px 0;
   max-width: 380px;
 }
-.cobtainer .contain .block-auto .atbum_photo img {
+.cobtainer .block-auto .atbum_photo img {
   width: 100%;
 }
-.cobtainer .contain .block-auto .atbum_photo p {
+.cobtainer .block-auto .atbum_photo p {
   margin-bottom: 0;
   background: white;
   font-weight: bold;
   text-align: center;
   padding: 5px;
 }
-.cobtainer .contain .block-auto .info {
+.cobtainer .block-auto .info {
   background: #fff;
   margin: 10px 0;
   border-color: #000;
@@ -435,29 +439,29 @@ h2 {
   padding: 10px;
   width: 100%;
 }
-.cobtainer .contain .block-auto .info_fio,
-.cobtainer .contain .block-auto .info_birthday,
-.cobtainer .contain .block-auto .info_email {
+.cobtainer .block-auto .info_fio,
+.cobtainer .block-auto .info_birthday,
+.cobtainer .block-auto .info_email {
   border-bottom: 2px solid #000;
   padding: 6px 0;
 }
-.cobtainer .contain .block-auto .info_fio p span,
-.cobtainer .contain .block-auto .info_birthday p span,
-.cobtainer .contain .block-auto .info_email p span {
+.cobtainer .block-auto .info_fio p span,
+.cobtainer .block-auto .info_birthday p span,
+.cobtainer .block-auto .info_email p span {
   font-weight: bold;
   text-transform: uppercase;
 }
-.cobtainer .contain .skills {
+.cobtainer .skills {
   max-width: 720px;
 }
-.cobtainer .contain .skills_grog {
+.cobtainer .skills_grog {
   margin: 20px 0;
 }
-.cobtainer .contain .skills_grog p {
+.cobtainer .skills_grog p {
   padding: 10px 0;
   font-weight: bold;
 }
-.cobtainer .contain .skills_grog_line {
+.cobtainer .skills_grog_line {
   overflow: hidden;
   background: #fff;
   width: 100%;
@@ -465,36 +469,36 @@ h2 {
   border-radius: 5px 20px 20px 5px;
   position: relative;
 }
-.cobtainer .contain .skills_grog_line_filling {
+.cobtainer .skills_grog_line_filling {
   background: deepskyblue;
   height: 50px;
   border-radius: 5px 20px 20px 5px;
 }
-.cobtainer .contain .skills_grog_line_filling_1 {
+.cobtainer .skills_grog_line_filling_1 {
   width: 80%;
   animation-name: driving;
   animation-duration: 5s;
   animation-delay: 1s;
 }
-.cobtainer .contain .skills_grog_line_filling_2 {
+.cobtainer .skills_grog_line_filling_2 {
   width: 100%;
   animation-name: driving2;
   animation-duration: 5s;
   animation-delay: 2s;
 }
-.cobtainer .contain .skills_grog_line_filling_3 {
+.cobtainer .skills_grog_line_filling_3 {
   width: 95%;
   animation-name: driving3;
   animation-duration: 5s;
   animation-delay: 3s;
 }
-.cobtainer .contain .skills_grog_line_filling_4 {
+.cobtainer .skills_grog_line_filling_4 {
   width: 50%;
   animation-name: driving4;
   animation-duration: 5s;
   animation-delay: 4s;
 }
-.cobtainer .contain .skills_grog_line_filling_5 {
+.cobtainer .skills_grog_line_filling_5 {
   width: 25%;
   animation-name: driving5;
   animation-duration: 5s;
@@ -540,11 +544,11 @@ h2 {
     width: 25%;
   }
 }
-.cobtainer .cellar {
+.cellar {
   padding: 5px 10px;
   background: #000;
 }
-.cobtainer .cellar p {
+.cellar p {
   color: #fff;
 }
 @keyframes burger {

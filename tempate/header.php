@@ -106,6 +106,7 @@ if (isset($_SESSION['data'])) {
                                             <button type="submit" class="btn w100" name="submit">Отправить</button>
                                         </div>
                                     </form>
+                                    <p>Или авторизуйтесь с помощью соц сети</p>
                                     <?php echo link_authorization(); ?>
                                 </div>
                                 <div class="modal-footer">

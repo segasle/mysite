@@ -116,6 +116,9 @@ h2 {
 }
 
 .container {
+  &-fluid{
+    padding: 0;
+  }
   &_block {
     background: @cr-white;
     border: 2px solid @bg-black;
@@ -228,7 +231,7 @@ h2 {
     display: block;
     height: 60px;
     background: @bg-black;
-
+    overflow-x: hidden;
     .btn-author {
       position: absolute;
       right: 70px;
@@ -619,7 +622,7 @@ h2 {
 .cellar {
   padding: 5px 10px;
   background: @bg-black;
-
+  overflow-x: hidden;
   p {
     color: @cr-white;
   }

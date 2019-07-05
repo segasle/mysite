@@ -70,3 +70,41 @@ function get_contact()
     }
     return $out;
 }
+
+function reg()
+{
+    if (isset($_POST['submitreg'])) {
+        $data = $_POST;
+        $out = '';
+        if (isset($data['check'])) {
+            $errors = array();
+            $email = $data['emailreg'];
+            if (empty($email)) {
+                $errors[] = 'Не ввели почту';
+                if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
+                    $errors[] = 'Вы неправильно ввели электронную почту';
+                }
+            }
+
+            if (empty($data['passwordreg']) or strlen($data['passwordreg']) < 8 ){
+                $errors[] = 'Короткий пароль';
+            }
+            if ($data['passwordreg2'] != $data['passwordreg']){
+                $errors[] = 'Не совпадает пароль';
+            }
+            if (empty($data['namereg']) or strlen($data['namereg']) < 2){
+                $errors[] = 'Не ввели имя';
+            }
+            if (empty($errors)) {
+
+            } else {
+                echo '<div class="errors">' . array_shift($errors) . '</div>';
+            }
+        } else {
+            echo '<div class="errors"> Не поставили галочку</div>;';
+        }
+        //return $out;
+        //echo '';
+    }
+
+}

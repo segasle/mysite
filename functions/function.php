@@ -96,7 +96,21 @@ function reg()
                 $errors[] = 'Не ввели имя';
             }
             if (empty($errors)) {
-
+                $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$email}'");
+                $result = $result->fetch_object();
+                if (empty($result->count)){
+                    $query = do_query("INSERT INTO `users`(`email`, `name`,`password`) VALUES ('{$email}','{$data['namereg']}','" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "')");
+                    if ($query){
+                        echo '<div class="go">Успешно зарегистровались</div>';
+                    }
+                }else{
+                    echo 'werrrrt';
+                    $quer =do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
+                    echo 'qwertyui';
+                    if ($quer){
+                        echo '<div class="go">Успешно зарегистровались</div>';
+                    }
+                }
             } else {
                 echo '<div class="errors">' . array_shift($errors) . '</div>';
             }

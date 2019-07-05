@@ -86,7 +86,7 @@ if (isset($_SESSION['data'])) {
                          aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                                               <div class="modal-header">
+                                <div class="modal-header">
                                     <p class="h4">Вход</p>
 
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -111,7 +111,7 @@ if (isset($_SESSION['data'])) {
                                                    placeholder="Введите пароль">
                                         </div>
                                         <div class="form_grog">
-                                            <button type="submit" class="btn w100" name="submit">Отправить</button>
+                                            <button type="submit" class="btn w100" name="submit">Войти</button>
                                         </div>
                                     </form>
                                     <p>Или авторизуйтесь с помощью соц сети</p>
@@ -141,18 +141,32 @@ if (isset($_SESSION['data'])) {
                                             <div class="form_grog-text">
                                                 <p>Email</p>
                                             </div>
-                                            <input type="email" class="form-control" name="email"
+                                            <input type="email" class="form-control" name="emailreg"
                                                    placeholder="Введите Email">
                                         </div>
                                         <div class="form_grog">
                                             <div class="form_grog-text">
                                                 <p>Пароль</p>
                                             </div>
-                                            <input type="password" class="form-control" name="password"
+                                            <input type="password" class="form-control" name="passwordreg"
                                                    placeholder="Введите пароль">
                                         </div>
                                         <div class="form_grog">
-                                            <button type="submit" class="btn w100" name="submit">Отправить</button>
+                                            <div class="form_grog-text">
+                                                <p>Подтыердите пароль</p>
+                                            </div>
+                                            <input type="password" class="form-control" name="passwordreg2"
+                                                   placeholder="Введите пароль">
+                                        </div>
+                                        <div class="form_grog">
+                                            <div class="form_grog-text">
+                                                <p>Как вас зовут?</p>
+                                            </div>
+                                            <input type="text" class="form-control" name="namereg"
+                                                   placeholder="Введите имя">
+                                        </div>
+                                        <div class="form_grog">
+                                            <button type="submit" class="btn w100" name="submit">Регистрация</button>
                                         </div>
                                     </form>
                                 </div>

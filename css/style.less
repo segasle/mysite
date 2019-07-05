@@ -122,11 +122,17 @@ h2 {
   &_block {
     background: @cr-white;
     border: 2px solid @bg-black;
+    height: 100%;
+    position: relative;
     width: 100%;
     margin: 10px;
     padding: 15px;
     border-radius: 15px;
-
+    &-footer{
+      //position: absolute;
+      //bottom: 0;
+     // width: 100%;
+    }
     &-head {
       margin-bottom: 15px;
     }
@@ -231,7 +237,7 @@ h2 {
     display: block;
     height: 60px;
     background: @bg-black;
-    overflow-x: hidden;
+   // overflow-x: hidden;
     .btn-author {
       position: absolute;
       right: 70px;
@@ -359,7 +365,7 @@ h2 {
   .form {
     @width: 100%;
     @br: 10px;
-    @mp: 10px;
+    @mp: 5px;
     background: @bg-bg;
     max-width: 380px;
     margin: 20px auto;
@@ -390,8 +396,8 @@ h2 {
       input {
         width: @width;
         padding-left: 10px;
-        font-size: 13px;
-        height: 27px;
+        font-size: 17px;
+        height: 40px;
         border-radius: @br;
         margin: @mp 0;
       }

@@ -66,7 +66,7 @@ if (isset($_SESSION['data'])) {
                     </a>
                 </div>
                 <input type="checkbox" id="checkbox">
-                <label class="burger" for="checkbox">
+                <label class="burger label-none" for="checkbox">
                     <div class="burger_open"></div>
                 </label>
                 <nav>
@@ -135,14 +135,14 @@ if (isset($_SESSION['data'])) {
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
+                                    <?php reg();?>
                                     <form action="" method="post">
                                         <div class="form_grog">
                                             <div class="form_grog-text">
                                                 <p>Email</p>
                                             </div>
                                             <input type="email" class="form-control" name="emailreg"
-                                                   placeholder="Введите Email">
+                                                   placeholder="Введите Email" value="<?php echo @$_POST['emailreg']; ?>">
                                         </div>
                                         <div class="form_grog">
                                             <div class="form_grog-text">
@@ -165,8 +165,13 @@ if (isset($_SESSION['data'])) {
                                             <input type="text" class="form-control" name="namereg"
                                                    placeholder="Введите имя">
                                         </div>
+                                        <div class="checkbox">
+                                            <label for="">
+                                                <input type="checkbox" name="check">Вы должны согласиться на обработку персональных данных
+                                            </label>
+                                        </div>
                                         <div class="form_grog">
-                                            <button type="submit" class="btn w100" name="submit">Регистрация</button>
+                                            <button type="submit" class="btn w100" name="submitreg">Регистрация</button>
                                         </div>
                                     </form>
                                 </div>

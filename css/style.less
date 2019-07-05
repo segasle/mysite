@@ -254,13 +254,14 @@ h2 {
       }
     }
 
-    label {
-      cursor: pointer;
-      z-index: 2;
-      position: absolute;
-      display: block;
+    .label {
+      &-none {
+        cursor: pointer;
+        z-index: 2;
+        position: absolute;
+        display: block;
+      }
     }
-
     .burger {
       width: 50px;
       height: 50px;
@@ -407,7 +408,7 @@ h2 {
         margin: @mp 0;
         border-radius: @br;
         padding-left: 10px;
-        font-size: 13px;
+        font-size: 17px;
       }
 
       button {
@@ -649,7 +650,7 @@ h2 {
 @media (min-width: 960px) {
   .cobtainer {
     .nenu {
-      label,
+      .label-none,
       .burger,
       .burger_open {
         display: none;

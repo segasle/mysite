@@ -114,6 +114,13 @@ if (isset($_SESSION['data'])) {
                                             <button type="submit" class="btn w100" name="submit">Войти</button>
                                         </div>
                                     </form>
+                                    <div class="recovery">
+
+                                        <button type="button" class="btn float-right" data-toggle="modal"
+                                                data-target="#myModal3">
+                                            Забыли пароль?
+                                        </button>
+                                    </div>
                                     <p>Или авторизуйтесь с помощью соц сети</p>
                                     <?php echo link_authorization(); ?>
                                 </div>
@@ -135,14 +142,15 @@ if (isset($_SESSION['data'])) {
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <?php reg();?>
+                                    <?php reg(); ?>
                                     <form action="" method="post">
                                         <div class="form_grog">
                                             <div class="form_grog-text">
                                                 <p>Email</p>
                                             </div>
                                             <input type="email" class="form-control" name="emailreg"
-                                                   placeholder="Введите Email" value="<?php echo @$_POST['emailreg']; ?>">
+                                                   placeholder="Введите Email"
+                                                   value="<?php echo @$_POST['emailreg']; ?>">
                                         </div>
                                         <div class="form_grog">
                                             <div class="form_grog-text">
@@ -167,11 +175,59 @@ if (isset($_SESSION['data'])) {
                                         </div>
                                         <div class="checkbox">
                                             <label for="">
-                                                <input type="checkbox" name="check">Вы должны согласиться на обработку персональных данных
+                                                <input type="checkbox" name="check">Вы должны согласиться на обработку
+                                                персональных данных
                                             </label>
                                         </div>
                                         <div class="form_grog">
                                             <button type="submit" class="btn w100" name="submitreg">Регистрация</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <p class="h4 modal-title">Восстановление пароля</p>
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <?php reg(); ?>
+                                    <form action="" method="post">
+                                        <div class="form_grog">
+                                            <div class="form_grog-text">
+                                                <p>Email</p>
+                                            </div>
+                                            <input type="email" class="form-control" name="emailrecovery"
+                                                   placeholder="Введите Email"
+                                                   value="<?php echo @$_POST['emailrecovery']; ?>">
+                                        </div>
+                                        <div class="form_grog">
+                                            <div class="form_grog-text">
+                                                <p>Пароль</p>
+                                            </div>
+                                            <input type="password" class="form-control" name="passwordrecovery"
+                                                   placeholder="Введите пароль">
+                                        </div>
+                                        <div class="form_grog">
+                                            <div class="form_grog-text">
+                                                <p>Подтыердите пароль</p>
+                                            </div>
+                                            <input type="password" class="form-control" name="passwordrecovery2"
+                                                   placeholder="Введите пароль">
+                                        </div>
+                                        <div class="form_grog">
+                                            <button type="submit" class="btn w100" name="submitreg">Восстановить</button>
                                         </div>
                                     </form>
                                 </div>

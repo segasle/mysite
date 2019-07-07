@@ -106,7 +106,7 @@ function reg()
                 }else{
                     $result = mysqli_fetch_array(do_query("SELECT * FROM `users` "));
                     //$result = $result->fetch_object();
-                    if ($result['password'] == ' '){
+                    if ($result['password'] == null){
                         $quer =do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
 
                         if ($quer){

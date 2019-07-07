@@ -104,12 +104,20 @@ function reg()
                         echo '<div class="go">Успешно зарегистровались</div>';
                     }
                 }else{
-                    echo 'werrrrt';
-                    $quer =do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
-                    echo 'qwertyui';
-                    if ($quer){
-                        echo '<div class="go">Успешно зарегистровались</div>';
+                    $result = mysqli_fetch_array(do_query("SELECT * FROM `users` "));
+                    //$result = $result->fetch_object();
+                    if ($result['password'] == ' '){
+                        $quer =do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
+
+                        if ($quer){
+                            echo '<div class="go">Успешно зарегистровались</div>';
+                        }
+
+                    }else{
+                        echo '<div class="errors">Аккаунт уже создан</div>';
+
                     }
+
                 }
             } else {
                 echo '<div class="errors">' . array_shift($errors) . '</div>';

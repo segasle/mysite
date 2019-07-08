@@ -171,7 +171,8 @@ if (isset($_SESSION['data'])) {
                                                 <p>Как вас зовут?</p>
                                             </div>
                                             <input type="text" class="form-control" name="namereg"
-                                                   placeholder="Введите имя">
+                                                   placeholder="Введите имя"
+                                                   value="<?php echo @$_POST['namereg']; ?>">
                                         </div>
                                         <div class="checkbox">
                                             <label for="">
@@ -202,7 +203,7 @@ if (isset($_SESSION['data'])) {
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <?php reg(); ?>
+                                    <?php recovery(); ?>
                                     <form action="" method="post">
                                         <div class="form_grog">
                                             <div class="form_grog-text">
@@ -227,7 +228,7 @@ if (isset($_SESSION['data'])) {
                                                    placeholder="Введите пароль">
                                         </div>
                                         <div class="form_grog">
-                                            <button type="submit" class="btn w100" name="submitreg">Восстановить</button>
+                                            <button type="submit" class="btn w100" name="submitrecovery">Восстановить</button>
                                         </div>
                                     </form>
                                 </div>

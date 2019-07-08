@@ -75,7 +75,6 @@ function reg()
 {
     if (isset($_POST['submitreg'])) {
         $data = $_POST;
-        $out = '';
         if (isset($data['check'])) {
             $errors = array();
             $email = $data['emailreg'];
@@ -129,4 +128,41 @@ function reg()
         //echo '';
     }
 
+}
+function recovery(){
+    if (isset($_POST['submitrecovery'])){
+        $data = $_POST;
+        $email = $data['emailrecovery'];
+        $errors = array();
+        if (empty($email)) {
+            $errors[] = 'Не ввели почту';
+            if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
+                $errors[] = 'Вы неправильно ввели электронную почту';
+            }
+        }
+        if (empty($data['passwordrecovery']) or strlen($data['passwordrecovery']) < 8 ){
+            $errors[] = 'Короткий пароль';
+        }
+        if ($data['passwordrecovery2'] != $data['passwordrecovery']){
+            $errors[] = 'Не совпадает пароль';
+        }
+        if (empty($errors)){
+            $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$email}'");
+            $result = $result->fetch_object();
+            if (!empty($result->count)){
+                $quer =do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordrecovery2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
+                if ($quer){
+                    echo '<div class="go"> Пароль удачно сменён</div>;';
+
+                }
+            }else{
+                echo '<div class="errors">Такого аккаунта нет</div>;';
+            }
+        }
+        else{
+            echo '<div class="errors">' . array_shift($errors) . '</div>';
+
+        }
+
+    }
 }

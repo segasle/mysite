@@ -122,7 +122,7 @@ function reg()
                 echo '<div class="errors">' . array_shift($errors) . '</div>';
             }
         } else {
-            echo '<div class="errors"> Не поставили галочку</div>;';
+            echo '<div class="errors"> Не поставили галочку</div>';
         }
         //return $out;
         //echo '';
@@ -154,11 +154,11 @@ function recovery()
             if (!empty($result->count)) {
                 $quer = do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordrecovery2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
                 if ($quer) {
-                    echo '<div class="go"> Пароль удачно сменён</div>;';
+                    echo '<div class="go"> Пароль удачно сменён</div>';
 
                 }
             } else {
-                echo '<div class="errors">Такого аккаунта нет</div>;';
+                echo '<div class="errors">Такого аккаунта нет</div>';
             }
         } else {
             echo '<div class="errors">' . array_shift($errors) . '</div>';
@@ -183,11 +183,10 @@ function login(){
             $res = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` = '".$email."'"));
             if ($res){
                 if (!password_verify($password, $res['password'])){
-                    echo '<div class="errors">Неверный пароль</div>;';
-
+                    echo '<div class="errors">Неверный пароль</div>';
                 }
             }else {
-                echo '<div class="errors">Такого аккаунта нет</div>;';
+                echo '<div class="errors">Такого аккаунта нет</div>';
             }
         }else{
             echo '<div class="errors">' . array_shift($errors) . '</div>';

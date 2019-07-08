@@ -94,6 +94,8 @@ if (isset($_SESSION['data'])) {
                                     </button>
                                 </div>
                                 <div class="modal-body">
+                                    <?php login(); ?>
+
                                     <form action="" method="post">
                                         <div class="form_grog">
                                             <div class="form_grog-text">

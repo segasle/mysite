@@ -94,14 +94,14 @@ if (isset($_SESSION['data'])) {
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
                                     <form action="" method="post">
                                         <div class="form_grog">
                                             <div class="form_grog-text">
                                                 <p>Email</p>
                                             </div>
                                             <input type="email" class="form-control" name="email"
-                                                   placeholder="Введите Email">
+                                                   placeholder="Введите Email"
+                                                   value="<?php echo @$_POST['email']; ?>">
                                         </div>
                                         <div class="form_grog">
                                             <div class="form_grog-text">
@@ -228,7 +228,8 @@ if (isset($_SESSION['data'])) {
                                                    placeholder="Введите пароль">
                                         </div>
                                         <div class="form_grog">
-                                            <button type="submit" class="btn w100" name="submitrecovery">Восстановить</button>
+                                            <button type="submit" class="btn w100" name="submitrecovery">Восстановить
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

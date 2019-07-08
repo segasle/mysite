@@ -85,34 +85,34 @@ function reg()
                 }
             }
 
-            if (empty($data['passwordreg']) or strlen($data['passwordreg']) < 8 ){
+            if (empty($data['passwordreg']) or strlen($data['passwordreg']) < 8) {
                 $errors[] = 'Короткий пароль';
             }
-            if ($data['passwordreg2'] != $data['passwordreg']){
+            if ($data['passwordreg2'] != $data['passwordreg']) {
                 $errors[] = 'Не совпадает пароль';
             }
-            if (empty($data['namereg']) or strlen($data['namereg']) < 2){
+            if (empty($data['namereg']) or strlen($data['namereg']) < 2) {
                 $errors[] = 'Не ввели имя';
             }
             if (empty($errors)) {
                 $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$email}'");
                 $result = $result->fetch_object();
-                if (empty($result->count)){
+                if (empty($result->count)) {
                     $query = do_query("INSERT INTO `users`(`email`, `name`,`password`) VALUES ('{$email}','{$data['namereg']}','" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "')");
-                    if ($query){
+                    if ($query) {
                         echo '<div class="go">Успешно зарегистровались</div>';
                     }
-                }else{
+                } else {
                     $result = mysqli_fetch_array(do_query("SELECT * FROM `users` "));
                     //$result = $result->fetch_object();
-                    if ($result['password'] == null){
-                        $quer =do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
+                    if ($result['password'] == null) {
+                        $quer = do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
 
-                        if ($quer){
+                        if ($quer) {
                             echo '<div class="go">Успешно зарегистровались</div>';
                         }
 
-                    }else{
+                    } else {
                         echo '<div class="errors">Аккаунт уже создан</div>';
 
                     }
@@ -129,8 +129,10 @@ function reg()
     }
 
 }
-function recovery(){
-    if (isset($_POST['submitrecovery'])){
+
+function recovery()
+{
+    if (isset($_POST['submitrecovery'])) {
         $data = $_POST;
         $email = $data['emailrecovery'];
         $errors = array();
@@ -140,29 +142,55 @@ function recovery(){
                 $errors[] = 'Вы неправильно ввели электронную почту';
             }
         }
-        if (empty($data['passwordrecovery']) or strlen($data['passwordrecovery']) < 8 ){
+        if (empty($data['passwordrecovery']) or strlen($data['passwordrecovery']) < 8) {
             $errors[] = 'Короткий пароль';
         }
-        if ($data['passwordrecovery2'] != $data['passwordrecovery']){
+        if ($data['passwordrecovery2'] != $data['passwordrecovery']) {
             $errors[] = 'Не совпадает пароль';
         }
-        if (empty($errors)){
+        if (empty($errors)) {
             $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$email}'");
             $result = $result->fetch_object();
-            if (!empty($result->count)){
-                $quer =do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordrecovery2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
-                if ($quer){
+            if (!empty($result->count)) {
+                $quer = do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordrecovery2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
+                if ($quer) {
                     echo '<div class="go"> Пароль удачно сменён</div>;';
 
                 }
-            }else{
+            } else {
                 echo '<div class="errors">Такого аккаунта нет</div>;';
             }
-        }
-        else{
+        } else {
             echo '<div class="errors">' . array_shift($errors) . '</div>';
 
         }
 
+    }
+}
+function login(){
+    if (isset($_POST['submit'])){
+        $data = $_POST;
+        $email = $data['email'];
+        $password = $data['password'];
+        $errors = array();
+        if (empty($email)) {
+            $errors[] = 'Не ввели почту';
+            if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
+                $errors[] = 'Вы неправильно ввели электронную почту';
+            }
+        }
+        if (empty($errors)){
+            $res = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` = '".$email."'"));
+            if ($res){
+                if (!password_verify($password, $res['password'])){
+                    echo '<div class="errors">Неверный пароль</div>;';
+
+                }
+            }else {
+                echo '<div class="errors">Такого аккаунта нет</div>;';
+            }
+        }else{
+            echo '<div class="errors">' . array_shift($errors) . '</div>';
+        }
     }
 }

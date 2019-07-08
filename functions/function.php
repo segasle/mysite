@@ -167,8 +167,10 @@ function recovery()
 
     }
 }
-function login(){
-    if (isset($_POST['submit'])){
+
+function login()
+{
+    if (isset($_POST['submit'])) {
         $data = $_POST;
         $email = $data['email'];
         $password = $data['password'];
@@ -179,17 +181,33 @@ function login(){
                 $errors[] = 'Вы неправильно ввели электронную почту';
             }
         }
-        if (empty($errors)){
-            $res = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` = '".$email."'"));
-            if ($res){
-                if (!password_verify($password, $res['password'])){
+        if (empty($errors)) {
+            $res = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` = '" . $email . "'"));
+            if ($res) {
+                if (!password_verify($password, $res['password'])) {
                     echo '<div class="errors">Неверный пароль</div>';
                 }
-            }else {
+            } else {
                 echo '<div class="errors">Такого аккаунта нет</div>';
             }
-        }else{
+        } else {
             echo '<div class="errors">' . array_shift($errors) . '</div>';
+        }
+    }
+}
+
+function user_login()
+{
+    if (isset($_POST['submit'])) {
+        $data = $_POST;
+        $email = $data['email'];
+        if (!empty($email) and !empty($data['password'])) {
+            $resilt = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` ='" . $email . "'"));
+            if ($resilt) {
+                session_start();
+                $_SESSION['data'] = json_encode($resilt);
+                header('location: ?page=main');
+            }
         }
     }
 }

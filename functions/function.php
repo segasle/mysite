@@ -206,7 +206,7 @@ function user_login()
                 $resilt = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` ='" . $email . "'"));
                 if ($resilt) {
                     //    session_start();
-                    $_SESSION['data'] = json_encode($resilt);
+                    $_SESSION['data'] = $resilt;
                     header('location: ?page=main');
                     //echo  print_r($_SESSION['data']);
                 }

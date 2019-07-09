@@ -60,7 +60,7 @@ function link_authorization()
 
 function vk_authorization()
 {
-    session_start();
+    //session_start();
     global $users;
     global $redirect_uri;
     global $id;

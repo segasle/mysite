@@ -200,13 +200,16 @@ function user_login()
 {
     if (isset($_POST['submit'])) {
         $data = $_POST;
-        $email = $data['email'];
-        if (!empty($email) and !empty($data['password'])) {
-            $resilt = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` ='" . $email . "'"));
-            if ($resilt) {
-                session_start();
-                $_SESSION['data'] = json_encode($resilt);
-                header('location: ?page=main');
+        if (isset($data['email'])){
+            $email = $data['email'];
+            if (!empty($email) and !empty($data['password'])) {
+                $resilt = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` ='" . $email . "'"));
+                if ($resilt) {
+                    //    session_start();
+                    $_SESSION['data'] = json_encode($resilt);
+                    header('location: ?page=main');
+                    //echo  print_r($_SESSION['data']);
+                }
             }
         }
     }

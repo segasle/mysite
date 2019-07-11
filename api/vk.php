@@ -110,6 +110,11 @@ function vk_authorization()
 function post()
 {
     global $token;
-    $file = file_link("https://api.vk.com/method/wall.get?owner_id=&$token&v=5.60");
+    $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.101");
+    if (is_array($file) || is_object($file)) {
+        echo '<pre>';
+        print_r($file);
+        echo '</pre>';
 
+    }
 }

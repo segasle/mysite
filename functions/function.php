@@ -28,6 +28,11 @@ function do_query($query)
     return $result;
 }
 
+function file_link($link)
+{
+    $file = json_decode(file_get_contents($link), true);
+    return $file;
+}
 function get_menu()
 {
     $sql = do_query('SELECT * FROM `menu`');

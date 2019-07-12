@@ -111,9 +111,9 @@ function post()
 {
     global $token;
     $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.1");
-    $out = '<div class="row">';
-    $post = '<div class="col-lg-9 col-xl-12"><div class="container">';
-    $grops = '<div class="col-lg-3 col-xl-12"><div class="container">';
+    //$out = '<div class="row">';
+    $post = '<div class="col-lg-9 col-xl-10"><div class="container">';
+    //$grops = '<div class="col-lg-3 col-xl-12"><div class="container">';
 
     if (is_array($file) || is_object($file)) {
         foreach ($file as $item) {
@@ -134,7 +134,7 @@ function post()
                     if (is_array($value['attachments']) || is_object($value['attachments'])) {
                         foreach ($value['attachments'] as $attachment => $key) {
                             if (isset($key['photo'])) {
-                                $img = "<img src='" . $key['photo']['photo_1280'] . "' class='w-100'>";
+                                $img = "<img src='" . $key['photo']['photo_1280'] . "' class='img w-100'>";
                             } else {
                                 $img = '';
                             }
@@ -167,7 +167,7 @@ function post()
     }
 
     $post .= '</div></div>';
-    $grops .= '</div></div>';
-    $out .= $grops . $post . '</div>';
-    return $out;
+    //$grops .= '</div></div>';
+    //$out .=  $post . '</div>';
+    return $post;
 }

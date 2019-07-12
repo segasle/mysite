@@ -110,7 +110,7 @@ function vk_authorization()
 function post()
 {
     global $token;
-    $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.1");
+    $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.101");
     $out = '<div class="row">';
     $post = '<div class="col-lg-9 col-xl-12"><div class="container">';
     $grops = '<div class="col-lg-3 col-xl-12"><div class="container">';
@@ -119,7 +119,7 @@ function post()
         foreach ($file as $item) {
             $text = '';
             foreach ($item['items'] as $value) {
-
+                $link ='https://vk.com/wall'. $value['owner_id'] . '_' . $value['id'];
                 if (isset($value['text'])) {
                     $text = $value['text'];
                 }
@@ -127,7 +127,22 @@ function post()
 //                echo '<pre>';
 //                print_r($item);
 //                echo '</pre>';
-                $post .= '<div class="container_block"><div class="container_block-content"><div class="content_title"><div class="content_title-text"><p>' . $text . '</p></div></div></div></div>';
+                $post .= '<div class="container_block">
+                            <div class="container_block-content">
+                                <div class="content_title">
+                                    <div class="content_title-text">
+                                        <p>' . $text . '</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container_block-footer">
+                                <div class="footer_content">
+                                    <div class="footer_content-text">
+                                        <a href="'.$link.'">Ссылка на пост</a>
+</div>
+</div>
+</div>
+                           </div>';
             }
         }
 

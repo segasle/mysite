@@ -110,7 +110,7 @@ function vk_authorization()
 function post()
 {
     global $token;
-    $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.101");
+    $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.1");
     $out = '<div class="row">';
     $post = '<div class="col-lg-9 col-xl-12"><div class="container">';
     $grops = '<div class="col-lg-3 col-xl-12"><div class="container">';
@@ -119,30 +119,47 @@ function post()
         foreach ($file as $item) {
             $text = '';
             foreach ($item['items'] as $value) {
-                $link ='https://vk.com/wall'. $value['owner_id'] . '_' . $value['id'];
+                $link ='https://vk.com/wall'. $value['to_id'] . '_' . $value['id'];
                 if (isset($value['text'])) {
                     $text = $value['text'];
                 }
-//
-//                echo '<pre>';
-//                print_r($item);
-//                echo '</pre>';
+                if (isset($value['attachments'])) {
+                    if (is_array($value['attachments']) || is_object($value['attachments'])) {
+                        $img = '';
+
+                        foreach ($value['attachments'] as $attachment => $key) {
+                            if (isset($key['photo'])) {
+                                $img = "<img src='" . $key['photo']['photo_1280'] . "' class='w-100'>";
+                            } else {
+                                $img = '';
+                            }
+//                            echo '<pre>';
+//                            print_r($key);
+//                            echo '</pre>';
+                        }
+                    }
+                    echo $img;
+                }
+
                 $post .= '<div class="container_block">
                             <div class="container_block-content">
                                 <div class="content_title">
                                     <div class="content_title-text">
                                         <p>' . $text . '</p>
                                     </div>
+                                    <div class="content_title-photo">
+                                        '.$img.'          
+                                    </div>
                                 </div>
                             </div>
                             <div class="container_block-footer">
                                 <div class="footer_content">
                                     <div class="footer_content-text">
-                                        <a href="'.$link.'">Ссылка на пост</a>
-</div>
-</div>
-</div>
-                           </div>';
+                                        <a href="'.$link.'" target="_blank">Ссылка на пост</a>
+                                   </div>
+                              </div>
+                            </div>
+                      </div>';
             }
         }
 

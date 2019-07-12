@@ -118,51 +118,51 @@ function post()
     if (is_array($file) || is_object($file)) {
         foreach ($file as $item) {
             $text = '';
+            $img = '';
             foreach ($item['items'] as $value) {
-                $link ='https://vk.com/wall'. $value['to_id'] . '_' . $value['id'];
+                $link = 'https://vk.com/wall' . $value['to_id'] . '_' . $value['id'];
                 if (isset($value['text'])) {
                     $text = $value['text'];
                 }
+                $post .= '<div class="container_block">
+                            <div class="container_block-content">
+                                <div class="content_title">
+                                    <div class="content_title-text">
+                                        <p>' . $text . '</p>
+                                    </div>';
                 if (isset($value['attachments'])) {
                     if (is_array($value['attachments']) || is_object($value['attachments'])) {
-                        $img = '';
-
                         foreach ($value['attachments'] as $attachment => $key) {
                             if (isset($key['photo'])) {
                                 $img = "<img src='" . $key['photo']['photo_1280'] . "' class='w-100'>";
                             } else {
                                 $img = '';
                             }
+                            $post .= '
+                                    <div class="content_title-photo">
+                                        ' . $img . '          
+                                    </div>';
+                            //global $img;
 //                            echo '<pre>';
 //                            print_r($key);
 //                            echo '</pre>';
                         }
                     }
-                    echo $img;
                 }
 
-                $post .= '<div class="container_block">
-                            <div class="container_block-content">
-                                <div class="content_title">
-                                    <div class="content_title-text">
-                                        <p>' . $text . '</p>
-                                    </div>
-                                    <div class="content_title-photo">
-                                        '.$img.'          
-                                    </div>
-                                </div>
+
+                $post .= '</div>
                             </div>
                             <div class="container_block-footer">
                                 <div class="footer_content">
                                     <div class="footer_content-text">
-                                        <a href="'.$link.'" target="_blank">Ссылка на пост</a>
+                                        <a href="' . $link . '" target="_blank">Ссылка на пост</a>
                                    </div>
                               </div>
                             </div>
                       </div>';
             }
         }
-
 
     }
 

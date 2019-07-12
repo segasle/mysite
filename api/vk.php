@@ -110,11 +110,32 @@ function vk_authorization()
 function post()
 {
     global $token;
-    $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.101");
+    $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.1");
+    $out = '<div class="row">';
+    $post = '<div class="col-lg-9 col-xl-12"><div class="container">';
+    $grops = '<div class="col-lg-3 col-xl-12"><div class="container">';
+
     if (is_array($file) || is_object($file)) {
-        echo '<pre>';
-        print_r($file);
-        echo '</pre>';
+        foreach ($file as $item) {
+            $text = '';
+            foreach ($item['items'] as $value) {
+
+                if (isset($value['text'])) {
+                    $text = $value['text'];
+                }
+//
+//                echo '<pre>';
+//                print_r($item);
+//                echo '</pre>';
+                $post .= '<div class="container_block"><div class="container_block-content"><div class="content_title"><div class="content_title-text"><p>' . $text . '</p></div></div></div></div>';
+            }
+        }
+
 
     }
+
+    $post .= '</div></div>';
+    $grops .= '</div></div>';
+    $out .= $grops . $post . '</div>';
+    return $out;
 }

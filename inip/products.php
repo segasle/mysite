@@ -18,7 +18,7 @@ foreach ($res as $item) {
                     <div class='container_block-head'>
                         <p class='h3 text-center'>" . $item['name_products'] . "</p>
                     </div>
-                    <div class='container_block-content'>
+                    <div class='container_block-content' style='height: 230px;'>
                     <div class='content_head'>
                     <p class='h5'>В стоимость входит</p>
 </div>

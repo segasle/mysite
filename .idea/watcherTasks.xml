@@ -20,7 +20,7 @@
         </array>
       </option>
       <option name="outputFromStdout" value="true" />
-      <option name="program" value="/usr/local/bin/lessc" />
+      <option name="program" value="$USER_HOME$/Documents/less/node_modules/less/bin/lessc" />
       <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />

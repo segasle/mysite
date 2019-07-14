@@ -120,11 +120,15 @@ function post()
             $text = '';
             $img = '';
             foreach ($item['items'] as $value) {
+                $data = date('d.m.Y h:m', $value['date']);
                 $link = 'https://vk.com/wall' . $value['to_id'] . '_' . $value['id'];
                 if (isset($value['text'])) {
                     $text = $value['text'];
                 }
                 $post .= '<div class="container_block">
+                             <div class="container_block-head">
+                             <p class="text-right data">'.$data.'</p>
+</div>
                             <div class="container_block-content">
                                 <div class="content_title">
                                     <div class="content_title-text">
@@ -142,10 +146,7 @@ function post()
                                     <div class="content_title-photo">
                                         ' . $img . '          
                                     </div>';
-                            //global $img;
-//                            echo '<pre>';
-//                            print_r($key);
-//                            echo '</pre>';
+
                         }
                     }
                 }
@@ -162,6 +163,9 @@ function post()
                             </div>
                       </div>';
             }
+//            echo '<pre>';
+//            print_r($item);
+//            echo '</pre>';
         }
 
     }

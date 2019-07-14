@@ -139,6 +139,9 @@ h1,
 h2 {
   text-align: center;
 }
+.data {
+  font-weight: bold;
+}
 .w100 {
   width: 100%;
 }

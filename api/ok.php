@@ -11,12 +11,17 @@ function ok_authorization(){
     global $okid;
     if (!empty($_GET['code'])){
         $code = $_GET['code'];
-        $file = file_link("https://api.ok.ru/oauth/token.do?code=".$code."&client_id=".$okid."&client_secret=".$secretkey."&redirect_uri=".$redirect_uri."&grant_type=authorization_code");
+        $file = json_decode(file_get_contents("https://api.ok.ru/oauth/token.do?code=".$code."&client_id=".$okid."&client_secret=".$secretkey."&redirect_uri=".$redirect_uri."&grant_type=authorization_code"));
+        $_SESSION['user'] = $file;
         if (isset($_SESSION['user'])){
             $access_token = $_SESSION['user']['access_token'];
-            $users = file_link("https://api.ok.ru/oauth/token.do?refresh_token=".$access_token."&client_id={client_id}&client_secret={client_secret}&grant_type={grant_type}");
+            $users = json_decode(file_get_contents("https://api.ok.ru/oauth/token.do?refresh_token=".$access_token."&client_id=".$okid."&client_secret=".$secretkey."&grant_type=refresh_token"));
+
+            echo '<pre>';
+            print_r($users);
+            echo '</pre>';
         }
-        //$_SESSION['user'] = $file;
+
 
 
     }

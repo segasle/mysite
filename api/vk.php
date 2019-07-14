@@ -50,16 +50,6 @@ function user_page()
     return $page;
 }
 
-function link_authorization()
-{
-    global $scope;
-    global $redirect_uri;
-    global $id;
-    if (empty($_SESSION['token'])) {
-        $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a>';
-    }
-    return $out;
-}
 
 function vk_authorization()
 {

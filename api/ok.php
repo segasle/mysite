@@ -84,3 +84,36 @@ function ok_authorization()
     }
     return;*/
 }
+
+
+function send_post($post_url,$post_data)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $post_url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_COOKIEJAR, "coocie.dat");
+    curl_setopt($ch, CURLOPT_COOKIEFILE, "coocie.dat");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; rv:9.0.1) Gecko/20100101 Firefox/9.0.1");
+    $data = curl_exec($ch);
+    curl_close($ch);
+    return $data;
+};
+
+if (empty($_GET['code']))
+{
+    header('location http://www.odnoklassniki.ru/oauth/authorize?client_id=$clientId&scope=$scope&response_type=code&redirect_uri=http://site/this.php');
+}else{
+    $url='http://api.odnoklassniki.ru/oauth/token.do';
+    $data = array(
+        'code '=>$_GET['code'],
+        'redirect_uri'=>'http://site/this.php',
+        'grant_type'=>'authorization_code',
+        'client_id'=>$clientId,
+        'client_secret'=>$client_secret
+    );
+    $data=json_decode(send_post($url,$data));
+    $token = $data->access_token;
+}

@@ -61,7 +61,7 @@ function vk_authorization()
     if (isset($_GET['code'])) {
         $code = $_GET['code'];
        // echo $code;
-        print_r($code);
+       // print_r($code);
         $content = file_link("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code");
         $_SESSION['user'] = $content;
         if (isset($_SESSION['user'])) {

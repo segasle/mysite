@@ -58,8 +58,8 @@ function vk_authorization()
     global $redirect_uri;
     global $id;
     global $appkey;
-    if (isset($_POST['code'])) {
-        $code = $_POST['code'];
+    if (isset($_GET['code'])) {
+        $code = $_GET['code'];
        // echo $code;
         print_r($code);
         $content = file_link("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code");

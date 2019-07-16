@@ -50,6 +50,7 @@ function link_authorization()
     global $redirect_uri;
     global $id;
     global $okid;
+    $out = '';
     if (empty($_SESSION['token'])) {
         $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a>
  <a href="https://connect.ok.ru/oauth/authorize?client_id='.$okid.'&scope='.$okscope.'&response_type=code&redirect_uri='.$redirect_uri.'" class="fa fa-odnoklassniki fa-2x" aria-hidden="true"></a>';

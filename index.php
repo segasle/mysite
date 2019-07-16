@@ -2,8 +2,9 @@
 require 'functions/db.php';
 require 'api/vk.php';
 require 'api/ok.php';
+require 'api/fb.php';
 require 'functions/function.php';
 user_login();
 ok_authorization();
-//vk_authorization();
+vk_authorization();
 connections();

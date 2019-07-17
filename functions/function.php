@@ -42,7 +42,17 @@ function get_menu()
     }
     return $output;
 }
+function curl($link){
 
+    $curlSession = curl_init();
+    curl_setopt($curlSession, CURLOPT_URL, $link);
+    curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
+    curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
+
+    $jsonData = json_decode(curl_exec($curlSession), true);
+    curl_close($curlSession);
+    return $jsonData;
+}
 function link_authorization()
 {
     global $scope;
@@ -54,12 +64,18 @@ function link_authorization()
     global $fbsecretkey;
     global $fbscope;
     $out = '';
+    $out2 = '';
+    $out3 = '';
     if (empty($_SESSION['token'])) {
-        $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a>
- <a href="https://connect.ok.ru/oauth/authorize?client_id='.$okid.'&scope='.$okscope.'&response_type=code&redirect_uri='.$redirect_uri.'&state=state" class="fa fa-odnoklassniki fa-2x" aria-hidden="true"></a>
- <a href="https://www.facebook.com/v3.3/dialog/oauth?client_id='.$fbid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope='.$fbscope.'" class="fa fa-facebook fa-2x" aria-hidden="true"></a>';
-    }
-    return $out;
+        $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a>';
+    }elseif (empty($_SESSION['token2'])){
+        $out2 = ' <a href="https://connect.ok.ru/oauth/authorize?client_id='.$okid.'&scope='.$okscope.'&response_type=code&redirect_uri='.$redirect_uri.'&state=state" class="fa fa-odnoklassniki fa-2x" aria-hidden="true"></a>
+';
+    }elseif (empty($_SESSION['token3'])){
+        $out3 = '  <a href="https://www.facebook.com/v3.3/dialog/oauth?client_id=\'.$fbid.\'&redirect_uri=\'.$redirect_uri.\'&response_type=code&scope=\'.$fbscope.\'" class="fa fa-facebook fa-2x" aria-hidden="true"></a>';
+}
+    $unput = $out.$out2.$out3;
+    return $unput;
 }
 function post_project()
 {

@@ -3,7 +3,7 @@ $token = 'access_token=62d6822d330cf42f423a0dbb89ba2e16482d5b21f5fbbd42677b15f11
 $id = '6783539';
 $scope = 'friends,photos,audio,video,offline,email,wall';
 $users = 'photo_max,first_name,last_name,city';
-$redirect_uri = 'https://ssd18.ru';
+$redirect_uri = 'https://ssd18.ru/';
 $appkey = '4wvqw8Rei8P9z8nQ5GhR';
 $v = '5.52';
 $link = '<a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=&scope=' . $scope . '&response_type=token&v=' . $v . '">ссылка</a>';
@@ -62,12 +62,12 @@ function vk_authorization()
         $code = $_GET['code'];
        // echo $code;
        // print_r($code);
-        $content = file_link("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code");
+        $content = curl("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code");
         $_SESSION['user'] = $content;
         if (isset($_SESSION['user'])) {
             $user_id = $_SESSION['user']['user_id'];
             $access_token = $_SESSION['user']['access_token'];
-            $use = file_link("https://api.vk.com/method/users.get?user_ids=$user_id&fields=$users&access_token=$access_token&v=5.92");
+            $use = curl("https://api.vk.com/method/users.get?user_ids=$user_id&fields=$users&access_token=$access_token&v=5.92");
             if (is_array($use) || is_object($use)) {
 
                 $_SESSION['data'] = $use['response'];

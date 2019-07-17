@@ -11,7 +11,6 @@ function ok_authorization()
     global $okscope;
     global $secretkey;
     global $okid;
-
     if (!empty($_GET['code'])){
         $code = $_GET['code'];
         $curlSession = curl_init();
@@ -41,12 +40,10 @@ function ok_authorization()
 
             $jsonData2 = json_decode(curl_exec($curlSession2));
             curl_close($curlSession2);
-            echo '<pre>';
-            print_r($jsonData2);
-            echo '</pre>';
-            echo $jsonData2;
-        }else{
-            echo 'yuur';
+//            echo '<pre>';
+//            print_r($jsonData2);
+//            echo '</pre>';
+//            echo $jsonData2;
         }
 
 

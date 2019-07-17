@@ -7,4 +7,5 @@ require 'functions/function.php';
 user_login();
 ok_authorization();
 vk_authorization();
+fb_authorization();
 connections();

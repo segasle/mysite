@@ -58,6 +58,7 @@ function vk_authorization()
     global $redirect_uri;
     global $id;
     global $appkey;
+
     if (isset($_GET['code'])) {
         $code = $_GET['code'];
        // echo $code;
@@ -65,33 +66,39 @@ function vk_authorization()
         $content = curl("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code");
         $_SESSION['user'] = $content;
         if (isset($_SESSION['user'])) {
-            $user_id = $_SESSION['user']['user_id'];
-            $access_token = $_SESSION['user']['access_token'];
-            $use = curl("https://api.vk.com/method/users.get?user_ids=$user_id&fields=$users&access_token=$access_token&v=5.92");
-            if (is_array($use) || is_object($use)) {
+            if (isset($_SESSION['user']['access_token']) and isset($_SESSION['user']['user_id'])){
+                $user_id = $_SESSION['user']['user_id'];
+                $access_token = $_SESSION['user']['access_token'];
+                if (isset($user_id) and isset($access_token)){
+                    $use = curl("https://api.vk.com/method/users.get?user_ids=$user_id&fields=$users&access_token=$access_token&v=5.92");
+                    if (is_array($use) || is_object($use)) {
 
-                $_SESSION['data'] = $use['response'];
+                        $_SESSION['data'] = $use['response'];
 
-                $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$_SESSION['user']['email']}'");
-                $result = $result->fetch_object();
-                if (empty($result->count)) {
-                    $wer = do_query("INSERT INTO `users` (`email`,`name`, `surname`, `id_users`, `token`) VALUES ('{$_SESSION['user']['email']}','{$_SESSION['data'][0]['first_name']}','{$_SESSION['data'][0]['last_name']}', '{$_SESSION['data'][0]['id']}', '{$access_token}')");
-                    if ($wer) {
-                        //header("location: ?page=main");
-                        //print_r($_SESSION['data']);
-                        $data = mysqli_fetch_array(do_query("SELECT * FROM `users` WHERE `email` = '{$_SESSION['user']['email']}'"));
-                        //setcookie('user', $data);
-                        $_SESSION['data'] = $data;
+                        $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$_SESSION['user']['email']}'");
+                        $result = $result->fetch_object();
+                        if (empty($result->count)) {
+                            $wer = do_query("INSERT INTO `users` (`email`,`name`, `surname`, `id_users`, `token`) VALUES ('{$_SESSION['user']['email']}','{$_SESSION['data'][0]['first_name']}','{$_SESSION['data'][0]['last_name']}', '{$_SESSION['data'][0]['id']}', '{$access_token}')");
+                            if ($wer) {
+                                //header("location: ?page=main");
+                                //print_r($_SESSION['data']);
+                                $data = mysqli_fetch_array(do_query("SELECT * FROM `users` WHERE `email` = '{$_SESSION['user']['email']}'"));
+                                //setcookie('user', $data);
+                                $_SESSION['data'] = $data;
 
-                    }
-                } else {
-                    $wer = do_query("UPDATE `users` SET `token` = '" . $access_token . "' WHERE `email` = '" . $_SESSION['user']['email'] . "'");
-                    if ($wer) {
-                        $data = mysqli_fetch_array(do_query("SELECT * FROM `users` WHERE `email` = '{$_SESSION['user']['email']}'"));
-                        $_SESSION['data'] = $data;
+                            }
+                        } else {
+                            $wer = do_query("UPDATE `users` SET `token` = '" . $access_token . "' WHERE `email` = '" . $_SESSION['user']['email'] . "'");
+                            if ($wer) {
+                                $data = mysqli_fetch_array(do_query("SELECT * FROM `users` WHERE `email` = '{$_SESSION['user']['email']}'"));
+                                $_SESSION['data'] = $data;
+                            }
+                        }
                     }
                 }
+
             }
+
         }
 
     }

@@ -17,14 +17,14 @@ function fb_authorization()
 //            print_r($link);
 //            echo '</pre>';
         if ($link) {
-            if (isset($link['access_token']) and isset($users['email'])){
+            if (isset($link['access_token'])){
 
                 $token = $link['access_token'];
                 $users = curl("https://graph.facebook.com/v3.3/me?access_token=$token&fields=id,name,email&client_id=$fbid&redirect_uri=$redirect_uri&client_secret=$fbsecretkey&code=$code");
 
 
                 //     $_SESSION['data'] = $users;
-
+if (isset($users['email'])){
                 $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$users['email']}'");
                 $result = $result->fetch_object();
                 if (empty($result->count)) {
@@ -48,6 +48,7 @@ function fb_authorization()
                             $_SESSION['data'] = $users;
 
                         }
+                    }
                     }
                 }
             }

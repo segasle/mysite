@@ -12,8 +12,8 @@ function ok_authorization()
     global $okscope;
     global $secretkey;
     global $okid;
-    if (!empty($_GET['code'])){
-        $code = $_GET['code'];
+    if (!empty($_POST['code'])){
+        $code = $_POST['code'];
         $jsonData = curl('https://api.ok.ru/oauth/token.do?code='.$code.'&client_id='.$okid.'&client_secret='.$secretkey.'&redirect_uri='.$redirect_uri.'&grant_type=authorization_code');
 
        // setcookie('users', $jsonData, time() + 60);

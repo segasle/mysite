@@ -19,9 +19,9 @@ function ok_authorization()
        // setcookie('users', $jsonData, time() + 60);
       //  session_start();
         //$_SESSION['users'] = $jsonData;
-        echo '<pre>';
-        print_r($jsonData);
-        echo '</pre>';
+//        echo '<pre>';
+//        print_r($jsonData);
+//        echo '</pre>';
         if (isset($_COOKIE['users'])){
 //            $access_token = $_COOKIE['users']['access_token'];
 //            $users = curl('https://api.ok.ru/oauth/token.do?refresh_token='.$access_token.'&client_id='.$okid.'&client_secret='.$secretkey.'&grant_type=refresh_token');

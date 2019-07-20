@@ -8,5 +8,6 @@ require 'functions/function.php';
 user_login();
 ok_authorization();
 vk_authorization();
+ya_authorization();
 fb_authorization();
 connections();

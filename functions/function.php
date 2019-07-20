@@ -63,9 +63,11 @@ function link_authorization()
     global $fbid;
     global $fbsecretkey;
     global $fbscope;
+    global $yaid;
+
     $out = '';
     if (empty($_SESSION['token'])) {
-        $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a><a href="https://connect.ok.ru/oauth/authorize?client_id='.$okid.'&scope='.$okscope.'&response_type=code&redirect_uri='.$redirect_uri.'&state=state" class="fa fa-odnoklassniki fa-2x" aria-hidden="true"></a><a href="https://www.facebook.com/v3.3/dialog/oauth?client_id='.$fbid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope='.$fbscope.'" class="fa fa-facebook fa-2x" aria-hidden="true"></a><a href="https://www.facebook.com/v3.3/dialog/oauth?client_id='.$fbid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope='.$fbscope.'" class="fab fa-yandex fa-2x" aria-hidden="true"></a>';
+        $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a><a href="https://connect.ok.ru/oauth/authorize?client_id='.$okid.'&scope='.$okscope.'&response_type=code&redirect_uri='.$redirect_uri.'&state=state" class="fa fa-odnoklassniki fa-2x" aria-hidden="true"></a><a href="https://www.facebook.com/v3.3/dialog/oauth?client_id='.$fbid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope='.$fbscope.'" class="fa fa-facebook fa-2x" aria-hidden="true"></a><a href="https://oauth.yandex.ru/authorize?response_type=token&client_id='.$yaid.'&redirect_uri='.$redirect_uri.'" class="fab fa-yandex fa-2x" aria-hidden="true"></a>';
     }
     return $out;
 }

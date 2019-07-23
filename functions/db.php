@@ -1,7 +1,7 @@
 <?php
 global $mysqli;
 if (empty($mysqli)){
-    $mysqli = mysqli_connect('localhost', 'ca57629_mysite', 'Nexvf1998', 'ca57629_mysite');
+    $mysqli = mysqli_connect('localhost', 'root', 'root', 'MySitr');
     mysqli_set_charset($mysqli, 'UTF8');
 }
 if (mysqli_connect_errno()){

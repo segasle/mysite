@@ -11,12 +11,12 @@
             <div class="col-lg-9 col-xs-12">
                 <div class="block_icon">
                     <div class="img_icon">
-                        <a href="https://ok.ru/profile/522349619246" class="icon1 img_icons"></a>
-                        <a href="https://twitter.com/segasle?lang=ru" class="icon2 img_icons"></a>
-                        <a href="https://www.instagram.com/segasle1998/?hl=ru" class="icon3 img_icons"></a>
-                        <a href="https://www.facebook.com/segasle" class="icon4 img_icons"></a>
-                        <a href="skype: slepenkovs" class="icon5 img_icons"></a>
-                        <a href="https://vk.com/serg_slepenkov" class="icon6 img_icons"></a>
+                        <a href="https://ok.ru/profile/522349619246" class="fa fa-odnoklassniki fa-4x"></a>
+                        <a href="https://twitter.com/segasle?lang=ru" class="fa fa-twitter fa-4x"></a>
+                        <a href="https://www.instagram.com/segasle1998/?hl=ru" class="fa fa-instagram fa-4x"></a>
+                        <a href="https://www.facebook.com/segasle" class="fa fa-facebook fa-4x"></a>
+                        <a href="skype: slepenkovs" class="fa fa-skype fa-4x"></a>
+                        <a href="https://vk.com/serg_slepenkov" class="fa fa-vk fa-4x"></a>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,12 @@ body {
   font-size: 17px;
   color: black;
   font-weight: normal;
+}
+a {
+  text-decoration: none;
+}
+a:hover,
+a:active {
   text-decoration: none;
 }
 div {
@@ -112,30 +118,49 @@ p {
 .fa-vk {
   color: #2c54ff;
 }
+.fa-vk:hover {
+  color: #4098e0;
+}
 .fa-odnoklassniki {
   color: #ff7200;
+}
+.fa-odnoklassniki:hover {
+  color: #e09051;
 }
 .fa-facebook {
   color: #1861ff;
 }
+.fa-facebook:hover {
+  color: #293de0;
+}
 .fa-whatsapp {
   color: #26ff03;
+}
+.fa-whatsapp:hover {
+  color: #068a1b;
 }
 .fa-twitter,
 .fa-skype {
   color: deepskyblue;
 }
+.fa-twitter:hover,
+.fa-skype:hover {
+  color: #00a29c;
+}
 .fa-instagram {
-  color: white;
-  background: #ff0035;
-  background: -moz- linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
-  background: -webkit- linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
-  background: -o- linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
-  background: -ms- linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
-  background: linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
+  color: #fff;
+}
+.fa-instagram:hover {
+  color: #c5bcc0;
 }
 .fa-yandex {
   color: #ff342c;
+}
+.fa-viber {
+  color: #b804ae;
+}
+.fa-viber:hover {
+  color: #e005d4;
 }
 .fa-user-secret,
 .fa-calendar {

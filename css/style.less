@@ -14,7 +14,13 @@ body {
   font-size: 17px;
   color: black;
   font-weight: normal;
+}
+
+a{
   text-decoration: none;
+  &:hover, &:active{
+    text-decoration: none;
+  }
 }
 
 div {
@@ -59,36 +65,60 @@ p {
 .fa {
   &-vk {
     color: #2c54ff;
+    &:hover{
+      color: #4098e0;
+    }
   }
 
   &-odnoklassniki {
     color: #ff7200;
+    &:hover{
+      color: #e09051;
+    }
   }
 
   &-facebook {
     color: #1861ff;
+    &:hover{
+      color: #293de0;
+    }
   }
   &-whatsapp {
     color: #26ff03;
+    &:hover{
+      color: #068a1b;
+    }
   }
 
   &-twitter, &-skype {
     color: @bg-bg;
+    &:hover{
+      color: #00a29c;
+    }
   }
 
   &-instagram {
-    color: white;
-    background: rgb(255, 0, 53);
-    background: -moz-@bg-ins;
-    background: -webkit-@bg-ins;
-    background: -o-@bg-ins;
-    background: -ms-@bg-ins;
-    background: @bg-ins;
-
+    color: @cr-white;
+    //background: rgb(255, 0, 53);
+    //background: -moz-@bg-ins;
+    //background: -webkit-@bg-ins;
+    //background: -o-@bg-ins;
+    //background: -ms-@bg-ins;
+ //   background: @bg-ins;
+    &:hover{
+      color: #c5bcc0;
+    }
   }
 
   &-yandex {
     color: #ff342c;
+  }
+
+  &-viber {
+    color: #b804ae;
+    &:hover{
+      color: #e005d4;
+    }
   }
 
   &-user-secret, &-calendar {

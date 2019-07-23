@@ -115,17 +115,24 @@ p {
 .fa-odnoklassniki {
   color: #ff7200;
 }
-.fa-twitter {
+.fa-facebook {
+  color: #1861ff;
+}
+.fa-whatsapp {
+  color: #26ff03;
+}
+.fa-twitter,
+.fa-skype {
   color: deepskyblue;
 }
 .fa-instagram {
   color: white;
   background: #ff0035;
-  background: -moz-linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
-  background: -webkit-linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
-  background: -o-linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
-  background: -ms-linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
-  background: linear-gradient(330deg, #ff0035 30%, #b16afa 70%);
+  background: -moz- linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
+  background: -webkit- linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
+  background: -o- linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
+  background: -ms- linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
+  background: linear-gradient(240deg, #ff0035 30%, #b16afa 70%);
 }
 .fa-yandex {
   color: #ff342c;
@@ -224,47 +231,6 @@ h2 {
 }
 .block_icon {
   float: right;
-}
-.block_icon .img_icon {
-  float: left;
-  display: table;
-}
-.block_icon .img_icon .img_icons {
-  background: url(../img/icons.png) 0 0 no-repeat;
-  width: 48px;
-  height: 48px;
-  display: block;
-  float: left;
-}
-.block_icon .img_icon .icon1 {
-  width: 48px;
-  height: 48px;
-  background-position: 0 0;
-}
-.block_icon .img_icon .icon2 {
-  width: 48px;
-  height: 48px;
-  background-position: -48px 0;
-}
-.block_icon .img_icon .icon3 {
-  width: 48px;
-  height: 48px;
-  background-position: -96px 0;
-}
-.block_icon .img_icon .icon4 {
-  width: 48px;
-  height: 48px;
-  background-position: -144px 0;
-}
-.block_icon .img_icon .icon5 {
-  width: 48px;
-  height: 48px;
-  background-position: -192px 0;
-}
-.block_icon .img_icon .icon6 {
-  width: 48px;
-  height: 48px;
-  background-position: -240px 0;
 }
 .cobtainer {
   width: 100%;

@@ -16,6 +16,7 @@
                         <a href="https://www.instagram.com/segasle1998/?hl=ru" class="fa fa-instagram fa-4x"></a>
                         <a href="https://www.facebook.com/segasle" class="fa fa-facebook fa-4x"></a>
                         <a href="skype: slepenkovs" class="fa fa-skype fa-4x"></a>
+                        <a href="https://api.whatsapp.com/send?phone=+79153301314" class="fa fa-whatsapp fa-4x"></a>
                         <a href="https://vk.com/serg_slepenkov" class="fa fa-vk fa-4x"></a>
                     </div>
                 </div>

@@ -121,6 +121,12 @@ p {
 .fa-vk:hover {
   color: #4098e0;
 }
+.fa-telegram {
+  color: #4098e0;
+}
+.fa-telegram:hover {
+  color: #2c54ff;
+}
 .fa-odnoklassniki {
   color: #ff7200;
 }

@@ -35,10 +35,10 @@ function user_page()
     $content = file_link("https://api.vk.com/method/users.get?user_ids=serg_slepenkov&fields=bdate,about,photo_400_orig&$token&v=5.92");
     $fio = '';
     $img = ' <div class="abot">  <div class="abot_block">';
-    $about = '<div class="abot_container"><h2>Коротко обо мне</h2>';
+    $about = '<div class="abot_container"><h4 class="text-center">Коротко обо мне</h4>';
     if (is_array($content) || is_object($content)) {
         foreach ($content['response'] as $item) {
-            $fio .= '<h1 class="text-center">' . $item['first_name'] . ' ' . $item['last_name'] . '</h1>';
+            $fio .= '<p class="h3 text-center">' . $item['first_name'] . ' ' . $item['last_name'] . '</p>';
             $img .= ' <img src="' . $item['photo_400_orig'] . '" class="abot_img">';
             $about .= ' <p class="abot_container_text">' . $item['about'] . '</p>';
 
@@ -46,7 +46,7 @@ function user_page()
     }
     $img .= '</div>';
     $about .= '</div></div>';
-    $page = $fio . $img . $about;
+    $page = $img . $fio . $about;
     return $page;
 }
 

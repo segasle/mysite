@@ -272,4 +272,4 @@ if (isset($_SESSION['data'])) {
             </div>
         </header>
 
-        <div class="contain">
+        <div class="contain ndra-container">

@@ -640,4 +640,23 @@ h2 {
     margin: 0 20px;
     height: 380px;
   }
+  .cobtainer .block_icon {
+    float: none;
+    position: fixed;
+    top: 10%;
+    right: 15px;
+  }
+  .cobtainer .block_icon a.fa,
+  .cobtainer .block_icon a.fab {
+    margin: 5px 0;
+    display: block;
+  }
+}
+@media (min-width: 960px) and (max-width: 1313px) {
+  .cobtainer .nenu {
+    height: 120px;
+  }
+  .cobtainer .block_icon {
+    top: 15%;
+  }
 }

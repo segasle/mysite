@@ -16,29 +16,27 @@ function get_atbum()
     $out = '';
     if (is_array($content) || is_object($content)) {
 
-        foreach ($content['response'] as $photo=>$value) {
-//            echo '<pre>';
-//            print_r($value[0]);
-//            echo '</pre>';
-            if (is_array($value) || is_object($value)) {
-
-                foreach ($value as $item) {
-                    $data = date('d.m.Y H:m', $item['date']);
-
-                    if ($value = $value[0]){
-                        //if (isset($value)){}
-
-                        $out .= '<div class="carousel-item active">'
-                            . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt=""><p>' . $data . '</p></div>';
-                    }else{
-                    $out .= '<div class="carousel-item">'
-                        . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100"><p>' . $data . '</p></div>';
-                }
-                }
+        foreach ($content['response'] as $photo => $item) {
+            $data = '';
+            echo '<pre>';
+            print_r($item);
+            echo '</pre>';
+            if (isset($item['date'])) {
+                $data = date('d.m.Y H:m', $item['date']);
             }
+            if ($item = $item[0]) {
+                //if (isset($value)){}
+
+                $out .= '<div class="carousel-item active">'
+                    . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt=""><p>' . $data . '</p></div>';
+            } else {
+                $out .= '<div class="carousel-item">'
+                    . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100"><p>' . $data . '</p></div>';
+            }
+
         }
     }
-   // $out .= '';
+    // $out .= '';
     return $out;
 }
 
@@ -74,15 +72,15 @@ function vk_authorization()
 
     if (isset($_GET['code'])) {
         $code = $_GET['code'];
-       // echo $code;
-       // print_r($code);
+        // echo $code;
+        // print_r($code);
         $content = curl("https://oauth.vk.com/access_token?client_id=$id&client_secret=$appkey&redirect_uri=$redirect_uri&code=$code");
         $_SESSION['user'] = $content;
         if (isset($_SESSION['user'])) {
-            if (isset($_SESSION['user']['access_token']) and isset($_SESSION['user']['user_id'])){
+            if (isset($_SESSION['user']['access_token']) and isset($_SESSION['user']['user_id'])) {
                 $user_id = $_SESSION['user']['user_id'];
                 $access_token = $_SESSION['user']['access_token'];
-                if (isset($user_id) and isset($access_token)){
+                if (isset($user_id) and isset($access_token)) {
                     $use = curl("https://api.vk.com/method/users.get?user_ids=$user_id&fields=$users&access_token=$access_token&v=5.92");
                     if (is_array($use) || is_object($use)) {
 
@@ -139,7 +137,7 @@ function post()
                 }
                 $post .= '<div class="container_block">
                              <div class="container_block-head">
-                             <p class="text-right data">'.$data.'</p>
+                             <p class="text-right data">' . $data . '</p>
 </div>
                             <div class="container_block-content">
                                 <div class="content_title">

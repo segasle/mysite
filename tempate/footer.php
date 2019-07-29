@@ -13,8 +13,10 @@
                     <div class="img_icon">
                         <?php
                             $icon = do_query("SELECT * FROM `social_network`");
-                            foreach ($icon as $item){
-                                echo '<a href="'.$item['link'].'" class="'.$item['class'].' fa-4x" target="_blank"></a>';
+                            if (is_array($icon) || is_object($icon)) {
+                                foreach ($icon as $item) {
+                                    echo '<a href="' . $item['link'] . '" class="' . $item['class'] . ' fa-4x" target="_blank"></a>';
+                                }
                             }
                         ?>
 

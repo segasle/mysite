@@ -13,19 +13,32 @@ function get_atbum()
     global $token;
     $content = file_link("https://api.vk.com/method/photos.get?owner_id=176938709&album_id=248623253&rev=1&$token&v=5.60");
     //$photos = json_decode($content, true);
-    $out = '<div class="atbum row">';
+    $out = '';
     if (is_array($content) || is_object($content)) {
-        foreach ($content['response'] as $photo) {
-            if (!empty(is_array($photo) || is_object($photo))) {
-                foreach ($photo as $item) {
+
+        foreach ($content['response'] as $photo=>$value) {
+//            echo '<pre>';
+//            print_r($value[0]);
+//            echo '</pre>';
+            if (is_array($value) || is_object($value)) {
+
+                foreach ($value as $item) {
                     $data = date('d.m.Y H:m', $item['date']);
-                    $out .= '<div class="atbum_photo col-xs-12 col-sm-6 col-md-4 col-lg-2">'
-                        . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt=""><p>' . $data . '</p></div>';
+
+                    if ($value = $value[0]){
+                        //if (isset($value)){}
+
+                        $out .= '<div class="carousel-item active">'
+                            . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt=""><p>' . $data . '</p></div>';
+                    }else{
+                    $out .= '<div class="carousel-item">'
+                        . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100"><p>' . $data . '</p></div>';
+                }
                 }
             }
         }
     }
-    $out .= '</div>';
+   // $out .= '';
     return $out;
 }
 

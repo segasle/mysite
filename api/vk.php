@@ -16,24 +16,25 @@ function get_atbum()
     $out = '';
     if (is_array($content) || is_object($content)) {
 
-        foreach ($content['response'] as $photo => $item) {
-            $data = '';
-            echo '<pre>';
-            print_r($item);
-            echo '</pre>';
-            if (isset($item['date'])) {
-                $data = date('d.m.Y H:m', $item['date']);
-            }
-            if ($item = $item[0]) {
-                //if (isset($value)){}
+        foreach ($content['response'] as $photo => $value) {
+            if (is_array($value) || is_object($value)) {
 
-                $out .= '<div class="carousel-item active">'
-                    . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt=""><p>' . $data . '</p></div>';
-            } else {
-                $out .= '<div class="carousel-item">'
-                    . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100"><p>' . $data . '</p></div>';
-            }
+                foreach ($value as $item) {
+                    $data = date('d.m.Y H:m', $item['date']);
+                    //if (count($value)  0) {
 
+                        if ($value = $value[0]) {
+                            //if (isset($value)){}
+
+                            $out .= '<div class="carousel-item active">'
+                                . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt=""><p>' . $data . '</p></div>';
+                        } else {
+                            $out .= '<div class="carousel-item">'
+                                . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100"><p>' . $data . '</p></div>';
+                        }
+                    //}
+                }
+            }
         }
     }
     // $out .= '';

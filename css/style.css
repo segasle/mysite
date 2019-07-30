@@ -469,13 +469,6 @@ h2 {
 .cobtainer .block-auto .atbum_photo img {
   width: 100%;
 }
-.cobtainer .block-auto .atbum_photo p {
-  margin-bottom: 0;
-  background: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 5px;
-}
 .cobtainer .block-auto .info {
   background: #fff;
   margin: 10px 0;

@@ -1,6 +1,5 @@
 <h1>Графический дизайн</h1>
-<div class="block-auto">
-    Next
+<div class="container">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <?php

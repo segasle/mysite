@@ -214,6 +214,10 @@ h2 {
 .nav-tabs li a {
   color: #000;
 }
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
 .container-fluid {
   padding: 0;
 }

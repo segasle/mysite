@@ -3,7 +3,7 @@
 $res = do_query("SELECT * FROM `products`");
 $query = do_query("SELECT * FROM `descriptions_products` JOIN `products` WHERE products.id_products = descriptions_products.	id_id_products");
 
-$out = "<div class='container'><div class='row'>";
+$out = "<div class='container' style='max-width: 775px'><div class='row'>";
 foreach ($res as $item) {
     $id = $item['id_products'];
     $des = '';
@@ -13,7 +13,7 @@ foreach ($res as $item) {
 
         }
     }
-    $out .= "<div class='col-lg-4 col-xs-12'>
+    $out .= "<div class='col-lg-4 col-xs-12 col-sm-12'>
                 <div class='container_block'>
                     <div class='container_block-head'>
                         <p class='h3 text-center'>" . $item['name_products'] . "</p>

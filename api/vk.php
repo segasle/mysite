@@ -27,10 +27,10 @@ function get_atbum()
                             //if (isset($value)){}
 
                             $out .= '<div class="carousel-item active">'
-                                . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt="" class="d-block w100"><p>' . $data . '</p></div>';
+                                . '<p>' . $item['text'] . '</p><p class="data">' . $data . '</p><img src="' . $item['photo_604'] . '" alt="" class="d-block w100"></div>';
                         } else {
                             $out .= '<div class="carousel-item">'
-                                . '<p>' . $item['text'] . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100 d-block"><p>' . $data . '</p></div>';
+                                . '<p>' . $item['text'] . '</p><p class="data">' . $data . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100 d-block"></div>';
                         }
                     //}
                 }

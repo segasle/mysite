@@ -115,6 +115,9 @@ form {
 p {
   margin-bottom: 0;
 }
+.fa-5x {
+  font-size: 2em;
+}
 .fa-vk {
   color: #2c54ff;
 }
@@ -217,6 +220,9 @@ h2 {
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
   background: rgba(0, 0, 0, 0.5);
+}
+.carousel-item p.data {
+  padding-bottom: 10px;
 }
 .container-fluid {
   padding: 0;
@@ -604,6 +610,9 @@ h2 {
   }
 }
 @media (min-width: 960px) {
+  .fa-5x {
+    font-size: 5em;
+  }
   .cobtainer .nenu .label-none,
   .cobtainer .nenu .burger,
   .cobtainer .nenu .burger_open {

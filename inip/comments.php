@@ -50,7 +50,7 @@ if (mysqli_num_rows($resist) > 0){
                                <p><i class="fa fa-user-secret fa-2x" aria-hidden="true"></i>'.$item['name'].'</p>
                             </div>
                             <div class="block_cell">
-                                <p class="text-right"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i>'. $date->format('d.m.Y H:i:s').'</p>
+                                <p class="text-right data"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i>'. $date->format('d.m.Y H:i:s').'</p>
                             </div>            
                         </div>       
                     </div>

@@ -64,6 +64,9 @@ p {
 }
 
 .fa {
+  &-5x{
+    font-size: 2em;
+  }
   &-vk {
     color: #2c54ff;
 
@@ -202,6 +205,11 @@ h2 {
       &:hover{
         background: rgba(0,0,0,0.5);
       }
+    }
+  }
+  &-item{
+    p.data{
+      padding-bottom: 10px;
     }
   }
 }
@@ -694,6 +702,11 @@ h2 {
 }
 
 @media (min-width: 960px) {
+  .fa{
+    &-5x{
+      font-size: 5em;
+    }
+  }
   .cobtainer {
     .nenu {
       .label-none,

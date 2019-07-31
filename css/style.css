@@ -616,6 +616,9 @@ h2 {
   .fa-5x {
     font-size: 5em;
   }
+  .container {
+    max-width: inherit;
+  }
   .cobtainer .nenu .label-none,
   .cobtainer .nenu .burger,
   .cobtainer .nenu .burger_open {
@@ -660,6 +663,10 @@ h2 {
     margin: 5px 0;
     display: block;
   }
+  .carousel {
+    max-width: 800px;
+    margin: auto;
+  }
 }
 @media (min-width: 960px) and (max-width: 1313px) {
   .cobtainer .nenu {
@@ -667,12 +674,6 @@ h2 {
   }
   .cobtainer .block_icon {
     top: 15%;
-  }
-}
-@media (min-width: 992px) and (max-width: 1110px) {
-  .carousel {
-    max-width: 800px;
-    margin: auto;
   }
 }
 @media (min-width: 1278px) and (max-width: 1560px) {

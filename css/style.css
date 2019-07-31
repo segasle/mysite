@@ -672,3 +672,13 @@ h2 {
     margin: auto;
   }
 }
+@media (min-width: 1278px) and (max-width: 1560px) {
+  .container {
+    max-width: 900px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1277px) {
+  .container {
+    max-width: 580px;
+  }
+}

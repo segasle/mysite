@@ -23,15 +23,15 @@ function get_atbum()
                     $data = date('d.m.Y H:m', $item['date']);
                     //if (count($value)  0) {
 
-                        if ($value = $value[0]) {
-                            //if (isset($value)){}
+                    if ($value = $value[0]) {
+                        //if (isset($value)){}
 
-                            $out .= '<div class="carousel-item active">'
-                                . '<p>' . $item['text'] . '</p><p class="data">' . $data . '</p><img src="' . $item['photo_604'] . '" alt="" class="d-block w100"></div>';
-                        } else {
-                            $out .= '<div class="carousel-item">'
-                                . '<p>' . $item['text'] . '</p><p class="data">' . $data . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100 d-block"></div>';
-                        }
+                        $out .= '<div class="carousel-item active">'
+                            . '<p>' . $item['text'] . '</p><p class="data">' . $data . '</p><img src="' . $item['photo_604'] . '" alt="" class="d-block w100"></div>';
+                    } else {
+                        $out .= '<div class="carousel-item">'
+                            . '<p>' . $item['text'] . '</p><p class="data">' . $data . '</p><img src="' . $item['photo_604'] . '" alt="" class="w100 d-block"></div>';
+                    }
                     //}
                 }
             }
@@ -128,21 +128,11 @@ function post()
 
     if (is_array($file) || is_object($file)) {
         foreach ($file as $item) {
-            $video = file_link("https://api.vk.com/method/video.get?owner_id=-180547513&videos=&$token&v=5.1");
 
             $text = '';
             $img = '';
 
             foreach ($item['items'] as $value) {
-
-                foreach ($value['attachments'] as $attachment){
-
-                    foreach ($attachment['video'] as $video){
-                        echo '<pre>';
-                        print_r($video['id ']);
-                        echo '</pre>';
-                    }
-                }
                 $data = date('d.m.Y h:m', $value['date']);
                 $link = 'https://vk.com/wall' . $value['to_id'] . '_' . $value['id'];
                 if (isset($value['text'])) {
@@ -160,6 +150,18 @@ function post()
                 if (isset($value['attachments'])) {
                     if (is_array($value['attachments']) || is_object($value['attachments'])) {
                         foreach ($value['attachments'] as $attachment => $key) {
+                            $id = $key['video']['id'];
+
+                            $video = file_link("https://api.vk.com/method/video.get?owner_id=-180547513&videos=$id&$token&v=5.73");
+
+                            if (is_array($video) || is_object($video)) {
+                                foreach ($video as $v) {
+//                                    echo '<pre>';
+//                                    print_r($v);
+//                                    echo '</pre>';
+                                }
+                            }
+
                             if (isset($key['photo'])) {
                                 $img = "<img src='" . $key['photo']['photo_1280'] . "' class='img w-100'>";
                             } else {
@@ -188,7 +190,6 @@ function post()
             }
 
         }
-
     }
 
     $post .= '</div></div>';

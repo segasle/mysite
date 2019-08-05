@@ -128,9 +128,21 @@ function post()
 
     if (is_array($file) || is_object($file)) {
         foreach ($file as $item) {
+            $video = file_link("https://api.vk.com/method/video.get?owner_id=-180547513&videos=&$token&v=5.1");
+
             $text = '';
             $img = '';
+
             foreach ($item['items'] as $value) {
+
+                foreach ($value['attachments'] as $attachment){
+
+                    foreach ($attachment['video'] as $video){
+                        echo '<pre>';
+                        print_r($video['id ']);
+                        echo '</pre>';
+                    }
+                }
                 $data = date('d.m.Y h:m', $value['date']);
                 $link = 'https://vk.com/wall' . $value['to_id'] . '_' . $value['id'];
                 if (isset($value['text'])) {
@@ -174,9 +186,7 @@ function post()
                             </div>
                       </div>';
             }
-//            echo '<pre>';
-//            print_r($item);
-//            echo '</pre>';
+
         }
 
     }

@@ -1,7 +1,4 @@
 <?php
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 header('Content-Type: text/html; charset=utf-8');
 
 define('WP_DEBUG', true);
@@ -35,10 +32,17 @@ function file_link($link)
 }
 function get_menu()
 {
+    $url = basename($_SERVER['REQUEST_URI']);
     $sql = do_query('SELECT * FROM `menu`');
     $output = "<ul>";
+   // $active = '';
     foreach ($sql as $r) {
-        $output .= "<li><a href='" . $r['url'] . "'>" . $r['title'] . "</a></li>";
+        if ($r['url'] === $url){
+            $active = 'active';
+        }else{
+            $active = '';
+        }
+        $output .= "<li class='".$active."'><a href='" . $r['url'] . "'>" . $r['title'] . "</a></li>";
     }
     return $output;
 }

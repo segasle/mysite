@@ -1,5 +1,5 @@
 </div>
-
+</main>
 <footer>
     <div class="cellar">
         <div class="row">

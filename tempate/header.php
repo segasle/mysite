@@ -268,6 +268,9 @@ if (isset($_SESSION['data'])) {
                         </div>
                     </div>
                 <?php } else { ?>
+                    <ul class="btn-author">
+                        <li><a href="?page=profile">Профиль</a></li>
+                    </ul>
                     <form action="" method="post">
                         <button type="submit" name="esc" class="btn-author btn">Выход</button>
                     </form>

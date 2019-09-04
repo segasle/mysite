@@ -291,6 +291,17 @@ h2 {
   top: 13px;
   z-index: 2;
 }
+.cobtainer .nenu ul.btn-author {
+  right: 170px;
+  top: 20px;
+}
+.cobtainer .nenu ul.btn-author li a {
+  padding: 20px 10px;
+  color: #fff;
+}
+.cobtainer .nenu ul.btn-author li a:hover {
+  background: #b4b4b4;
+}
 .cobtainer .nenu #checkbox {
   display: none;
 }
@@ -391,6 +402,7 @@ h2 {
 }
 .cobtainer .abot_container_text {
   padding: 10px 0;
+  text-align: justify;
 }
 .cobtainer .form {
   background: deepskyblue;

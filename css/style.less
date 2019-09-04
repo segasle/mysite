@@ -64,9 +64,10 @@ p {
 }
 
 .fa {
-  &-5x{
+  &-5x {
     font-size: 2em;
   }
+
   &-vk {
     color: #2c54ff;
 
@@ -118,6 +119,7 @@ p {
 
   &-instagram {
     color: @cr-white;
+
     &:hover {
       color: #c5bcc0;
     }
@@ -199,16 +201,18 @@ h2 {
     }
   }
 }
-.carousel{
-  &-control{
-    &-prev, &-next{
-      &:hover{
-        background: rgba(0,0,0,0.5);
+
+.carousel {
+  &-control {
+    &-prev, &-next {
+      &:hover {
+        background: rgba(0, 0, 0, 0.5);
       }
     }
   }
-  &-item{
-    p.data{
+
+  &-item {
+    p.data {
       padding-bottom: 10px;
     }
   }
@@ -216,6 +220,7 @@ h2 {
 
 .container {
   max-width: 720px;
+
   &-fluid {
     padding: 0;
   }
@@ -304,6 +309,23 @@ h2 {
       z-index: 2;
     }
 
+    ul.btn-author {
+      right: 170px;
+      top: 20px;
+
+      li {
+
+
+        a {
+          padding: 20px 10px;
+          color: @cr-white;
+          &:hover {
+            background: @bg-gray;
+          }
+        }
+      }
+    }
+
     #checkbox {
       display: none;
 
@@ -361,10 +383,12 @@ h2 {
 
       ul {
         margin-bottom: 0;
-        .active{
+
+        .active {
           background: @bg-gray;
 
         }
+
         li {
           display: block;
           text-align: left;
@@ -423,6 +447,7 @@ h2 {
 
       &_text {
         padding: 10px 0;
+        text-align: justify;
       }
     }
   }
@@ -706,14 +731,16 @@ h2 {
 }
 
 @media (min-width: 960px) {
-  .fa{
-    &-5x{
+  .fa {
+    &-5x {
       font-size: 5em;
     }
   }
-  .container{
-     max-width: inherit;
-   }
+
+  .container {
+    max-width: inherit;
+  }
+
   .cobtainer {
     .nenu {
       .label-none,
@@ -763,24 +790,28 @@ h2 {
         position: fixed;
         top: 10%;
         right: 15px;
-        a.fa, a.fab{
+
+        a.fa, a.fab {
           margin: 5px 0;
           display: block;
         }
       }
     }
   }
-  .carousel{
-     max-width: 800px;
-     margin: auto;
-   }
-}
-@media (min-width:960px) and (max-width: 1313px){
 
-  .cobtainer{
-    .nenu{
+  .carousel {
+    max-width: 800px;
+    margin: auto;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1313px) {
+
+  .cobtainer {
+    .nenu {
       height: 120px;
     }
+
     .block {
       &_icon {
         top: 15%;
@@ -788,19 +819,22 @@ h2 {
     }
   }
 }
-@media (min-width: 1278px) and (max-width: 1560px){
-  .container{
+
+@media (min-width: 1278px) and (max-width: 1560px) {
+  .container {
     max-width: 900px;
   }
 }
-@media (min-width: 992px) and (max-width: 1277px){
-  .container{
+
+@media (min-width: 992px) and (max-width: 1277px) {
+  .container {
     max-width: 580px;
   }
 }
-@media (min-height: 600px) and (max-height: 748px){
-  .fa{
-    &-4x{
+
+@media (min-height: 600px) and (max-height: 748px) {
+  .fa {
+    &-4x {
       font-size: 3em;
     }
   }

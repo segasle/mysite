@@ -4,13 +4,13 @@
     echo get_contact();
     ?>
 </div>
-
+<!--
 <div class="form">
     <h2>Хотите сотрудничать?</h2>
     <div class="form_grog">
 
     </div>
-    <form action="" method="post">
+ <form action="" method="post">
 
         <div class="form_grog">
             <p>Ваше имя</p>
@@ -86,4 +86,4 @@
 
     }
     ?>
-</div>
+</div>-->

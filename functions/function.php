@@ -12,7 +12,11 @@ function connections()
         $file = $_GET['page'];
     }
     include 'tempate/header.php';
-    include 'inip/' . $file . '.php';
+    if (file_exists('inip/' . $file . '.php')) {
+        include 'inip/' . $file . '.php';
+    }else{
+        include 'users/' . $file . '.php';
+    }
     include 'tempate/footer.php';
 
 }
@@ -30,23 +34,26 @@ function file_link($link)
     $file = json_decode(file_get_contents($link), true);
     return $file;
 }
+
 function get_menu()
 {
     $url = basename($_SERVER['REQUEST_URI']);
     $sql = do_query('SELECT * FROM `menu`');
     $output = "<ul>";
-   // $active = '';
+    // $active = '';
     foreach ($sql as $r) {
-        if ($r['url'] === $url){
+        if ($r['url'] === $url) {
             $active = 'active';
-        }else{
+        } else {
             $active = '';
         }
-        $output .= "<li class='".$active."'><a href='" . $r['url'] . "'>" . $r['title'] . "</a></li>";
+        $output .= "<li class='" . $active . "'><a href='" . $r['url'] . "'>" . $r['title'] . "</a></li>";
     }
     return $output;
 }
-function curl($link){
+
+function curl($link)
+{
 
     $curlSession = curl_init();
     curl_setopt($curlSession, CURLOPT_URL, $link);
@@ -57,6 +64,7 @@ function curl($link){
     curl_close($curlSession);
     return $jsonData;
 }
+
 function link_authorization()
 {
     global $scope;
@@ -71,10 +79,11 @@ function link_authorization()
 
     $out = '';
     if (empty($_SESSION['token'])) {
-        $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a><a href="https://connect.ok.ru/oauth/authorize?client_id='.$okid.'&scope='.$okscope.'&response_type=code&redirect_uri='.$redirect_uri.'&state=state" class="fa fa-odnoklassniki fa-2x" aria-hidden="true"></a><a href="https://www.facebook.com/v3.3/dialog/oauth?client_id='.$fbid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope='.$fbscope.'" class="fa fa-facebook fa-2x" aria-hidden="true"></a><a href="https://oauth.yandex.ru/authorize?response_type=token&client_id='.$yaid.'&redirect_uri='.$redirect_uri.'" class="fab fa-yandex fa-2x" aria-hidden="true"></a>';
+        $out = ' <a href="https://oauth.vk.com/authorize?client_id=' . $id . '&display=page&redirect_uri=' . $redirect_uri . '&scope=' . $scope . '&response_type=code&v=5.92" class="fa fa-vk fa-2x" aria-hidden="true"></a><a href="https://connect.ok.ru/oauth/authorize?client_id=' . $okid . '&scope=' . $okscope . '&response_type=code&redirect_uri=' . $redirect_uri . '&state=state" class="fa fa-odnoklassniki fa-2x" aria-hidden="true"></a><a href="https://www.facebook.com/v3.3/dialog/oauth?client_id=' . $fbid . '&redirect_uri=' . $redirect_uri . '&response_type=code&scope=' . $fbscope . '" class="fa fa-facebook fa-2x" aria-hidden="true"></a><a href="https://oauth.yandex.ru/authorize?response_type=token&client_id=' . $yaid . '&redirect_uri=' . $redirect_uri . '" class="fab fa-yandex fa-2x" aria-hidden="true"></a>';
     }
     return $out;
 }
+
 function post_project()
 {
     $sql = do_query('SELECT * FROM `projects` WHERE 1');
@@ -237,7 +246,7 @@ function user_login()
 {
     if (isset($_POST['submit'])) {
         $data = $_POST;
-        if (isset($data['email'])){
+        if (isset($data['email'])) {
             $email = $data['email'];
             if (!empty($email) and !empty($data['password'])) {
                 $resilt = mysqli_fetch_assoc(do_query("SELECT * FROM `users` WHERE `email` ='" . $email . "'"));

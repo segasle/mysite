@@ -184,6 +184,11 @@ p {
 .float-right {
   float: right;
 }
+.password-show {
+  position: absolute;
+  right: 10px;
+  bottom: 2px;
+}
 button {
   background: #000;
   color: #fff;
@@ -419,6 +424,7 @@ h2 {
 .cobtainer .form_grog {
   width: 100%;
   padding: 5px 0;
+  position: relative;
 }
 .cobtainer .form_grog-text {
   font-size: 17px;

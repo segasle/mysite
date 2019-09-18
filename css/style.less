@@ -156,6 +156,14 @@ p {
   }
 }
 
+.password {
+  &-show {
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+  }
+}
+
 button {
   background: @bg-black;
   color: @cr-white;
@@ -319,6 +327,7 @@ h2 {
         a {
           padding: 20px 10px;
           color: @cr-white;
+
           &:hover {
             background: @bg-gray;
           }
@@ -472,7 +481,7 @@ h2 {
     &_grog {
       width: @width;
       padding: @mp 0;
-
+      position: relative;
       &-text {
         font-size: 17px;
         padding-bottom: 4px;

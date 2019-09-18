@@ -124,14 +124,10 @@ function post()
     $file = file_link("https://api.vk.com/method/wall.get?owner_id=-180547513&count=20&filter=owner&$token&v=5.1");
     //$out = '<div class="row">';
     $post = '<div class="col-lg-9 col-xl-10"><div class="container">';
-    //$grops = '<div class="col-lg-3 col-xl-12"><div class="container">';
-
     if (is_array($file) || is_object($file)) {
         foreach ($file as $item) {
-
             $text = '';
             $img = '';
-
             foreach ($item['items'] as $value) {
                 $data = date('d.m.Y h:m', $value['date']);
                 $link = 'https://vk.com/wall' . $value['to_id'] . '_' . $value['id'];
@@ -150,18 +146,6 @@ function post()
                 if (isset($value['attachments'])) {
                     if (is_array($value['attachments']) || is_object($value['attachments'])) {
                         foreach ($value['attachments'] as $attachment => $key) {
-                            $id = $key['video']['id'];
-
-                            $video = file_link("https://api.vk.com/method/video.get?owner_id=-180547513&videos=$id&$token&v=5.73");
-
-                            if (is_array($video) || is_object($video)) {
-                                foreach ($video as $v) {
-//                                    echo '<pre>';
-//                                    print_r($v);
-//                                    echo '</pre>';
-                                }
-                            }
-
                             if (isset($key['photo'])) {
                                 $img = "<img src='" . $key['photo']['photo_1280'] . "' class='img w-100'>";
                             } else {
@@ -171,12 +155,9 @@ function post()
                                     <div class="content_title-photo">
                                         ' . $img . '          
                                     </div>';
-
                         }
                     }
                 }
-
-
                 $post .= '</div>
                             </div>
                             <div class="container_block-footer">
@@ -188,12 +169,9 @@ function post()
                             </div>
                       </div>';
             }
-
         }
     }
-
     $post .= '</div></div>';
-    //$grops .= '</div></div>';
-    //$out .=  $post . '</div>';
+    //$post = count($post) / 5;
     return $post;
 }

@@ -1,6 +1,5 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-
 define('WP_DEBUG', true);
 define('WP_CACHE', false);
 function connections()
@@ -24,7 +23,6 @@ function connections()
 function do_query($query)
 {
     global $mysqli;
-
     $result = mysqli_query($mysqli, $query);
     return $result;
 }
@@ -174,6 +172,65 @@ function reg()
         //echo '';
     }
 
+}
+
+
+function ajax_reg($req_data)
+{
+    // КОДЫ ОШИБОК ДЛЯ AJAX
+    // 0 - неизвестная ошибка
+    // 1 - все ОК
+    // 2 - Аккаунт уже создан
+    // 3 - Не поставили галочку
+    // 4 - ошибка email (не ввели)
+    // 5 - ошибка пароля (короткий)
+    // 6 - ошибка пароля (не совпадает)
+    // 7 - ошибка имени
+    // 8 - ошибка email (не правильно ввели)
+    $data = $req_data;
+    if (isset($data['check'])) {
+        $email = $data['emailreg'];
+        if (empty($email)) {
+            return 4;
+        } elseif (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
+            return 8;
+        }
+        if (empty($data['passwordreg']) or strlen($data['passwordreg']) < 8) {
+            return 5;
+        }
+        if ($data['passwordreg2'] != $data['passwordreg']) {
+            return 6;
+        }
+        if (empty($data['namereg']) or strlen($data['namereg']) < 2) {
+            return 7;
+        }
+        if (empty($errors)) {
+            $result = do_query("SELECT COUNT(*) as count FROM users WHERE `email` = '{$email}'");
+            $result = $result->fetch_object();
+            if (empty($result->count)) {
+                $query = do_query("INSERT INTO `users`(`email`, `name`,`password`) VALUES ('{$email}','{$data['namereg']}','" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "')");
+                if ($query) {
+                    return 1;
+                }
+            } else {
+                $result = mysqli_fetch_array(do_query("SELECT * FROM `users` "));
+                //$result = $result->fetch_object();
+                if ($result['password'] == null) {
+                    $quer = do_query("UPDATE `users` SET `password` = '" . password_hash($data['passwordreg2'], PASSWORD_DEFAULT) . "' WHERE `email` = '" . $email . "'");
+                    if ($quer) {
+                        return 1;
+                    }
+                } else {
+                    return 2;
+                }
+            }
+        } else {
+            return 0;
+        }
+    } else {
+        return 3;
+    }
+    return 0;
 }
 
 function recovery()

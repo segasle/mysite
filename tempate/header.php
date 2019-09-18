@@ -170,7 +170,8 @@ if (isset($_SESSION['data'])) {
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <?php reg(); ?>
+                                    <!--<?php reg(); ?>-->
+                                    <div id="ajaxAnsw"></div>
                                     <form action="" method="post">
                                         <div class="form_grog">
                                             <div class="form_grog-text">
@@ -184,15 +185,18 @@ if (isset($_SESSION['data'])) {
                                             <div class="form_grog-text">
                                                 <p>Пароль</p>
                                             </div>
-                                            <input type="password" class="form-control" name="passwordreg"
+                                            <input type="password" class="form-control" name="passwordreg" id="passwordreg"
                                                    placeholder="Введите пароль">
                                         </div>
                                         <div class="form_grog">
                                             <div class="form_grog-text">
-                                                <p>Подтыердите пароль</p>
+                                                <p>Подтвердите пароль</p>
                                             </div>
-                                            <input type="password" class="form-control" name="passwordreg2"
+                                            <input type="password" class="form-control" name="passwordreg2" id="passwordreg2"
                                                    placeholder="Введите пароль">
+                                        </div>
+                                        <div class="checkbox">
+                                        	<label><input type="checkbox" id="check-show-pw" name="check-pw">Показать пароль</label>
                                         </div>
                                         <div class="form_grog">
                                             <div class="form_grog-text">
@@ -209,7 +213,7 @@ if (isset($_SESSION['data'])) {
                                             </label>
                                         </div>
                                         <div class="form_grog">
-                                            <button type="submit" class="btn w100" name="submitreg">Регистрация</button>
+                                            <button type="submit" class="btn w100" name="submitreg" id="ajaxBut">Регистрация</button>
                                         </div>
                                     </form>
                                 </div>

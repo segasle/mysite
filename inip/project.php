@@ -19,11 +19,11 @@
 if (isset($_POST['submit'])){
     $data = $_POST;
     if ($data['sel'] == 'new'){
-        echo post_project('SELECT * FROM `projects` ORDER BY id DESC ');
+        echo post_project('SELECT * FROM `projects` ORDER BY `data` DESC ');
 
     }
     if ($data['sel'] == 'old'){
-        echo post_project('SELECT * FROM `projects`');
+        echo post_project('SELECT * FROM `projects` ORDER BY `data` ASC');
 
     }
 }else{

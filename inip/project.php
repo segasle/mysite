@@ -6,6 +6,7 @@
             <select class="form-control" id="exampleFormControlSelect1" name="sel">
                 <option value="old">Старые</option>
                 <option value="new">Новые</option>
+                <option value="default">По умолчанию</option>
             </select>
         </div>
     </div>
@@ -24,6 +25,10 @@ if (isset($_POST['submit'])){
     }
     if ($data['sel'] == 'old'){
         echo post_project('SELECT * FROM `projects` ORDER BY `data` ASC');
+
+    }
+    if ($data['sel'] == 'default'){
+        echo post_project('SELECT * FROM `projects`');
 
     }
 }else{

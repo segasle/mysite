@@ -16,5 +16,5 @@
     </div>
 </form>
 <?php
-echo post_project();
+echo post_project('SELECT * FROM `projects`');
 ?>

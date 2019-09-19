@@ -82,9 +82,9 @@ function link_authorization()
     return $out;
 }
 
-function post_project()
+function post_project($sqli)
 {
-    $sql = do_query('SELECT * FROM `projects` WHERE 1');
+    $sql = do_query($sqli);
     $out = '<div class="row">';
 
     while ($rs = mysqli_fetch_array($sql)) {

@@ -546,7 +546,7 @@ h2 {
   border-radius: 5px 20px 20px 5px;
 }
 .cobtainer .skills_grog_line_filling_1 {
-  width: 80%;
+  width: 100%;
   animation-name: driving;
   animation-duration: 5s;
   animation-delay: 1s;
@@ -558,13 +558,13 @@ h2 {
   animation-delay: 2s;
 }
 .cobtainer .skills_grog_line_filling_3 {
-  width: 95%;
+  width: 100%;
   animation-name: driving3;
   animation-duration: 5s;
   animation-delay: 3s;
 }
 .cobtainer .skills_grog_line_filling_4 {
-  width: 50%;
+  width: 100%;
   animation-name: driving4;
   animation-duration: 5s;
   animation-delay: 4s;
@@ -579,8 +579,8 @@ h2 {
   0% {
     width: 0;
   }
-  80% {
-    width: 80%;
+  100% {
+    width: 100%;
   }
 }
 @keyframes driving2 {
@@ -595,16 +595,16 @@ h2 {
   0% {
     width: 0;
   }
-  95% {
-    width: 95%;
+  100% {
+    width: 100%;
   }
 }
 @keyframes driving4 {
   0% {
     width: 0;
   }
-  50% {
-    width: 50%;
+  100% {
+    width: 100%;
   }
 }
 @keyframes driving5 {

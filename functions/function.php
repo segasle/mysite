@@ -13,7 +13,7 @@ function connections()
     include 'tempate/header.php';
     if (file_exists('inip/' . $file . '.php')) {
         include 'inip/' . $file . '.php';
-    }else{
+    } else {
         include 'users/' . $file . '.php';
     }
     include 'tempate/footer.php';
@@ -85,12 +85,14 @@ function link_authorization()
 function post_project()
 {
     $sql = do_query('SELECT * FROM `projects` WHERE 1');
-    $out = '';
+    $out = '<div class="row">';
 
     while ($rs = mysqli_fetch_array($sql)) {
         $mydata = new DateTime($rs['data']);
-        $out .= '<div class="maps"><div class="maps_container"><div class="maps_head"><img src="' . $rs['img'] . '"></div><div class="maps_title"><a target="_blank" href="' . $rs['link'] . '">' . $rs['title'] . '</a></div><div class="maps_data"><p>' . $mydata->format('d.m.Y') . '</p></div></div></div>';
+        $out .= '<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"><div class="maps"><div class="maps_container"><div class="maps_head overflow-hidden h-160 h-200 h-410"><img src="' . $rs['img'] . '"></div><div class="maps_title"><a target="_blank" href="' . $rs['link'] . '">' . $rs['title'] . '</a></div><div class="maps_data"><p>' . $mydata->format('d.m.Y') . '</p></div></div></div></div>';
     }
+    $out .= '</div>';
+
     return $out;
 }
 

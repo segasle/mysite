@@ -519,54 +519,53 @@ h2 {
     }
   }
 
+  .maps {
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 3px solid @bg-black;
+    //max-width: @mapswp;
+    background: @cr-white;
+    padding: 10px 20px;
+
+    &_container {
+      width: 100%;
+    }
+
+    &_head {
+      width: 100%;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &_title {
+      margin: 10px 0;
+
+      a {
+        display: block;
+        font-weight: 900;
+        color: @bg-bg;
+        text-align: center;
+        font-size: 15px;
+      }
+    }
+
+    &_data {
+      float: right;
+      margin: 20px 0;
+
+      p {
+        font-weight: bold;
+        font-size: 17px;
+      }
+    }
+  }
   .block-auto {
     display: table;
     margin: 20px auto;
 
-    .maps {
-      margin: 20px 0;
-      min-width: 300px;
-      border-radius: 5px;
-      border: 3px solid @bg-black;
-      max-width: @mapswp;
-      background: @cr-white;
-      padding: 10px 20px;
-
-      &_container {
-        width: 100%;
-      }
-
-      &_head {
-        width: 100%;
-
-        img {
-          display: block;
-          width: 100%;
-        }
-      }
-
-      &_title {
-        margin: 10px 0;
-
-        a {
-          display: block;
-          font-weight: 900;
-          color: @bg-bg;
-          text-align: center;
-          font-size: 15px;
-        }
-      }
-
-      &_data {
-        float: right;
-        margin: 20px 0;
-
-        p {
-          font-weight: bold;
-          font-size: 17px;
-        }
-      }
-    }
 
     .atbum {
       &_photo {
@@ -811,6 +810,18 @@ h2 {
   .carousel {
     max-width: 800px;
     margin: auto;
+  }
+}
+@media (min-width: 768px) {
+  .overflow{
+    &-hidden{
+      overflow: hidden;
+    }
+  }
+  .h{
+    &-160{
+      height: 160px;
+    }
   }
 }
 

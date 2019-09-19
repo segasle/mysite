@@ -16,5 +16,18 @@
     </div>
 </form>
 <?php
-echo post_project('SELECT * FROM `projects`');
+if (isset($_POST['submit'])){
+    $data = $_POST;
+    if ($data['sel'] == 'new'){
+        echo post_project('SELECT * FROM `projects` DESC id');
+
+    }
+    if ($data['sel'] == 'old'){
+        echo post_project('SELECT * FROM `projects`');
+
+    }
+}else{
+    echo post_project('SELECT * FROM `projects`');
+
+}
 ?>

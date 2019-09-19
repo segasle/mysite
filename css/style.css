@@ -691,8 +691,13 @@ h2 {
   .overflow-hidden {
     overflow: hidden;
   }
-  .h-160 {
-    height: 160px;
+  .h-210 {
+    height: 210px;
+  }
+}
+@media (min-width: 2560px) {
+  .h-410 {
+    height: 410px;
   }
 }
 @media (min-width: 960px) and (max-width: 1313px) {

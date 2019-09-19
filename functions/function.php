@@ -89,7 +89,7 @@ function post_project()
 
     while ($rs = mysqli_fetch_array($sql)) {
         $mydata = new DateTime($rs['data']);
-        $out .= '<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"><div class="maps"><div class="maps_container"><div class="maps_head overflow-hidden h-160 h-200 h-410"><img src="' . $rs['img'] . '"></div><div class="maps_title"><a target="_blank" href="' . $rs['link'] . '">' . $rs['title'] . '</a></div><div class="maps_data"><p>' . $mydata->format('d.m.Y') . '</p></div></div></div></div>';
+        $out .= '<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"><div class="maps"><div class="maps_container"><div class="maps_head overflow-hidden h-210 h-410"><img src="' . $rs['img'] . '"></div><div class="maps_title"><a target="_blank" href="' . $rs['link'] . '">' . $rs['title'] . '</a></div><div class="maps_data"><p>' . $mydata->format('d.m.Y') . '</p></div></div></div></div>';
     }
     $out .= '</div>';
 

@@ -28,7 +28,7 @@ if (isset($_SESSION['data'])) { ?>
             $sf = do_query("SELECT COUNT(*) as count FROM `comments` WHERE `email` ='{$_SESSION['data']['email']}'");
             $sf = $sf->fetch_object();
             if (empty($sf->count)) {
-                $res = do_query("INSERT INTO `comments` (`text`, `name`, `email`) VALUES ('{$data['text']}','{$_SESSION['data']['name']}','{$_SESSION['data']['email']}')");
+                $res = do_query("INSERT INTO `comments` (`text`, `name`, `email`, `assessment`) VALUES ('{$data['text']}','{$_SESSION['data']['name']}','{$_SESSION['data']['email']}','{$data['radio']}')");
                 if ($res) {
                     echo '<div class="go">Успешно отправлено</div>';
                 }

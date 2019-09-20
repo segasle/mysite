@@ -140,6 +140,10 @@ p {
 .fa-frown-open {
   margin: 0 5px;
   cursor: pointer;
+  -webkit-transition: border 1s;
+  -moz-transition: border 1s;
+  -ms-transition: border 1s;
+  -o-transition: border 1s;
   transition: border 1s;
 }
 .fa-odnoklassniki {

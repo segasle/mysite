@@ -98,9 +98,14 @@ p {
   }
 
   &-grin-alt, &-frown-open {
+    @trans: border 1s;
     margin: 0 5px;
     cursor: pointer;
-    transition: border 1s;
+    -webkit-transition: @trans;
+    -moz-transition: @trans;
+    -ms-transition: @trans;
+    -o-transition: @trans;
+    transition: @trans;
   }
 
   &-odnoklassniki {

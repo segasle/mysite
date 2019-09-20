@@ -5,7 +5,17 @@
             <select class="form-control" id="exampleFormControlSelect1" name="sel">
                 <option value="old">Старые</option>
                 <option value="new">Новые</option>
-                <option value="default">По умолчанию</option>
+                <?php
+                if ($_GET['page'] == 'project') {
+                    ?>
+                    <option value="default">По умолчанию</option>
+                <?php }
+                if ($_GET['page'] == 'comments') {
+                    ?>
+                    <option value="positive">Положительные</option>
+                    <option value=negative">Отрицательные</option>
+                <?php }
+                ?>
             </select>
         </div>
     </div>

@@ -41,21 +41,17 @@ if (isset($_SESSION['data'])) { ?>
 }
 include 'tempate/select.php';
 
-if (isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $data = $_POST;
-    if ($data['sel'] == 'new'){
+    if ($data['sel'] == 'new') {
         post_comments('SELECT * FROM `comments` ORDER BY `data` DESC ');
 
     }
-    if ($data['sel'] == 'old'){
+    if ($data['sel'] == 'old') {
         post_comments('SELECT * FROM `comments` ORDER BY `data` ASC');
 
     }
-    if ($data['sel'] == 'default'){
-        post_comments("SELECT * FROM `comments`");
-
-    }
-}else{
+} else {
     post_comments("SELECT * FROM `comments`");
 }
 function post_comments($sql)

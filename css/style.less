@@ -85,18 +85,24 @@ p {
     }
   }
 
-  &-frown{
-    &-open{
-      margin: 0 5px;
+  &-frown {
+    &-open {
       color: #770012;
     }
   }
-  &-grin{
-    &-alt{
+
+  &-grin {
+    &-alt {
       color: #004d00;
-      margin: 0 5px;
     }
   }
+
+  &-grin-alt, &-frown-open {
+    margin: 0 5px;
+    cursor: pointer;
+    transition: border 1s;
+  }
+
   &-odnoklassniki {
     color: #ff7200;
 
@@ -158,10 +164,15 @@ p {
   }
 }
 
-#positive:checked + label, #negative:checked + label{
-  border: 10px solid black;
-  border-radius: 50%;
+#positive, #negative {
+  &:checked {
+    + label {
+      border: 10px solid black;
+      border-radius: 50%;
+    }
+  }
 }
+
 .float {
   &-left {
     float: left;

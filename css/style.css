@@ -131,12 +131,16 @@ p {
   color: #2c54ff;
 }
 .fa-frown-open {
-  margin: 0 5px;
   color: #770012;
 }
 .fa-grin-alt {
   color: #004d00;
+}
+.fa-grin-alt,
+.fa-frown-open {
   margin: 0 5px;
+  cursor: pointer;
+  transition: border 1s;
 }
 .fa-odnoklassniki {
   color: #ff7200;

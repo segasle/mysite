@@ -131,10 +131,12 @@ p {
   color: #2c54ff;
 }
 .fa-frown-open {
+  margin: 0 5px;
   color: #770012;
 }
 .fa-grin-alt {
   color: #004d00;
+  margin: 0 5px;
 }
 .fa-odnoklassniki {
   color: #ff7200;
@@ -183,6 +185,11 @@ p {
 }
 .fa-check-square-o {
   padding-right: 10px;
+}
+#positive:checked + label,
+#negative:checked + label {
+  border: 10px solid black;
+  border-radius: 50%;
 }
 .float-left {
   float: left;

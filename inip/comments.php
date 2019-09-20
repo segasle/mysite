@@ -3,8 +3,10 @@
 if (isset($_SESSION['data'])) { ?>
     <form action="" method="post">
         <div class="radio">
-            <label for=""><input type="radio" name="radio" value="negative"><i class="fas fa-frown-open fa-3x"></i></label>
-            <label for=""><input type="radio" name="radio" value="positive"><i class="fas fa-grin-alt fa-3x"></i></label>
+            <input type="radio" name="radio" value="negative" class="d-none" id="negative">
+            <label for="negative" class="fas fa-frown-open fa-3x"></label>
+            <input type="radio" name="radio" value="positive" id="positive" class="d-none" checked="checked">
+            <label for="positive" class="fas fa-grin-alt fa-3x"></label>
         </div>
         <div class="form_grog">
             <p>Сообщения</p>

@@ -87,12 +87,14 @@ p {
 
   &-frown{
     &-open{
+      margin: 0 5px;
       color: #770012;
     }
   }
   &-grin{
     &-alt{
       color: #004d00;
+      margin: 0 5px;
     }
   }
   &-odnoklassniki {
@@ -156,6 +158,10 @@ p {
   }
 }
 
+#positive:checked + label, #negative:checked + label{
+  border: 10px solid black;
+  border-radius: 50%;
+}
 .float {
   &-left {
     float: left;

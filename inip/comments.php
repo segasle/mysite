@@ -57,6 +57,14 @@ if (isset($_POST['submit'])) {
         post_comments('SELECT * FROM `comments` ORDER BY `data` ASC');
 
     }
+    if ($data['sel'] == 'negative') {
+        post_comments("SELECT * FROM `comments` WHERE `assessment` = 'negative'");
+
+    }
+    if ($data['sel'] == 'positive') {
+        post_comments("SELECT * FROM `comments` WHERE `assessment` = 'positive'");
+
+    }
 } else {
     post_comments("SELECT * FROM `comments`");
 }

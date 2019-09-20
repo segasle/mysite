@@ -2,6 +2,10 @@
 <?php
 if (isset($_SESSION['data'])) { ?>
     <form action="" method="post">
+        <div class="radio">
+            <label for=""><input type="radio"><i class="fas fa-frown-open fa-3x"></i></label>
+            <label for=""><input type="radio"><i class="fas fa-grin-alt fa-3x"></i></label>
+        </div>
         <div class="form_grog">
             <p>Сообщения</p>
             <textarea class="form-control" name="text" placeholder="Сообщение"><?php echo @$_POST['text']; ?></textarea>

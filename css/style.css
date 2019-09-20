@@ -130,6 +130,12 @@ p {
 .fa-telegram:hover {
   color: #2c54ff;
 }
+.fa-frown-open {
+  color: #770012;
+}
+.fa-grin-alt {
+  color: #004d00;
+}
 .fa-odnoklassniki {
   color: #ff7200;
 }

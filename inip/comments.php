@@ -13,11 +13,11 @@ if (isset($_SESSION['data'])) { ?>
             <textarea class="form-control" name="text" placeholder="Сообщение"><?php echo @$_POST['text']; ?></textarea>
         </div>
         <div class="form_grog">
-            <button type="submit" class="btn" name="submit">Отправить</button>
+            <button type="submitform" class="btn" name="submit">Отправить</button>
         </div>
     </form>
     <?php
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submitform'])) {
         $data = $_POST;
         $errors = array();
         if (empty($data['text'])) {

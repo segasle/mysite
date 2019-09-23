@@ -23,7 +23,7 @@ if (isset($_SESSION['data'])) {
     <meta property="og:site_name" content="">
     <meta name="robots" content="index, follow">
     <meta name="keywords"
-          content="<?php echo $keywords; ?>">
+          content="Веб-разработчик истра, web-разработчик истра, разработчик истра, купить сайт дешево, заказать сайт дешево">
     <meta name="description" content="<?php echo $description; ?>">
 
     <title><?php echo $title; ?></title>

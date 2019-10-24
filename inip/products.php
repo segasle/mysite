@@ -1,7 +1,7 @@
 <h1>Заказ проектов</h1>
 <?php
 $res = do_query("SELECT * FROM `products`");
-$query = do_query("SELECT * FROM `descriptions_products` JOIN `products` WHERE products.id_products = descriptions_products.	id_id_products");
+$query = do_query("SELECT * FROM `descriptions_products` JOIN `products` WHERE products.id_products = descriptions_products.id_id_products");
 
 $out = "<div class='container' style='max-width: 775px'><div class='row'>";
 foreach ($res as $item) {
@@ -65,12 +65,12 @@ foreach ($res as $item) {
                                         <button type=\'submit\' class=\'btn w-100\' name="submit">Отправить</button>
                                     </div>
                                 </form>';
-            if (isset($_POST['submit'])){
+            if (isset($_POST['submit'])) {
                 $data = $_POST;
                 $errors = array();
                 $email = $data['email'];
-                if (empty($data['name'])){
-                   $errors[] = 'Не ввели имя';
+                if (empty($data['name'])) {
+                    $errors[] = 'Не ввели имя';
                 }
                 if (empty($data['email'])) {
                     $errors[] = 'Вы не ввели почту';
@@ -78,15 +78,15 @@ foreach ($res as $item) {
                 if (!preg_match("/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/", "$email")) {
                     $errors[] = 'Вы неправильно ввели электронную почту';
                 }
-                if (empty($errors)){
-                    if (empty($data['sms'])){
+                if (empty($errors)) {
+                    if (empty($data['sms'])) {
                         $sms = null;
-                    }else{
+                    } else {
                         $sms = $data['sms'];
                     }
                     $gas = do_query("INSERT INTO `order`(`id`, `name`, `email`, `sms`) VALUES ([value-1],[value-2],[value-3],[value-4])");
-                }else{
-                    echo '<div class="errors">'.array_shift($errors).'</div>>';
+                } else {
+                    echo '<div class="errors">' . array_shift($errors) . '</div>>';
                 }
             }
         } else {

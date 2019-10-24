@@ -11,6 +11,9 @@ foreach ($res as $item) {
         if ($id == $items['id_id_products']) {
             $des .= "<li><p><i class='fa fa-check-square-o fa-2x'></i>" . $items['description'] . "</p></li>";
 
+            echo '<pre>';
+            print_r($items['description']);
+            echo '</pre>';
         }
     }
     $out .= "<div class='col-lg-4 col-xs-12 col-sm-12'>

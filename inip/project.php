@@ -20,3 +20,5 @@ if (isset($_POST['submit'])){
 }
 ?>
 <h2>Подддержка</h2>
+<?php
+echo post_project('SELECT * FROM `projects` WHERE `order` = 0');

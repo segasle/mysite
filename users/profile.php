@@ -1,7 +1,5 @@
+<h1>Профиль</h1>
 <?php
-/**
- * Created by PhpStorm.
- * User: sergejslepenkov
- * Date: 2019-09-04
- * Time: 11:59
- */
+if ($_SESSION['data']['email'] == 'segasle@gmail.com'){
+
+}
